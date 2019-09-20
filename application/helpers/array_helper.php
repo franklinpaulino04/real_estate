@@ -6,11 +6,8 @@
  * Array and Object helper to assist on handling
  *
  * @category	Helpers
- * @author      Nelson Cabrera  <cabreran@gmail.com>
  * @version		1.0.0
  */
-
-
 
 /**
  * Converts MySQL object to an associative array ej: Dropdown list

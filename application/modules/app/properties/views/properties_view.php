@@ -123,7 +123,7 @@
                 <div class="column-single-property">
                     <div class="column-property-img-wrap">
                         <div class="column-property-img">
-                            <a href="#"><img src="img/properties/7.jpg" alt=""></a>
+                            <a href="#"><img src="<?php echo base_url()?>assets/img/properties/7.jpg" alt=""></a>
                         </div>
                         <div class="column-property-tag">
                             <p>Apartment</p>
@@ -152,7 +152,7 @@
                 <div class="column-single-property">
                     <div class="column-property-img-wrap">
                         <div class="column-property-img">
-                            <a href="#"><img src="img/properties/8.jpg" alt=""></a>
+                            <a href="#"><img src="<?php echo base_url()?>assets/img/properties/8.jpg" alt=""></a>
                         </div>
                         <div class="column-property-tag">
                             <p>Apartment</p>
@@ -181,7 +181,7 @@
                 <div class="column-single-property">
                     <div class="column-property-img-wrap">
                         <div class="column-property-img">
-                            <a href="#"><img src="img/properties/9.jpg" alt=""></a>
+                            <a href="#"><img src="<?php echo base_url()?>assets/img/properties/9.jpg" alt=""></a>
                         </div>
                         <div class="column-property-tag">
                             <p>Apartment</p>
@@ -210,7 +210,7 @@
                 <div class="column-single-property">
                     <div class="column-property-img-wrap">
                         <div class="column-property-img">
-                            <a href="#"><img src="img/properties/10.jpg" alt=""></a>
+                            <a href="#"><img src="<?php echo base_url()?>assets/img/properties/10.jpg" alt=""></a>
                         </div>
                         <div class="column-property-tag">
                             <p>Apartment</p>
@@ -239,7 +239,7 @@
                 <div class="column-single-property">
                     <div class="column-property-img-wrap">
                         <div class="column-property-img">
-                            <a href="#"><img src="img/properties/8.jpg" alt=""></a>
+                            <a href="#"><img src="<?php echo base_url()?>assets/img/properties/8.jpg" alt=""></a>
                         </div>
                         <div class="column-property-tag">
                             <p>Apartment</p>
@@ -268,7 +268,7 @@
                 <div class="column-single-property">
                     <div class="column-property-img-wrap">
                         <div class="column-property-img">
-                            <a href="#"><img src="img/properties/8.jpg" alt=""></a>
+                            <a href="#"><img src="<?php echo base_url()?>assets/img/properties/8.jpg" alt=""></a>
                         </div>
                         <div class="column-property-tag">
                             <p>Apartment</p>
@@ -306,7 +306,7 @@
                         </div>
                         <div class="single-sp-widget">
                             <div class="widget-property-img">
-                                <a href="#"><img src="img/widget/4.jpg" alt=""></a>
+                                <a href="#"><img src="<?php echo base_url()?>assets/img/widget/4.jpg" alt=""></a>
                             </div>
                             <div class="column-property-tag">
                                 <p>Apartment</p>
@@ -316,7 +316,7 @@
                         </div>
                         <div class="single-sp-widget">
                             <div class="widget-property-img">
-                                <a href="#"><img src="img/widget/6.jpg" alt=""></a>
+                                <a href="#"><img src="<?php echo base_url()?>assets/img/widget/6.jpg" alt=""></a>
                             </div>
                             <div class="column-property-tag">
                                 <p>Apartment</p>
@@ -332,7 +332,7 @@
                         </div>
                         <div class="single-property-footer-post right-sidebar">
                             <div class="properties-img pull-left">
-                                <a href="#"><img src="img/widget/5.jpg" alt=""></a>
+                                <a href="#"><img src="<?php echo base_url()?>assets/img/widget/5.jpg" alt=""></a>
                             </div>
                             <div class="properties-content-footer pull-left">
                                 <h4><a href="#">Relax Home Villa</a></h4>
@@ -346,7 +346,7 @@
                         </div>
                         <div class="single-property-footer-post right-sidebar">
                             <div class="properties-img pull-left">
-                                <a href="#"><img src="img/widget/7.jpg" alt=""></a>
+                                <a href="#"><img src="<?php echo base_url()?>assets/img/widget/7.jpg" alt=""></a>
                             </div>
                             <div class="properties-content-footer pull-left">
                                 <h4><a href="#">Relax Home House</a></h4>
@@ -359,7 +359,7 @@
                         </div>
                         <div class="single-property-footer-post right-sidebar">
                             <div class="properties-img pull-left">
-                                <a href="#"><img src="img/widget/7.jpg" alt=""></a>
+                                <a href="#"><img src="<?php echo base_url()?>assets/img/widget/7.jpg" alt=""></a>
                             </div>
                             <div class="properties-content-footer pull-left">
                                 <h4><a href="#">Relax Home House</a></h4>
@@ -372,15 +372,12 @@
                         </div>
                         <div class="single-property-footer-post right-sidebar">
                             <div class="properties-img pull-left">
-                                <a href="#"><img src="img/widget/8.jpg" alt=""></a>
+                                <a href="#"><img src="<?php echo base_url()?>assets/img/widget/8.jpg" alt=""></a>
                             </div>
                             <div class="properties-content-footer pull-left">
                                 <h4><a href="#">Relax Home Apartment</a></h4>
-                                <p>100 CB Villa Park Avenue,
-                                    <br> New York, USA</p>
-                                <div class="property-price">
-                                    <p>$1,256,000</p>
-                                </div>
+                                <p>100 CB Villa Park Avenue,<br> New York, USA</p>
+                                <div class="property-price"><p>$1,256,000</p></div>
                             </div>
                         </div>
                     </div>

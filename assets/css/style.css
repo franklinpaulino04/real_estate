@@ -212,7 +212,7 @@ Secondary color
 2. Header Top area Style
 ------------------------------------------------*/
 .header-top {
-    background: #1e1e1e none repeat scroll 0 0;
+    background: #cdcccc none repeat scroll 0 0;
     color: #fff;
     overflow: hidden;
 }
@@ -282,7 +282,7 @@ Secondary color
 3. Header area Style
 ------------------------------------------------*/
 .header-area {
-  background: #262626 none repeat scroll 0 0;
+  background: #cdcccc none repeat scroll 0 0;
 }
 .logo-wrap {
   padding: 17px 0;
