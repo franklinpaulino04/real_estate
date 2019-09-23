@@ -198,7 +198,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="properties-title">
-                    <h2>Featured Properties</h2>
+                    <h2>Propiedades destacadas</h2>
                     <a href="#" class="view-more">View all</a>
                 </div>
             </div>
@@ -314,127 +314,6 @@
             <!-- End of Single properties -->
         </div>
         <!-- Start of Recent Properties Title Area-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="properties-title margintop100">
-                    <h2>Recent Properties</h2>
-                    <a href="#" class="view-more">View all</a>
-                </div>
-            </div>
-        </div>
-        <!-- End of Recent Properties Title Area-->
-        <!--Start of Recent Single Recent Properties  Area -->
-        <div class="row">
-            <div class="col-md-4 col-sm-6">
-                <div class="single-featured-properties">
-                    <div class="properties-image">
-                        <a href="#"><img src="<?php echo base_url();?>assets/img/properties/4.jpg" alt=""></a>
-                    </div>
-                    <div class="sale-tag">
-                        <p>For Sale</p>
-                    </div>
-                    <div class="properties-include">
-                        <ul>
-                            <li><i class="fa fa-home"></i> 30,000 Acres</li>
-                            <li><i class="fa fa-bed"></i>4 Bedrooms</li>
-                            <li><i class="fa fa-tty"></i> 4 Bathrooms</li>
-                        </ul>
-                    </div>
-                    <div class="properties-content">
-                        <h3><a href="#">South Mervin Boulevard</a></h3>
-                        <p><i class="fa fa-map-marker"></i> Merrick Way, Miami, USA</p>
-                        <p class="detail-text">Lorem ipsum dolor sit amet, consectetuer adipiing elit. Aenean commodo ligula eget dolor. </p>
-                        <div class="price-detail">
-                            <p class="price-range pull-left">$ 1,23,00.000</p>
-                            <a href="#" class="price-detail pull-right">Details <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End of Single properties -->
-            <div class="col-md-4 col-sm-6">
-                <div class="single-featured-properties">
-                    <div class="properties-image">
-                        <a href="#"><img src="<?php echo base_url();?>assets/img/properties/5.jpg" alt=""></a>
-                    </div>
-                    <div class="sale-tag">
-                        <p>For Sale</p>
-                    </div>
-                    <div class="properties-include">
-                        <ul>
-                            <li><i class="fa fa-home"></i> 30,000 Acres</li>
-                            <li><i class="fa fa-bed"></i>4 Bedrooms</li>
-                            <li><i class="fa fa-tty"></i> 4 Bathrooms</li>
-                        </ul>
-                    </div>
-                    <div class="properties-content">
-                        <h3><a href="#">South Mervin Boulevard</a></h3>
-                        <p><i class="fa fa-map-marker"></i> Merrick Way, Miami, USA</p>
-                        <p class="detail-text">Lorem ipsum dolor sit amet, consectetuer adipiing elit. Aenean commodo ligula eget dolor. </p>
-                        <div class="price-detail">
-                            <p class="price-range pull-left">$ 1,23,00.000</p>
-                            <a href="#" class="price-detail pull-right">Details <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End of Single properties -->
-            <div class="col-md-4 col-sm-6">
-                <div class="single-featured-properties">
-                    <div class="properties-image">
-                        <a href="#"><img src="<?php echo base_url();?>assets/img/properties/6.jpg" alt=""></a>
-                    </div>
-                    <div class="sale-tag">
-                        <p>For Sale</p>
-                    </div>
-                    <div class="properties-include">
-                        <ul>
-                            <li><i class="fa fa-home"></i> 30,000 Acres</li>
-                            <li><i class="fa fa-bed"></i>4 Bedrooms</li>
-                            <li><i class="fa fa-tty"></i> 4 Bathrooms</li>
-                        </ul>
-                    </div>
-                    <div class="properties-content">
-                        <h3><a href="#">South Mervin Boulevard</a></h3>
-                        <p><i class="fa fa-map-marker"></i> Merrick Way, Miami, USA</p>
-                        <p class="detail-text">Lorem ipsum dolor sit amet, consectetuer adipiing elit. Aenean commodo ligula eget dolor. </p>
-                        <div class="price-detail">
-                            <p class="price-range pull-left">$ 1,23,00.000</p>
-                            <a href="#" class="price-detail pull-right">Details <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End of Single properties -->
-            <div class="col-md-4 col-sm-6 hidden-md hidden-lg">
-                <div class="single-featured-properties">
-                    <div class="properties-image">
-                        <a href="#"><img src="<?php echo base_url();?>assets/img/properties/6.jpg" alt=""></a>
-                    </div>
-                    <div class="sale-tag">
-                        <p>For Sale</p>
-                    </div>
-                    <div class="properties-include">
-                        <ul>
-                            <li><i class="fa fa-home"></i> 30,000 Acres</li>
-                            <li><i class="fa fa-bed"></i>4 Bedrooms</li>
-                            <li><i class="fa fa-tty"></i> 4 Bathrooms</li>
-                        </ul>
-                    </div>
-                    <div class="properties-content">
-                        <h3><a href="#">South Mervin Boulevard</a></h3>
-                        <p><i class="fa fa-map-marker"></i> Merrick Way, Miami, USA</p>
-                        <p class="detail-text">Lorem ipsum dolor sit amet, consectetuer adipiing elit. Aenean commodo ligula eget dolor. </p>
-                        <div class="price-detail">
-                            <p class="price-range pull-left">$ 1,23,00.000</p>
-                            <a href="#" class="price-detail pull-right">Details <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End of Single properties -->
-        </div>
-        <!-- End of Recent Single Recent Properties  Area -->
     </div>
 </section>
 <!-- End of Properties Area-->

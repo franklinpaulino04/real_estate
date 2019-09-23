@@ -1,6 +1,6 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Blogs_model extends APP_Model
+class Categories_model extends APP_Model
 {
     public function __construct()
     {
