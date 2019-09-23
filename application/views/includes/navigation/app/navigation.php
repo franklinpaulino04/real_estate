@@ -16,12 +16,26 @@
                         <ul id="nav">
                             <li class="<?php echo menu_active($this->fetch_class, 'home/index');?>"><a href="<?php echo base_url();?>home">Home</a></li>
                             <li class="<?php echo menu_active($this->fetch_class, 'properties/index');?>"><a href="<?php echo base_url();?>properties">PROPERTIES</a></li>
-                            <li class="<?php echo menu_active($this->fetch_class, 'agents/index');?>"><a href="<?php echo base_url();?>agents">aGENTS</a>
+                            <li class="<?php echo menu_active($this->fetch_class, 'categories/index');?>">
+                                <a href="<?php echo base_url();?>properties">Categorias</a>
+                                <ul class="sub-menu">
+                                    <li><a href="blog-right.html">Casa</a></li>
+                                    <li><a href="single-post.html">Villa</a></li>
+                                    <li><a href="single-post.html">Solar</a></li>
+                                    <li><a href="single-post.html">Finca</a></li>
+                                    <li><a href="single-post.html">Nave</a></li>
+                                    <li><a href="single-post.html">Local Comercial</a></li>
+                                    <li><a href="single-post.html">Edificio</a></li>
+                                    <li><a href="single-post.html">Apartamento</a></li>
+                                    <li><a href="single-post.html">Penthouse</a></li>
+                                    <li><a href="single-post.html">Local de oficina</a></li>
+                                </ul>
+                            </li>
 <!--                                <ul class="sub-menu">-->
 <!--                                    <li><a href="agent.html">Agent</a></li>-->
 <!--                                    <li><a href="single-agent.html">Single Agent</a></li>-->
 <!--                                </ul>-->
-                            </li>
+
 <!--                            <li><a href="#">Pages</a>-->
 <!--                                <div class="mega-menu">-->
 <!--                                    <span>-->
@@ -47,7 +61,6 @@
 <!--                                    <li><a href="single-post.html">Single Blog Post</a></li>-->
 <!--                                </ul>-->
 <!--                            </li>-->
-                            <li class="<?php echo menu_active($this->fetch_class, 'faqs/index');?>"><a href="<?php echo base_url();?>faqs">FAQs</a></li>
                             <li class="<?php echo menu_active($this->fetch_class, 'services/index');?>"><a href="<?php echo base_url();?>services">Services</a></li>
                             <li class="<?php echo menu_active($this->fetch_class, 'contacts/index');?>"><a href="<?php echo base_url();?>contacts">contact</a></li>
                         </ul>
@@ -72,11 +85,22 @@
                         <ul>
                             <li class="<?php echo menu_active($this->fetch_class, 'home/index');?>"><a href="<?php echo base_url();?>home">Home</a></li>
                             <li class="<?php echo menu_active($this->fetch_class, 'properties/index');?>"><a href="<?php echo base_url();?>properties">Property</a>
-<!--                                <ul>-->
-<!--                                    <li><a href="single-property.html">Single Property</a></li>-->
-<!--                                </ul>-->
+                            <li class="<?php echo menu_active($this->fetch_class, 'categories/index');?>">
+                                <a href="<?php echo base_url();?>properties">Categorias</a>
+                                <ul>
+                                    <li><a href="blog-right.html">Casa</a></li>
+                                    <li><a href="single-post.html">Villa</a></li>
+                                    <li><a href="single-post.html">Solar</a></li>
+                                    <li><a href="single-post.html">Finca</a></li>
+                                    <li><a href="single-post.html">Nave</a></li>
+                                    <li><a href="single-post.html">Local Comercial</a></li>
+                                    <li><a href="single-post.html">Edificio</a></li>
+                                    <li><a href="single-post.html">Apartamento</a></li>
+                                    <li><a href="single-post.html">Penthouse</a></li>
+                                    <li><a href="single-post.html">Local de oficina</a></li>
+                                </ul>
                             </li>
-                            <li class="<?php echo menu_active($this->fetch_class, 'agents/index');?>"><a href="<?php echo base_url();?>agents">Agent</a>
+                            </li>
 <!--                                <ul>-->
 <!--                                    <li><a href="agent.html">agent</a></li>-->
 <!--                                    <li><a href="single-agent">Single Agent</a></li>-->
@@ -88,7 +112,6 @@
 <!--                                    <li><a href="single-post.html">Single Post</a></li>-->
 <!--                                </ul>-->
                             </li>
-                            <li class="<?php echo menu_active($this->fetch_class, 'faqs/index');?>"><a href="<?php echo base_url();?>faqs">FAQ</a></li>
                             <li class="<?php echo menu_active($this->fetch_class, 'services/index');?>"><a href="<?php echo base_url();?>services">Services</a></li>
                             <li class="<?php echo menu_active($this->fetch_class, 'contacts/index');?>"><a href="<?php echo base_url();?>contacts">Contact</a></li>
                         </ul>

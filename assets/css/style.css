@@ -278,6 +278,24 @@ Secondary color
 .top-bookmark ul li a:hover{
 	background-color: #38a377;
 }
+
+.top-bookmark a.facebook:hover{
+  background-color: #3a559f;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.top-bookmark a.twitter:hover{
+  background-color: #2daae1;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.top-bookmark a.google-plus:hover{
+  background-color: #c03121;
+  color: #fff;
+  border: 1px solid transparent;
+}
 /*----------------------------------------------
 3. Header area Style
 ------------------------------------------------*/
@@ -1102,6 +1120,24 @@ p.property-price,
 }
 .footer-bookmark a:hover{
   background-color: #38a377;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.footer-bookmark a.facebook:hover{
+  background-color: #3a559f;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.footer-bookmark a.twitter:hover{
+  background-color: #2daae1;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.footer-bookmark a.google-plus:hover{
+  background-color: #c03121;
   color: #fff;
   border: 1px solid transparent;
 }
