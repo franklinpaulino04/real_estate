@@ -73,18 +73,7 @@
 <div class="header-top">
     <div class="container">
         <div class="row">
-            <div class="col-md-5 col-sm-6">
-                <div class="phone-mail-area">
-                    <ul>
-                        <li>
-                            <a href="#"><i class="fa fa-phone"></i>+123 456 789 000</a>
-                        </li>
-                        <li>
-                            <a href="mailto:admin@bootexperts.com"><i class="fa fa-envelope-o"></i>admin@bootexperts.com</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <div class="col-md-5 col-sm-6"></div>
             <div class="col-md-7 col-sm-6">
                 <div class="login-bookmark-area">
                     <div class="register-login">
