@@ -11,7 +11,6 @@ class Securities
 
     function is_logged_in($is_logged_in)
     {
-
         if(!isset($is_logged_in) || $is_logged_in != 1)
         {
             $redirect = $this->CI->uri->segment(1);
@@ -23,6 +22,22 @@ class Securities
             }
 
             redirect(base_url().'login/'.$redirect, 'refresh');
+        }
+    }
+
+    function cp_is_logged_in($cp_is_logged_in)
+    {
+        if(!isset($cp_is_logged_in) || $cp_is_logged_in != 1)
+        {
+            $redirect = $this->CI->uri->segment(2);
+
+            if($this->CI->input->is_ajax_request())
+            {
+                echo json_encode(array('result' => 0, 'cp_is_logged_in' => false, 'redirect' => $redirect));
+                exit();
+            }
+
+            redirect(base_url().'cpanel/login/'.$redirect, 'refresh');
         }
     }
 

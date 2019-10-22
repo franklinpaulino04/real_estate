@@ -1,6 +1,6 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Session extends APP_Controller
+class Session extends MY_Controller
 {
     public $namespace;
     public $title;
