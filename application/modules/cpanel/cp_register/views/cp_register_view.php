@@ -5,7 +5,10 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Usuarios</h6>
+           <div class="row">
+               <div class="col-md-6"> <h6 class="m-0 font-weight-bold text-primary">Usuarios</h6></div>
+               <div class="col-md-6 text-right"><a class="btn btn-primary modal_trigger" href="javascript:void(0);" data-url="<?php echo base_url()?>cp_register/add" data-target="#add-cp-register" data-toggle="modal">Nuevo</a></div>
+           </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -32,3 +35,6 @@
     </div>
 </div>
 <!-- /.container-fluid -->
+<div class="modal fade" id="add-cp-register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog"></div>
+</div>

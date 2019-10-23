@@ -21,7 +21,7 @@
 
     <!-- Custom styles for this page -->
     <link href="<?php echo base_url()?>assets/sb_admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <link href="<?php echo base_url()?>assets/css/modules/<?php echo $this->router->fetch_class();?>/<?php echo $this->router->fetch_class();?>.css">
+    <link href="<?php echo base_url()?>assets/css/modules/<?php echo $this->router->fetch_class().'/'.$this->router->fetch_class().'.css';?>"  rel="stylesheet">
 </head>
 
 <body id="page-top">

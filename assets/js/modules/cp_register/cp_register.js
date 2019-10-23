@@ -28,15 +28,16 @@ var Status = function (data) {
 };
 
 var actionLinks = function (data) {
-  var html = '';
+  var html = '',
+      id   = data.userId;
 
   html += '<div class="dropdown">\n' +
           '    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n' +
           '        Opciones' +
           '    </a>\n' +
           '    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">\n' +
-          '        <a class="dropdown-item" href="#"><i class="fas fa-pencil-alt"> Editar </i></a>\n' +
-          '        <a class="dropdown-item" href="#"><i class="fas fa-trash-alt"> Eliminar</i></a>\n' +
+          '        <a class="dropdown-item modal_trigger" data-url="'+url.baseUrl()+'cp_register/edit/'+id+'" data-target="#add-cp-register" data-toggle="modal" href="javascript:void(0)"><i class="fas fa-pencil-alt"> Editar </i></a>\n' +
+          '        <a class="dropdown-item modal_trigger_delete" href="javascript:void(0)" data-url="'+url.baseUrl()+'cp_register/hide/'+id+'"><i class="fas fa-trash-alt"> Eliminar</i></a>\n' +
           '    </div>\n' +
           '    </div>';
 

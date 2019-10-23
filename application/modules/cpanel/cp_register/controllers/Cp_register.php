@@ -5,6 +5,7 @@ class Cp_register extends CP_Controller
     public $namespace;
     public $title;
     public $columns;
+    public $statusId;
 
     public function __construct()
     {
@@ -13,6 +14,8 @@ class Cp_register extends CP_Controller
         $this->title                    = '';
 
         $this->load->model('cp_register/cp_register_model');
+        $this->load->model('cp_register/cp_user_register_model');
+
         $this->columns                  = "userId,email,image,first_name,last_name,statusId,`status`,owers,class";
     }
 
@@ -41,28 +44,47 @@ class Cp_register extends CP_Controller
 
     public function add()
     {
-        echo json_encode(array('result' => $this->load->view('annulment/annulment_new_view', array(), TRUE)));
+        echo json_encode(array('result' => 1, 'view' => $this->load->view('cp_register/cp_register_new_view', array(), TRUE)));
     }
 
-    public function edit($annulmentId)
+    public function edit($cp_registerId)
     {
         $data                           = array();
-        $data['row']                    = $this->cp_register_model->get($annulmentId);
-        $result['result']               = $this->load->view('annulment/annulment_edit_view',$data,true);
-
-        echo json_encode($result);
+        $data['row']                    = $this->cp_register_model->get_by(array('userId' => $cp_registerId), TRUE);
+        echo json_encode(array('result' => 1, 'view' => $this->load->view('cp_register/cp_register_edit_view', $data, TRUE)));
     }
 
     public function insert()
     {
-        $annulment_type = trim($this->input->post('type'));
-        $annulment_code = $this->input->post('code');
-        $this->validation->set_rule('type', $this->lang->line('valid_annulment_type'), array("required",
-            'annulment_check_callback' => (function() use($annulment_type) { return $this->annulment_type_check($annulment_type);}),
-        ));
+//        $cp_register_email = trim($this->input->post('email'));
+//        $this->validation->set_rule('type', '', array("required",
+//            'cp_register_check_callback' => (function() use($cp_register_email) { return $this->cp_register_email_check($cp_register_email);}),
+//        ));
 
-        $this->validation->set_rule('code', $this->lang->line('valid_annulment_code'), array("required",
-            'annulment_code_check_callback' => (function() use($annulment_code) { return $this->annulment_code_check($annulment_code);}),
+        $data = array(
+            "first_name"            => $this->input->post('first_name'),
+            "last_name"             => $this->input->post('last_name'),
+            "email"                 => $this->input->post('email'),
+            "password"              => $this->input->post('password'),
+            "statusId"              => 1,
+        );
+
+        if($this->cp_register_model->save($data))
+        {
+            echo json_encode(array('result' => 1));
+        }
+    }
+
+    public function update($cp_registerId)
+    {
+        $cp_register_code = $this->input->post('code');
+        $cp_register_type = trim($this->input->post('type'));
+
+        $this->validation->set_rule('type', $this->lang->line('valid_cp_register_type'), array("required",
+            'cp_register_check_callback' => (function() use($cp_register_type, $cp_registerId) { return $this->cp_register_type_check($cp_register_type, $cp_registerId);}),
+        ));
+        $this->validation->set_rule('code', $this->lang->line('valid_cp_register_code'), array("required",
+            'cp_register_code_check_callback' => (function() use($cp_register_code, $cp_registerId) { return $this->cp_register_code_check($cp_register_code, $cp_registerId);}),
         ));
 
         if($this->validation->run($this) == FALSE)
@@ -79,74 +101,29 @@ class Cp_register extends CP_Controller
                 "status"                => (isset($_POST['active']))? $this->input->post('active') : 0 ,
             );
 
-            if($this->cp_register_model->save($data))
+            if($this->cp_register_model->save($data, $cp_registerId))
             {
                 echo json_encode(array('result' => 1));
             }
         }
     }
 
-    public function update($annulmentId)
+    public function hide($cp_registerId)
     {
-        $annulment_code = $this->input->post('code');
-        $annulment_type = trim($this->input->post('type'));
-
-        $this->validation->set_rule('type', $this->lang->line('valid_annulment_type'), array("required",
-            'annulment_check_callback' => (function() use($annulment_type, $annulmentId) { return $this->annulment_type_check($annulment_type, $annulmentId);}),
-        ));
-        $this->validation->set_rule('code', $this->lang->line('valid_annulment_code'), array("required",
-            'annulment_code_check_callback' => (function() use($annulment_code, $annulmentId) { return $this->annulment_code_check($annulment_code, $annulmentId);}),
-        ));
-
-        if($this->validation->run($this) == FALSE)
+        if($this->cp_register_model->save(array('hidden' => 1), $cp_registerId))
         {
-            echo json_encode(array('result' => 0, 'error' => display_errors($this->validation->errors())));
+            echo json_encode(array('result' => 1));
         }
-        else
-        {
-            $data = array(
-                'companyId'             => $this->companyId,
-                "code"                  => $this->input->post('code'),
-                "type"                  => $this->input->post('type'),
-                "description"           => $this->input->post('description'),
-                "status"                => (isset($_POST['active']))? $this->input->post('active') : 0 ,
-            );
-
-            if($this->cp_register_model->save($data, $annulmentId))
-            {
-                echo json_encode(array('result' => 1));
-            }
-        }
-    }
-
-    public function hide($annulmentId)
-    {
-        $result['result'] = ($this->cp_register_model->save( array('hidden' => 1), $annulmentId) == TRUE )? 1 : 0;
-
-        echo json_encode($result);
     }
 
     /* PRIVATE FUNCTION *********************************************************************************************/
 
-    private function annulment_type_check($annulment_type = FALSE, $annulmentId = FALSE)
+    private function cp_register_email_check($cp_register_email = FALSE, $cp_registerId = FALSE)
     {
         $where = array(
-            'LOWER(REPLACE(type," ",""))=' => clear_space($annulment_type),
-            'companyId'                    => $this->companyId,
-            'hidden'                       => 0,
-            'annulmentId !='               => ($annulmentId != FALSE)? $annulmentId : 0
-        );
-
-        return ($this->cp_register_model->in_table_by($where) > 0)? FALSE : TRUE;
-    }
-
-    private function annulment_code_check($annulment_code = FALSE, $annulmentId = FALSE)
-    {
-        $where = array(
-            'LOWER(REPLACE(code," ",""))=' => clear_space($annulment_code),
-            'companyId'                    => $this->companyId,
-            'hidden'                       => 0,
-            'annulmentId !='               => ($annulmentId != FALSE)? $annulmentId : 0
+            'LOWER(REPLACE(email," ",""))=' => clear_space($cp_register_email),
+            'hidden'                        => 0,
+            'userId !='                     => ($cp_registerId != FALSE)? $cp_registerId : 0
         );
 
         return ($this->cp_register_model->in_table_by($where) > 0)? FALSE : TRUE;

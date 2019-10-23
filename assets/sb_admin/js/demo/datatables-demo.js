@@ -1,44 +1,76 @@
 // Call the dataTables jQuery plugin
-// $(document).ready(function() {
-//   $('#dataTable').DataTable();
-// });
+$(document).ready(function() {
 
-$(function () {
-  $.extend( $.fn.dataTable.defaults, {
-    'responsive'  : true,
-    'bAutoWidth'  : false,
-    'order'       : [[0, "desc"]],
-    'dataType'    : 'json',
-    'ajax'        : {'type': 'POST'},
-    "language"    : {
-      "sProcessing":     "Procesando...",
-      "sLengthMenu":     "Mostrar _MENU_ registros",
-      "sZeroRecords":    "No se encontraron resultados",
-      "sEmptyTable":     "Ningún dato disponible en esta tabla =(",
-      "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-      "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-      "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-      "sInfoPostFix":    "",
-      "sSearch":         "Buscar:",
-      "sUrl":            "",
-      "sInfoThousands":  ",",
-      "sLoadingRecords": "Cargando...",
-      "oPaginate": {
-        "sFirst":    "Primero",
-        "sLast":     "Último",
-        "sNext":     "Siguiente",
-        "sPrevious": "Anterior"
-      },
-      "oAria": {
-        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-      },
-      "buttons": {
-        "copy": "Copiar",
-        "colvis": "Visibilidad"
+  $(document).on('click', '.modal_trigger', function (e) {
+    e.preventDefault();
+
+    var selector = $(this),
+        url      = selector.data('url'),
+        target   = selector.data('target');
+
+    $.ajax({
+      type: 'get',
+      url: url
+    }).done(function (data) {
+      var response = JSON.parse(data);
+      $('.modal-dialog').html('');
+      if(response.result == 1){
+        $(target + ' .modal-dialog').html(response.view);
       }
-    }
+    });
   });
+
+  $(document).on('click', '#submit', function (e) {
+    e.preventDefault();
+
+    var selector = $(this).data(),
+        form     = $('#form'),
+        url      = form.attr('action'),
+        data     = form.serialize();
+
+    $.ajax({
+      type: 'post',
+      url: url,
+      data: data,
+    }).done(function (data) {
+      var response = JSON.parse(data);
+      $('.modal-dialog').html('');
+      if(response.result == 1){
+        $(selector.target).modal('hide');
+        $('#list').DataTable().ajax.reload();
+      }else{
+        $('.response').html(response.error);
+      }
+    });
+  });
+
+  $(document).on('click', '.modal_trigger_delete', function (e) {
+    var selector = $(this).data(),
+        url      = selector.url;
+
+    Swal.fire({
+      title: 'Atención',
+      text: '¿Esta seguro que desea borrar este registro?',
+      type: 'warning',
+      showCancelButton: true,
+      cancelButtonText: 'No',
+      confirmButtonText: 'Continuar',
+    }).then((result) => {
+      if (result.value) {
+        $.ajax({
+          type: 'get',
+          url: url,
+        }).done(function (data) {
+          var response = JSON.parse(data);
+
+          if(response.result == 1){
+            $('#list').DataTable().ajax.reload();
+          }
+        });
+      }
+    });
+  });
+
 });
 
 var url = {
