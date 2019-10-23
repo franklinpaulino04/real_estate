@@ -5,7 +5,7 @@
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; FP 2019</span>
         </div>
     </div>
 </footer>
@@ -35,7 +35,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+                <a class="btn btn-primary" href="<?php echo base_url('cp_session/logout');?>">Logout</a>
             </div>
         </div>
     </div>
@@ -48,8 +48,14 @@
 <!-- Core plugin JavaScript-->
 <script src="<?php echo base_url()?>assets/sb_admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
+<!-- Page level plugins -->
+<script src="<?php echo base_url()?>assets/sb_admin/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url()?>assets/sb_admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
 <!-- Custom scripts for all pages-->
 <script src="<?php echo base_url()?>assets/sb_admin/js/sb-admin-2.min.js"></script>
+<script src="<?php echo base_url()?>assets/sb_admin/js/demo/datatables-demo.js"></script>
+<script src="<?php echo base_url()?>assets/js/modules/<?php echo $this->router->fetch_class();?>/<?php echo $this->router->fetch_class();?>.js"></script>
 
 </body>
 

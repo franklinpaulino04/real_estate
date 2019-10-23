@@ -3,15 +3,15 @@
 
  Source Server         : localhost
  Source Server Type    : MySQL
- Source Server Version : 100138
+ Source Server Version : 100408
  Source Host           : localhost:3306
- Source Schema         : db_real_estate
+ Source Schema         : db_real_state
 
  Target Server Type    : MySQL
- Target Server Version : 100138
+ Target Server Version : 100408
  File Encoding         : 65001
 
- Date: 24/09/2019 17:23:41
+ Date: 23/10/2019 12:44:41
 */
 
 SET NAMES utf8mb4;
@@ -137,14 +137,15 @@ CREATE TABLE `ai_users`  (
   `image` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `hash` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `hidden` tinyint(1) NULL DEFAULT 0,
+  `owers` tinyint(1) NULL DEFAULT 0,
   PRIMARY KEY (`userId`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ai_users
 -- ----------------------------
-INSERT INTO `ai_users` VALUES (1, 1, 1, 'Jesus Enmanuel', 'De La Cruz', 'edelacruz9713@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '20190302205627.png', NULL, 0);
-INSERT INTO `ai_users` VALUES (2, 1, 1, 'Jose Miguel', 'Rojas Guzman', 'jose@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '6aqh620190304015940.jpg', NULL, 0);
+INSERT INTO `ai_users` VALUES (1, 1, 1, 'Jesus Enmanuel', 'De La Cruz', 'edelacruz9713@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'undraw_posting_photo.svg', NULL, 0, 1);
+INSERT INTO `ai_users` VALUES (2, 1, 1, 'Jose Miguel', 'Rojas Guzman', 'jose@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '6aqh620190304015940.jpg', NULL, 0, 1);
 
 -- ----------------------------
 -- Table structure for ai_users_status
@@ -161,8 +162,29 @@ CREATE TABLE `ai_users_status`  (
 -- ----------------------------
 -- Records of ai_users_status
 -- ----------------------------
-INSERT INTO `ai_users_status` VALUES (1, 'Activo', NULL, 0);
-INSERT INTO `ai_users_status` VALUES (2, 'Inactivo', NULL, 0);
-INSERT INTO `ai_users_status` VALUES (3, 'Bloqueado', NULL, 0);
+INSERT INTO `ai_users_status` VALUES (1, 'Activo', 'btn-success', 0);
+INSERT INTO `ai_users_status` VALUES (2, 'Inactivo', 'btn-danger', 0);
+INSERT INTO `ai_users_status` VALUES (3, 'Bloqueado', 'btn-warning', 0);
+
+-- ----------------------------
+-- View structure for ai_user_views
+-- ----------------------------
+DROP VIEW IF EXISTS `ai_user_views`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `ai_user_views` AS SELECT
+	a.userId,
+	a.email,
+	a.image,
+	a.first_name,
+	a.last_name,
+	a.statusId,
+	b.`name` AS `status`,
+	b.`class` AS `class`,
+	a.owers,
+	a.hidden
+FROM
+	ai_users AS a
+	LEFT JOIN ai_users_status AS b ON b.statusId = a.statusId 
+WHERE
+ a.hidden = 0 ;
 
 SET FOREIGN_KEY_CHECKS = 1;

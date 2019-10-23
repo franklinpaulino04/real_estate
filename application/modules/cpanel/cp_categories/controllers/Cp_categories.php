@@ -16,7 +16,7 @@ class Cp_categories extends CP_Controller
 
 //        $this->load->module('com_accounts/controllers/com_accounts');
 
-        $this->columns                  = "annulmentId,companyId,type,code,status";
+        $this->columns                  = "name";
     }
 
     public function index()
@@ -30,7 +30,7 @@ class Cp_categories extends CP_Controller
 
     public function datatables($output = false)
     {
-        $result = $this->cp_categories_model->ignitedtables($this->columns);
+        $result = $this->cp_categories_model->get_columns_by($this->columns,FALSE);
 
         switch($output)
         {
@@ -38,7 +38,7 @@ class Cp_categories extends CP_Controller
                 return $result;
                 break;
             default:
-                echo $result;
+                echo json_encode(array('data' => $result));
         }
     }
 

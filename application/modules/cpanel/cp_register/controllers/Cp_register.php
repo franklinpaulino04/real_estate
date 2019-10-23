@@ -13,10 +13,7 @@ class Cp_register extends CP_Controller
         $this->title                    = '';
 
         $this->load->model('cp_register/cp_register_model');
-
-//        $this->load->module('com_accounts/controllers/com_accounts');
-
-        $this->columns                  = "annulmentId,companyId,type,code,status";
+        $this->columns                  = "userId,email,image,first_name,last_name,statusId,`status`,owers,class";
     }
 
     public function index()
@@ -30,7 +27,7 @@ class Cp_register extends CP_Controller
 
     public function datatables($output = false)
     {
-        $result = $this->cp_register_model->ignitedtables($this->columns);
+        $result = $this->cp_register_model->view(FALSE, $this->columns);
 
         switch($output)
         {
@@ -38,7 +35,7 @@ class Cp_register extends CP_Controller
                 return $result;
                 break;
             default:
-                echo $result;
+                echo json_encode(array('data' => $result));
         }
     }
 

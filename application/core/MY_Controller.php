@@ -8,9 +8,8 @@ class MY_Controller extends MX_Controller {
     public function __construct()
     {
         parent::__construct();
-        setlocale(LC_ALL, "en_US.UTF-8");
+        setlocale(LC_ALL, "UTF-8");
 
-        $this->companyId                        = (isset($this->session->userdata('user_data')['companyId']))? $this->session->userdata('user_data')['companyId'] : '';
         $this->userId                           = (isset($this->session->userdata('user_data')['userId']))? $this->session->userdata('user_data')['userId'] : '';
         $this->form_validation->CI =& $this;
         $this->form_validation->set_error_delimiters('<li>', '</li>');

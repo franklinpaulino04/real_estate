@@ -522,7 +522,8 @@ class MY_Model extends CI_Model {
         }
         else
         {
-            return $this->db->where('companyId', $this->companyId)->get($view_name)->$method();
+//            return $this->db->where('companyId', $this->companyId)->get($view_name)->$method();
+            return $this->db->where('hidden', 0)->get($view_name)->$method();
         }
     }
 
