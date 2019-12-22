@@ -5,6 +5,7 @@ class Cp_properties extends CP_Controller
     public $namespace;
     public $columns;
     public $title;
+    public $category;
 
     public function __construct()
     {
@@ -13,9 +14,9 @@ class Cp_properties extends CP_Controller
         $this->title                    = '';
 
         $this->load->model('cp_properties/cp_properties_model');
+        $this->load->model('cp_categories/cp_categories_model');
 
-//        $this->load->module('com_accounts/controllers/com_accounts');
-
+        $this->category                 = $this->cp_categories_model->get_assoc_list('categoryId AS id, name', array('hidden' => 0));
         $this->columns                  = "annulmentId,companyId,type,code,status";
     }
 
@@ -30,7 +31,7 @@ class Cp_properties extends CP_Controller
 
     public function datatables($output = false)
     {
-        $result = $this->cp_properties_model->ignitedtables($this->columns);
+        $result = $this->cp_properties_model->view(FALSE, $this->columns);
 
         switch($output)
         {
@@ -38,55 +39,33 @@ class Cp_properties extends CP_Controller
                 return $result;
                 break;
             default:
-                echo $result;
+                echo json_encode(array('data' => $result));
         }
     }
 
     public function add()
     {
-        echo json_encode(array('result' => $this->load->view('annulment/annulment_new_view', array(), TRUE)));
+		$data = array(
+			'userId'        => $this->session->userdata('userId'),
+			'date_issue'    => timestamp_to_date(gmt_to_local(now(), 'UTC', FALSE), "Y-m-d"),
+			'date_creation' => timestamp_to_date(gmt_to_local(now(), 'UTC', FALSE), "Y-m-d H:i:s"),
+			'hidden'        => 1
+		);
+
+		if($propertyId = $this->cp_properties_model->save($data))
+		{
+			echo json_encode(array('result' => 1 , 'url' => base_url('cpanel/properties/edit/'.$propertyId)));
+		}
     }
 
-    public function edit($annulmentId)
+    public function edit($propertyId)
     {
-        $data                           = array();
-        $data['row']                    = $this->cp_properties_model->get($annulmentId);
-        $result['result']               = $this->load->view('annulment/annulment_edit_view',$data,true);
+		$data = array(
+			'row'        => $this->cp_properties_model->get_by(array('propertyId' => $propertyId), TRUE),
+			'content'    => 'cp_properties/cp_properties_edit_view',
+		);
 
-        echo json_encode($result);
-    }
-
-    public function insert()
-    {
-        $annulment_type = trim($this->input->post('type'));
-        $annulment_code = $this->input->post('code');
-        $this->validation->set_rule('type', $this->lang->line('valid_annulment_type'), array("required",
-            'annulment_check_callback' => (function() use($annulment_type) { return $this->annulment_type_check($annulment_type);}),
-        ));
-
-        $this->validation->set_rule('code', $this->lang->line('valid_annulment_code'), array("required",
-            'annulment_code_check_callback' => (function() use($annulment_code) { return $this->annulment_code_check($annulment_code);}),
-        ));
-
-        if($this->validation->run($this) == FALSE)
-        {
-            echo json_encode(array('result' => 0, 'error' => display_errors($this->validation->errors())));
-        }
-        else
-        {
-            $data = array(
-                'companyId'             => $this->companyId,
-                "code"                  => $this->input->post('code'),
-                "type"                  => $this->input->post('type'),
-                "description"           => $this->input->post('description'),
-                "status"                => (isset($_POST['active']))? $this->input->post('active') : 0 ,
-            );
-
-            if($this->cp_properties_model->save($data))
-            {
-                echo json_encode(array('result' => 1));
-            }
-        }
+		$this->load->view('includes/template', $data);
     }
 
     public function update($annulmentId)
@@ -131,27 +110,4 @@ class Cp_properties extends CP_Controller
 
     /* PRIVATE FUNCTION *********************************************************************************************/
 
-    private function annulment_type_check($annulment_type = FALSE, $annulmentId = FALSE)
-    {
-        $where = array(
-            'LOWER(REPLACE(type," ",""))=' => clear_space($annulment_type),
-            'companyId'                    => $this->companyId,
-            'hidden'                       => 0,
-            'annulmentId !='               => ($annulmentId != FALSE)? $annulmentId : 0
-        );
-
-        return ($this->cp_properties_model->in_table_by($where) > 0)? FALSE : TRUE;
-    }
-
-    private function annulment_code_check($annulment_code = FALSE, $annulmentId = FALSE)
-    {
-        $where = array(
-            'LOWER(REPLACE(code," ",""))=' => clear_space($annulment_code),
-            'companyId'                    => $this->companyId,
-            'hidden'                       => 0,
-            'annulmentId !='               => ($annulmentId != FALSE)? $annulmentId : 0
-        );
-
-        return ($this->cp_properties_model->in_table_by($where) > 0)? FALSE : TRUE;
-    }
 }

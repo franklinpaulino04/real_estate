@@ -36,21 +36,9 @@
                 { featureType: "transit", elementType: "all", stylers: [ { visibility: "off" }, { saturation: -100 }, { lightness: 60 } ] }
             ]
 
-        }
+        };
 
         var mapElement = document.getElementById('single-property-map');
         var map = new google.maps.Map(mapElement, mapOptions);
-        
-        var locations = [
-            ['', 41.7906594,-88.1567997]
-        ];
-        for (var i = 0; i < locations.length; i++) {
-            var marker = new google.maps.Marker({
-                icon: 'img/map.png',
-                animation: google.maps.Animation.BOUNCE,
-                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                map: map,
-            });
-        }
     }    
 })(jQuery)

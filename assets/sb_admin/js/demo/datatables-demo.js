@@ -25,7 +25,7 @@ $(document).ready(function() {
         url      = form.attr('action'),
         data     = form.serialize();
 
-    $.ajax({type: 'post', url: url,data: data}).done(function (data) {
+    $.ajax({type: 'post', url: url, data: data}).done(function (data) {
       var response = JSON.parse(data);
       if(response.result == 1){
         $(selector.target).modal('hide');
@@ -63,6 +63,19 @@ $(document).ready(function() {
     });
   });
 
+	$(document).on('click', '.redirect', function (e) {
+		e.preventDefault();
+		var thisSelector = $(this).data(),
+			url          = thisSelector.url;
+
+		$.ajax({type: 'get', url: url}).done(function (data) {
+			var response = JSON.parse(data);
+
+			if(response.result == 1){
+				window.location = response.url;
+			}
+		});
+	});
 });
 
 var url = {
@@ -77,3 +90,11 @@ var url = {
     return path;
   }
 };
+
+$(function() {
+	// if($('.numeric').length > 0){$('.numeric').numeric({negative:false});}
+	// if($('.numeric-decimal').length > 0){$('.numeric-decimal').numeric({negative : false, decimalPlaces: 2 });}
+	if($('.date').length > 0){
+		$('.date').daterangepicker({singleDatePicker: true, showDropdowns: true, locale: {format: 'YYYY-MM-DD'}});
+	}
+});

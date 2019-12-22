@@ -41,6 +41,10 @@
 </script>
 <!-- Theme jQuery Codes goes hear -->
 <script src="<?php echo base_url();?>assets/js/script.js"></script>
+<script src="<?php echo base_url()?>assets/js/modules/app/<?php echo $this->router->fetch_class();?>/<?php echo $this->router->fetch_class();?>.js"></script>
+<script src="<?php echo base_url()?>assets/js/modules/app/main.js"></script>
+<script src="<?php echo base_url()?>assets/js/sweetalert2@8.js"></script>
+
 </body>
 <!-- Body End  -->
 </html>

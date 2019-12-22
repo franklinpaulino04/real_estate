@@ -67,6 +67,8 @@
     <!-- Mordernizer Js -->
     <script src="<?php echo base_url();?>assets/js/modernizr-2.8.3.min.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<link href="<?php echo base_url()?>assets/css/modules/app/<?php echo $this->router->fetch_class().'/'.$this->router->fetch_class().'.css';?>"  rel="stylesheet">
+
 </head>
 <body>
 <!-- Start Header Top area -->

@@ -60,13 +60,13 @@ $route['logout']                = 'session/logout';
 //App Route
 
 //Cpanel Home Router
-$route['cpanel']                = 'cp_session';
-$route['cpanel/login/(.*)']     = 'cp_session/index/$1';
-$route['cp_logout']             = 'cp_session/logout';
-
-$route['cpanel/home']           = 'cp_home/index';
-$route['cpanel/categories']     = 'cp_categories/index';
-$route['cpanel/contacts']       = 'cp_contacts/index';
-$route['cpanel/properties']     = 'cp_properties/index';
-$route['cpanel/register']       = 'cp_register/index';
-$route['cpanel/services']       = 'cp_services/index';
+$route['cpanel']                		  = 'cp_session';
+$route['cpanel/login/(.*)']     		  = 'cp_session/index/$1';
+$route['cp_logout']             		  = 'cp_session/logout';
+$route['cpanel/home']           		  = 'cp_home/index';
+$route['cpanel/categories']     		  = 'cp_categories/index';
+$route['cpanel/contacts']       		  = 'cp_contacts/index';
+$route['cpanel/properties']     		  = 'cp_properties/index';
+$route['cpanel/properties/edit/(.*)']     = 'cp_properties/edit/$1';
+$route['cpanel/register']      			  = 'cp_register/index';
+$route['cpanel/services']      			  = 'cp_services/index';

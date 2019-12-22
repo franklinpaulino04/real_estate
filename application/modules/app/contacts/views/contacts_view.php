@@ -5,16 +5,16 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="main-form text-center">
                     <div class="contact-area-title">
-                        <h2 class="text-uppercase">Leave Message</h2>
-                        <p>Get in touch with our friendly experts</p>
+                        <h2 class="text-uppercase">Deja un mensaje</h2>
+                        <p>Póngase en contacto con nuestros amables expertos</p>
                     </div>
-                    <form action="#" method="POST">
-                        <input type="text" name="name" placeholder="Name">
-                        <input type="email" name="email" placeholder="Email">
-                        <textarea name="message"  cols="30" rows="1" placeholder="Message"></textarea>
-                        <div class="submit-button">
-                            <input type="submit" value="Send Message">
-                        </div>
+					<div class="response"></div>
+					<br><br>
+                    <form id="form" action="<?php echo base_url()?>contacts/sent_mail" method="POST">
+                        <input type="text" name="name_contacts" placeholder="Nombre">
+                        <input type="email" name="email" placeholder="Correo">
+                        <textarea name="message"  cols="30" rows="4" placeholder="Mensaje"></textarea>
+                        <div class="submit-button"><input type="submit" value="Enviar" id="submit"></div>
                     </form>
                 </div>
             </div>

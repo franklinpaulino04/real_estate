@@ -56,10 +56,6 @@ class Cp_register extends CP_Controller
 
     public function insert()
     {
-//        $cp_register_email = trim($this->input->post('email'));
-//        $this->validation->set_rule('type', '', array("required",
-//            'cp_register_check_callback' => (function() use($cp_register_email) { return $this->cp_register_email_check($cp_register_email);}),
-//        ));
 
         $data = array(
             "first_name"            => $this->input->post('first_name'),
@@ -77,15 +73,6 @@ class Cp_register extends CP_Controller
 
     public function update($cp_registerId)
     {
-        $cp_register_code = $this->input->post('code');
-        $cp_register_type = trim($this->input->post('type'));
-
-        $this->validation->set_rule('type', $this->lang->line('valid_cp_register_type'), array("required",
-            'cp_register_check_callback' => (function() use($cp_register_type, $cp_registerId) { return $this->cp_register_type_check($cp_register_type, $cp_registerId);}),
-        ));
-        $this->validation->set_rule('code', $this->lang->line('valid_cp_register_code'), array("required",
-            'cp_register_code_check_callback' => (function() use($cp_register_code, $cp_registerId) { return $this->cp_register_code_check($cp_register_code, $cp_registerId);}),
-        ));
 
         if($this->validation->run($this) == FALSE)
         {

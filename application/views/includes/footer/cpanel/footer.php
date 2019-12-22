@@ -38,6 +38,9 @@
 <script src="<?php echo base_url()?>assets/sb_admin/js/demo/datatables-demo.js"></script>
 <script src="<?php echo base_url()?>assets/js/modules/<?php echo $this->router->fetch_class();?>/<?php echo $this->router->fetch_class();?>.js"></script>
 <script src="<?php echo base_url()?>assets/js/sweetalert2@8.js"></script>
+
+<!-- Plugins -->
+<script href="<?php echo base_url()?>assets/plugins/numeric/jquery.numeric.js" ></script>
 </body>
 
 </html>
