@@ -6,7 +6,7 @@ class Cp_categories_model extends CP_Model
     {
         parent::__construct();
         $this->table_name   = 'ai_categories';
-        $this->view_name    = "";
+        $this->view_name    = "ai_categories_view";
         $this->primary_key  = 'categoryId';
         $this->order_by     = 'categoryId DESC';
     }

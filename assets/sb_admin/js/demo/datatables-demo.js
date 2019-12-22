@@ -8,10 +8,7 @@ $(document).ready(function() {
         url      = selector.data('url'),
         target   = selector.data('target');
 
-    $.ajax({
-      type: 'get',
-      url: url
-    }).done(function (data) {
+    $.ajax({type: 'get', url: url}).done(function (data) {
       var response = JSON.parse(data);
       $('.modal-dialog').html('');
       if(response.result == 1){
@@ -28,13 +25,8 @@ $(document).ready(function() {
         url      = form.attr('action'),
         data     = form.serialize();
 
-    $.ajax({
-      type: 'post',
-      url: url,
-      data: data,
-    }).done(function (data) {
+    $.ajax({type: 'post', url: url,data: data}).done(function (data) {
       var response = JSON.parse(data);
-      $('.modal-dialog').html('');
       if(response.result == 1){
         $(selector.target).modal('hide');
         $('#list').DataTable().ajax.reload();
@@ -59,7 +51,7 @@ $(document).ready(function() {
       if (result.value) {
         $.ajax({
           type: 'get',
-          url: url,
+          url: url
         }).done(function (data) {
           var response = JSON.parse(data);
 

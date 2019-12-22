@@ -7,14 +7,14 @@
  */
 
 if( ! function_exists('display_error')){
-    function display_error($errors)
-    {
-        return '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+	function display_error($errors)
+	{
+		return '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
                     <h4 class="opacity-message">Errores de Validación</h4>
                     <ol>'.$errors.'</ol>
                 </div>';
-    }
+	}
 }
 
 if( ! function_exists('display_import')){

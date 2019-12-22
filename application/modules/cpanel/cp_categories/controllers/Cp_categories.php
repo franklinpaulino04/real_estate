@@ -14,9 +14,7 @@ class Cp_categories extends CP_Controller
 
         $this->load->model('cp_categories/cp_categories_model');
 
-//        $this->load->module('com_accounts/controllers/com_accounts');
-
-        $this->columns                  = "name";
+        $this->columns                  = "categoryId,name,description,status,system";
     }
 
     public function index()
@@ -30,7 +28,7 @@ class Cp_categories extends CP_Controller
 
     public function datatables($output = false)
     {
-        $result = $this->cp_categories_model->get_columns_by($this->columns,FALSE);
+        $result = $this->cp_categories_model->view(FALSE, $this->columns);
 
         switch($output)
         {
@@ -38,48 +36,37 @@ class Cp_categories extends CP_Controller
                 return $result;
                 break;
             default:
-                echo json_encode(array('data' => $result));
+				echo json_encode(array('data' => $result));
         }
     }
 
     public function add()
     {
-        echo json_encode(array('result' => $this->load->view('annulment/annulment_new_view', array(), TRUE)));
+        echo json_encode(array('result' => 1, 'view' => $this->load->view('cp_categories/cp_categories_new_view', array(), TRUE)));
     }
 
-    public function edit($annulmentId)
+    public function edit($categoryId)
     {
         $data                           = array();
-        $data['row']                    = $this->cp_categories_model->get($annulmentId);
-        $result['result']               = $this->load->view('annulment/annulment_edit_view',$data,true);
-
-        echo json_encode($result);
+        $data['row']                    = $this->cp_categories_model->get_by(array('categoryId' => $categoryId, 'hidden' => 0), TRUE);
+        echo json_encode(array('result' => 1, 'view' => $this->load->view('cp_categories/cp_categories_edit_view',$data,true)));
     }
 
     public function insert()
     {
-        $annulment_type = trim($this->input->post('type'));
-        $annulment_code = $this->input->post('code');
-        $this->validation->set_rule('type', $this->lang->line('valid_annulment_type'), array("required",
-            'annulment_check_callback' => (function() use($annulment_type) { return $this->annulment_type_check($annulment_type);}),
-        ));
+		$this->form_validation->set_rules('name_category', '<strong>Nombre</strong>', 'trim|required');
 
-        $this->validation->set_rule('code', $this->lang->line('valid_annulment_code'), array("required",
-            'annulment_code_check_callback' => (function() use($annulment_code) { return $this->annulment_code_check($annulment_code);}),
-        ));
-
-        if($this->validation->run($this) == FALSE)
-        {
-            echo json_encode(array('result' => 0, 'error' => display_errors($this->validation->errors())));
-        }
+		if($this->form_validation->run($this) == FALSE)
+		{
+			echo json_encode(array('result' => 0, 'error' => display_error(validation_errors())));
+		}
         else
         {
             $data = array(
-                'companyId'             => $this->companyId,
-                "code"                  => $this->input->post('code'),
-                "type"                  => $this->input->post('type'),
+                "name"                  => $this->input->post('name_category'),
                 "description"           => $this->input->post('description'),
                 "status"                => (isset($_POST['active']))? $this->input->post('active') : 0 ,
+                "system"                => 1,
             );
 
             if($this->cp_categories_model->save($data))
@@ -89,69 +76,48 @@ class Cp_categories extends CP_Controller
         }
     }
 
-    public function update($annulmentId)
+    public function update($categoryId)
     {
-        $annulment_code = $this->input->post('code');
-        $annulment_type = trim($this->input->post('type'));
+		$this->form_validation->set_rules('name_category', '<strong>Nombre</strong>', 'trim|required|callback_exists_category_check');
 
-        $this->validation->set_rule('type', $this->lang->line('valid_annulment_type'), array("required",
-            'annulment_check_callback' => (function() use($annulment_type, $annulmentId) { return $this->annulment_type_check($annulment_type, $annulmentId);}),
-        ));
-        $this->validation->set_rule('code', $this->lang->line('valid_annulment_code'), array("required",
-            'annulment_code_check_callback' => (function() use($annulment_code, $annulmentId) { return $this->annulment_code_check($annulment_code, $annulmentId);}),
-        ));
-
-        if($this->validation->run($this) == FALSE)
-        {
-            echo json_encode(array('result' => 0, 'error' => display_errors($this->validation->errors())));
-        }
+		if($this->form_validation->run($this) == FALSE)
+		{
+			echo json_encode(array('result' => 0, 'error' => display_error(validation_errors())));
+		}
         else
         {
-            $data = array(
-                'companyId'             => $this->companyId,
-                "code"                  => $this->input->post('code'),
-                "type"                  => $this->input->post('type'),
-                "description"           => $this->input->post('description'),
-                "status"                => (isset($_POST['active']))? $this->input->post('active') : 0 ,
-            );
+			$data = array(
+				"name"                  => $this->input->post('name_category'),
+				"description"           => $this->input->post('description'),
+				"status"                => (isset($_POST['active']))? $this->input->post('active') : 0 ,
+			);
 
-            if($this->cp_categories_model->save($data, $annulmentId))
+            if($this->cp_categories_model->save($data, $categoryId))
             {
                 echo json_encode(array('result' => 1));
             }
         }
     }
 
-    public function hide($annulmentId)
+    public function hide($categoryId)
     {
-        $result['result'] = ($this->cp_categories_model->save( array('hidden' => 1), $annulmentId) == TRUE )? 1 : 0;
+        $result['result'] = ($this->cp_categories_model->save( array('hidden' => 1), $categoryId) == TRUE )? 1 : 0;
 
         echo json_encode($result);
     }
 
     /* PRIVATE FUNCTION *********************************************************************************************/
 
-    private function annulment_type_check($annulment_type = FALSE, $annulmentId = FALSE)
-    {
-        $where = array(
-            'LOWER(REPLACE(type," ",""))=' => clear_space($annulment_type),
-            'companyId'                    => $this->companyId,
-            'hidden'                       => 0,
-            'annulmentId !='               => ($annulmentId != FALSE)? $annulmentId : 0
-        );
+	public function exists_category_check()
+	{
+		$where = array(
+			'LOWER(REPLACE(name," ",""))=' => clear_space($this->input->post('name_category')),
+			'hidden'                       => 0,
+			'categoryId !='                => (isset($_POST['categoryId']) && $_POST['categoryId'] != 0)? $_POST['categoryId'] : 0
+		);
 
-        return ($this->cp_categories_model->in_table_by($where) > 0)? FALSE : TRUE;
-    }
-
-    private function annulment_code_check($annulment_code = FALSE, $annulmentId = FALSE)
-    {
-        $where = array(
-            'LOWER(REPLACE(code," ",""))=' => clear_space($annulment_code),
-            'companyId'                    => $this->companyId,
-            'hidden'                       => 0,
-            'annulmentId !='               => ($annulmentId != FALSE)? $annulmentId : 0
-        );
-
-        return ($this->cp_categories_model->in_table_by($where) > 0)? FALSE : TRUE;
-    }
+		return ($this->cp_categories_model->in_table_by($where) > 0)? FALSE : TRUE;
+	}
 }
+
+

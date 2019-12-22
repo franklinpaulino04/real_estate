@@ -27,7 +27,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="row"><img src="<?php echo base_url('assets/sb_admin/img/images_empty.png');?>" height="100px" width="100px" alt=""></div>
-                    <div class="row"><input type="file" name="files" id="files"></div>
+                    <div class="row"><input type="file" name="files" id="files" class="form-control"></div>
                 </div>
             </div>
         </form>

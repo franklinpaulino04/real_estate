@@ -155,3 +155,5 @@ class Cp_contacts extends CP_Controller
         return ($this->cp_contacts_model->in_table_by($where) > 0)? FALSE : TRUE;
     }
 }
+
+

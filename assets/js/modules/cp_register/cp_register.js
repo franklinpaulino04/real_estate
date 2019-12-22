@@ -13,6 +13,7 @@ var table = $('#list').DataTable({
     ],
     'createdRow': function (row, data, index) {
         $('.dt-status', row).html(Status(data));
+        $('.dt-images', row).html(image(data));
         $('.dt-action', row).html(actionLinks(data));
     }
 });
@@ -23,6 +24,9 @@ $(document).ready(function () {
 
 });
 
+var image = function (data) {
+	return '<img src="'+url.baseUrl()+'assets/sb_admin/img/undraw_posting_photo.svg" width="50px" height="50px">';
+};
 var Status = function (data) {
   return '<div class="btn '+ data.class + '">'+ data.status +'</div>';
 };
@@ -31,15 +35,15 @@ var actionLinks = function (data) {
   var html = '',
       id   = data.userId;
 
-  html += '<div class="dropdown">\n' +
-          '    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n' +
-          '        Opciones' +
-          '    </a>\n' +
-          '    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">\n' +
-          '        <a class="dropdown-item modal_trigger" data-url="'+url.baseUrl()+'cp_register/edit/'+id+'" data-target="#add-cp-register" data-toggle="modal" href="javascript:void(0)"><i class="fas fa-pencil-alt"> Editar </i></a>\n' +
-          '        <a class="dropdown-item modal_trigger_delete" href="javascript:void(0)" data-url="'+url.baseUrl()+'cp_register/hide/'+id+'"><i class="fas fa-trash-alt"> Eliminar</i></a>\n' +
-          '    </div>\n' +
-          '    </div>';
+  html += '<div class="dropdown">';
+  html += '<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+  html += 'Opciones';
+  html += '</a>';
+  html += '<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">';
+  html += '<a class="dropdown-item modal_trigger" data-url="'+url.baseUrl()+'cp_register/edit/'+id+'" data-target="#add-cp-register" data-toggle="modal" href="javascript:void(0)"><i class="fas fa-pencil-alt"> Editar </i></a>';
+  html += '<a class="dropdown-item modal_trigger_delete" href="javascript:void(0)" data-url="'+url.baseUrl()+'cp_register/hide/'+id+'"><i class="fas fa-trash-alt"> Eliminar</i></a>';
+  html += '</div>';
+  html += '</div>';
 
   return html;
 };
