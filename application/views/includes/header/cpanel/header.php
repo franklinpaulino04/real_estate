@@ -17,17 +17,15 @@
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url()?>assets/sb_admin/css/sb-admin-2.min.css" rel="stylesheet">
 
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/plugins/daterangepicker/css/daterangepicker.css" />
 	<!-- Javascript -->
     <script type="text/javascript" src="<?php echo base_url('cp_session/js_session/');?>"></script>
-
 
     <!-- Custom styles for this page -->
     <link href="<?php echo base_url()?>assets/sb_admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="<?php echo base_url()?>assets/css/modules/<?php echo $this->router->fetch_class().'/'.$this->router->fetch_class().'.css';?>"  rel="stylesheet">
 
 	<!-- Plugins -->
-	<link href="<?php echo base_url()?>assets/plugins/styleCheckbox/customize.checkbox.css" rel="stylesheet">
-	<link href="<?php echo base_url()?>assets/plugins/styleCheckbox/customize.radio.css" rel="stylesheet">
 </head>
 
 <body id="page-top">

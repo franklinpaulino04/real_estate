@@ -92,9 +92,7 @@ var url = {
 };
 
 $(function() {
-	// if($('.numeric').length > 0){$('.numeric').numeric({negative:false});}
-	// if($('.numeric-decimal').length > 0){$('.numeric-decimal').numeric({negative : false, decimalPlaces: 2 });}
-	if($('.date').length > 0){
-		$('.date').daterangepicker({singleDatePicker: true, showDropdowns: true, locale: {format: 'YYYY-MM-DD'}});
-	}
+	if($('.numeric').length > 0){$('.numeric').numeric({negative:false});}
+	if($('.numeric-decimal').length > 0){$('.numeric-decimal').numeric({negative : false, decimalPlaces: 2 });}
+	if($('.date').length > 0){ $('.date').daterangepicker({singleDatePicker: true, showDropdowns: true, locale: {format: 'YYYY-MM-DD'}});}
 });

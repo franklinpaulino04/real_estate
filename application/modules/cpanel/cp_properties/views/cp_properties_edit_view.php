@@ -8,6 +8,10 @@
 			</div>
 			<div class="card-body">
 				<div class="row form-group">
+					<label class="col-md-3 text-right" for="">Nombre</label>
+					<div class="col-md-5"><input type="text" name="name" class="form-control" value="<?php echo $row->name;?>"></div>
+				</div>
+				<div class="row form-group">
 					<label class="col-md-3 text-right" for="">Descripción</label>
 					<div class="col-md-5"><textarea name="description" rows="3" class="form-control"><?php echo $row->description;?></textarea></div>
 				</div>
@@ -38,6 +42,10 @@
 					<div class="col-md-5"><input type="text" name="rooms" class="form-control numeric currency" value="<?php echo $row->rooms;?>"></div>
 				</div>
 				<div class="row form-group">
+					<label class="col-md-3 text-right" for="">Video</label>
+					<div class="col-md-5"><input type="text" name="video" class="form-control" value="<?php echo $row->video;?>"></div>
+				</div>
+				<div class="row form-group">
 					<label class="col-md-3 text-right" for="">Baños</label>
 					<div class="col-md-5"><input type="text" name="bathrooms" class="form-control numeric currency" value="<?php echo $row->bathrooms;?>"></div>
 				</div>
@@ -48,7 +56,16 @@
 				<div class="row form-group">
 					<label class="col-md-3 text-right" for="">Estatus</label>
 					<?php $chk_status = ($row->status == 1)? 'checked' : ''; ?>
-					<div class="col-md-5"><input type="checkbox"  name="status" value="1" <?php echo $chk_status;?>></div>
+					<div class="col-md-5">
+						<input type="checkbox" name="status" value="1" <?php echo $chk_status;?>>
+					</div>
+				</div>
+				<hr>
+				<div class="row form-group">
+					<label class="col-md-3 text-right" for="">Imagenes</label>
+					<div class="col-md-5">
+						<input type="file" name="file_image[]" class="form-control">
+					</div>
 				</div>
 			</div>
 			<div class="card-footer text-right">
