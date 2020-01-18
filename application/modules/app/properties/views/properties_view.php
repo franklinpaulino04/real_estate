@@ -1,277 +1,356 @@
-<!--Property  Page Main Content Area Start-->
-<div class="section property-page-content-area property-2-column-area area-pading">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-sm-12  padding-right-zero">
-                <!-- Property Area Title -->
-                <div class="property-page-title">
-                    <h2>32 property found</h2>
-                </div>
-                <!-- Start of Single Property -->
-                <div class="column-single-property">
-                    <div class="column-property-img-wrap">
-                        <div class="column-property-img">
-                            <a href="#"><img src="<?php echo base_url()?>assets/img/properties/7.jpg" alt=""></a>
-                        </div>
-                        <div class="column-property-tag">
-                            <p>Apartment</p>
-                        </div>
-                        <div class="properties-include opicity-bg">
-                            <ul>
-                                <li> <i class="fa fa-home"></i>30,00 Acres</li>
-                                <li><i class="fa fa-bed"></i>4 Bedrooms </li>
-                                <li><i class="fa fa-tty"></i>4 Bathrooms</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="column-property-content-wrap">
-                        <div class="column-property-content">
-                            <h2><a href="#">Relax Home Apartment - $1,234,000</a> </h2>
-                            <h3>234 Relax Home, anjelos, US</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipising elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisdis parturient montes, nascetur ridiculus mus.</p>
-                        </div>
-                        <div class="column-property-more">
-                            <a href="#">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End of Single Property -->
-                <!-- Start of Single Property -->
-                <div class="column-single-property">
-                    <div class="column-property-img-wrap">
-                        <div class="column-property-img">
-                            <a href="#"><img src="<?php echo base_url()?>assets/img/properties/8.jpg" alt=""></a>
-                        </div>
-                        <div class="column-property-tag">
-                            <p>Apartment</p>
-                        </div>
-                        <div class="properties-include opicity-bg">
-                            <ul>
-                                <li> <i class="fa fa-home"></i>30,00 Acres</li>
-                                <li><i class="fa fa-bed"></i>4 Bedrooms </li>
-                                <li><i class="fa fa-tty"></i>4 Bathrooms</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="column-property-content-wrap">
-                        <div class="column-property-content">
-                            <h2><a href="#">Relax Home Apartment - $1,234,000</a> </h2>
-                            <h3>234 Relax Home, anjelos, US</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipising elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisdis parturient montes, nascetur ridiculus mus.</p>
-                        </div>
-                        <div class="column-property-more">
-                            <a href="#">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End of Single Property -->
-                <!-- Start of Single Property -->
-                <div class="column-single-property">
-                    <div class="column-property-img-wrap">
-                        <div class="column-property-img">
-                            <a href="#"><img src="<?php echo base_url()?>assets/img/properties/9.jpg" alt=""></a>
-                        </div>
-                        <div class="column-property-tag">
-                            <p>Apartment</p>
-                        </div>
-                        <div class="properties-include opicity-bg">
-                            <ul>
-                                <li> <i class="fa fa-home"></i>30,00 Acres</li>
-                                <li><i class="fa fa-bed"></i>4 Bedrooms </li>
-                                <li><i class="fa fa-tty"></i>4 Bathrooms</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="column-property-content-wrap">
-                        <div class="column-property-content">
-                            <h2><a href="#">Relax Home Apartment - $1,234,000</a> </h2>
-                            <h3>234 Relax Home, anjelos, US</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipising elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisdis parturient montes, nascetur ridiculus mus.</p>
-                        </div>
-                        <div class="column-property-more">
-                            <a href="#">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End of Single Property -->
-                <!-- Start of Single Property -->
-                <div class="column-single-property">
-                    <div class="column-property-img-wrap">
-                        <div class="column-property-img">
-                            <a href="#"><img src="<?php echo base_url()?>assets/img/properties/10.jpg" alt=""></a>
-                        </div>
-                        <div class="column-property-tag">
-                            <p>Apartment</p>
-                        </div>
-                        <div class="properties-include opicity-bg">
-                            <ul>
-                                <li> <i class="fa fa-home"></i>30,00 Acres</li>
-                                <li><i class="fa fa-bed"></i>4 Bedrooms </li>
-                                <li><i class="fa fa-tty"></i>4 Bathrooms</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="column-property-content-wrap">
-                        <div class="column-property-content">
-                            <h2><a href="#">Relax Home Apartment - $1,234,000</a> </h2>
-                            <h3>234 Relax Home, anjelos, US</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipising elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisdis parturient montes, nascetur ridiculus mus.</p>
-                        </div>
-                        <div class="column-property-more">
-                            <a href="#">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End of Single Property -->
-                <!-- Start of Single Property -->
-                <div class="column-single-property">
-                    <div class="column-property-img-wrap">
-                        <div class="column-property-img">
-                            <a href="#"><img src="<?php echo base_url()?>assets/img/properties/8.jpg" alt=""></a>
-                        </div>
-                        <div class="column-property-tag">
-                            <p>Apartment</p>
-                        </div>
-                        <div class="properties-include opicity-bg">
-                            <ul>
-                                <li> <i class="fa fa-home"></i>30,00 Acres</li>
-                                <li><i class="fa fa-bed"></i>4 Bedrooms </li>
-                                <li><i class="fa fa-tty"></i>4 Bathrooms</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="column-property-content-wrap">
-                        <div class="column-property-content">
-                            <h2><a href="#">Relax Home Apartment - $1,234,000</a> </h2>
-                            <h3>234 Relax Home, anjelos, US</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipising elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisdis parturient montes, nascetur ridiculus mus.</p>
-                        </div>
-                        <div class="column-property-more">
-                            <a href="#">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End of Single Property -->
-                <!-- Start of Single Property -->
-                <div class="column-single-property">
-                    <div class="column-property-img-wrap">
-                        <div class="column-property-img">
-                            <a href="#"><img src="<?php echo base_url()?>assets/img/properties/8.jpg" alt=""></a>
-                        </div>
-                        <div class="column-property-tag">
-                            <p>Apartment</p>
-                        </div>
-                        <div class="properties-include opicity-bg">
-                            <ul>
-                                <li> <i class="fa fa-home"></i>30,00 Acres</li>
-                                <li><i class="fa fa-bed"></i>4 Bedrooms </li>
-                                <li><i class="fa fa-tty"></i>4 Bathrooms</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="column-property-content-wrap">
-                        <div class="column-property-content">
-                            <h2><a href="#">Relax Home Apartment - $1,234,000</a> </h2>
-                            <h3>234 Relax Home, anjelos, US</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipising elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisdis parturient montes, nascetur ridiculus mus.</p>
-                        </div>
-                        <div class="column-property-more">
-                            <a href="#">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End of Single Property -->
-                <div class="scroll-for-btn">
-                    <a href="#">Scroll for more</a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-12 padding-left-65">
-                <div class="column-widget">
-                    <div class="feature-property-widget">
-                        <!-- Property Widget Area Title -->
-                        <div class="property-page-title">
-                            <h2>Feature properties</h2>
-                        </div>
-                        <div class="single-sp-widget">
-                            <div class="widget-property-img">
-                                <a href="#"><img src="<?php echo base_url()?>assets/img/widget/4.jpg" alt=""></a>
-                            </div>
-                            <div class="column-property-tag">
-                                <p>Apartment</p>
-                            </div>
-                            <h3><a href="#">Relax home House</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
-                        </div>
-                        <div class="single-sp-widget">
-                            <div class="widget-property-img">
-                                <a href="#"><img src="<?php echo base_url()?>assets/img/widget/6.jpg" alt=""></a>
-                            </div>
-                            <div class="column-property-tag">
-                                <p>Apartment</p>
-                            </div>
-                            <h3><a href="#">Relax home House</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
-                        </div>
-                    </div>
-                    <div class="recent-property-widget">
-                        <!-- Recent properties Widget Title -->
-                        <div class="property-page-title">
-                            <h2>Recent properties</h2>
-                        </div>
-                        <div class="single-property-footer-post right-sidebar">
-                            <div class="properties-img pull-left">
-                                <a href="#"><img src="<?php echo base_url()?>assets/img/widget/5.jpg" alt=""></a>
-                            </div>
-                            <div class="properties-content-footer pull-left">
-                                <h4><a href="#">Relax Home Villa</a></h4>
-                                <p>100 CB Villa Park Avenue,
-                                    <br> New York, USA</p>
-                                <div class="property-price">
-                                    <p>$1,256,000</p>
-                                </div>
+<!--/ Intro Single star /-->
+<section class="intro-single">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-lg-8">
+				<div class="title-single-box">
+					<h1 class="title-single">Our Amazing Properties</h1>
+					<span class="color-text-a">Grid Properties</span>
+				</div>
+			</div>
+			<div class="col-md-12 col-lg-4">
+				<nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item">
+							<a href="#">Home</a>
+						</li>
+						<li class="breadcrumb-item active" aria-current="page">
+							Properties Grid
+						</li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+	</div>
+</section>
+<!--/ Intro Single End /-->
 
-                            </div>
-                        </div>
-                        <div class="single-property-footer-post right-sidebar">
-                            <div class="properties-img pull-left">
-                                <a href="#"><img src="<?php echo base_url()?>assets/img/widget/7.jpg" alt=""></a>
-                            </div>
-                            <div class="properties-content-footer pull-left">
-                                <h4><a href="#">Relax Home House</a></h4>
-                                <p>100 CB Villa Park Avenue,
-                                    <br> New York, USA</p>
-                                <div class="property-price">
-                                    <p>$1,256,000</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-property-footer-post right-sidebar">
-                            <div class="properties-img pull-left">
-                                <a href="#"><img src="<?php echo base_url()?>assets/img/widget/7.jpg" alt=""></a>
-                            </div>
-                            <div class="properties-content-footer pull-left">
-                                <h4><a href="#">Relax Home House</a></h4>
-                                <p>100 CB Villa Park Avenue,
-                                    <br> New York, USA</p>
-                                <div class="property-price">
-                                    <p>$1,256,000</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-property-footer-post right-sidebar">
-                            <div class="properties-img pull-left">
-                                <a href="#"><img src="<?php echo base_url()?>assets/img/widget/8.jpg" alt=""></a>
-                            </div>
-                            <div class="properties-content-footer pull-left">
-                                <h4><a href="#">Relax Home Apartment</a></h4>
-                                <p>100 CB Villa Park Avenue,<br> New York, USA</p>
-                                <div class="property-price"><p>$1,256,000</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--Property Page Main content Area End Hear-->
+<!--/ Property Grid Star /-->
+<section class="property-grid grid">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="grid-option">
+					<form>
+						<select class="custom-select">
+							<option selected>All</option>
+							<option value="1">New to Old</option>
+							<option value="2">For Rent</option>
+							<option value="3">For Sale</option>
+						</select>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card-box-a card-shadow">
+					<div class="img-box-a">
+						<img src="<?php echo base_url()?>assets/img/property-1.jpg" alt="" class="img-a img-fluid">
+					</div>
+					<div class="card-overlay">
+						<div class="card-overlay-a-content">
+							<div class="card-header-a">
+								<h2 class="card-title-a">
+									<a href="#">204 Mount
+										<br /> Olive Road Two</a>
+								</h2>
+							</div>
+							<div class="card-body-a">
+								<div class="price-box d-flex">
+									<span class="price-a">rent | $ 12.000</span>
+								</div>
+								<a href="property-single.html" class="link-a">Click here to view
+									<span class="ion-ios-arrow-forward"></span>
+								</a>
+							</div>
+							<div class="card-footer-a">
+								<ul class="card-info d-flex justify-content-around">
+									<li>
+										<h4 class="card-info-title">Area</h4>
+										<span>340m
+                        <sup>2</sup>
+                      </span>
+									</li>
+									<li>
+										<h4 class="card-info-title">Beds</h4>
+										<span>2</span>
+									</li>
+									<li>
+										<h4 class="card-info-title">Baths</h4>
+										<span>4</span>
+									</li>
+									<li>
+										<h4 class="card-info-title">Garages</h4>
+										<span>1</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card-box-a card-shadow">
+					<div class="img-box-a">
+						<img src="<?php echo base_url()?>assets/img/property-3.jpg" alt="" class="img-a img-fluid">
+					</div>
+					<div class="card-overlay">
+						<div class="card-overlay-a-content">
+							<div class="card-header-a">
+								<h2 class="card-title-a">
+									<a href="#">204 Mount
+										<br /> Olive Road Two</a>
+								</h2>
+							</div>
+							<div class="card-body-a">
+								<div class="price-box d-flex">
+									<span class="price-a">rent | $ 12.000</span>
+								</div>
+								<a href="property-single.html" class="link-a">Click here to view
+									<span class="ion-ios-arrow-forward"></span>
+								</a>
+							</div>
+							<div class="card-footer-a">
+								<ul class="card-info d-flex justify-content-around">
+									<li>
+										<h4 class="card-info-title">Area</h4>
+										<span>340m
+                        <sup>2</sup>
+                      </span>
+									</li>
+									<li>
+										<h4 class="card-info-title">Beds</h4>
+										<span>2</span>
+									</li>
+									<li>
+										<h4 class="card-info-title">Baths</h4>
+										<span>4</span>
+									</li>
+									<li>
+										<h4 class="card-info-title">Garages</h4>
+										<span>1</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card-box-a card-shadow">
+					<div class="img-box-a">
+						<img src="<?php echo base_url()?>assets/img/property-6.jpg" alt="" class="img-a img-fluid">
+					</div>
+					<div class="card-overlay">
+						<div class="card-overlay-a-content">
+							<div class="card-header-a">
+								<h2 class="card-title-a">
+									<a href="#">204 Mount
+										<br /> Olive Road Two</a>
+								</h2>
+							</div>
+							<div class="card-body-a">
+								<div class="price-box d-flex">
+									<span class="price-a">rent | $ 12.000</span>
+								</div>
+								<a href="property-single.html" class="link-a">Click here to view
+									<span class="ion-ios-arrow-forward"></span>
+								</a>
+							</div>
+							<div class="card-footer-a">
+								<ul class="card-info d-flex justify-content-around">
+									<li>
+										<h4 class="card-info-title">Area</h4>
+										<span>340m
+                        <sup>2</sup>
+                      </span>
+									</li>
+									<li>
+										<h4 class="card-info-title">Beds</h4>
+										<span>2</span>
+									</li>
+									<li>
+										<h4 class="card-info-title">Baths</h4>
+										<span>4</span>
+									</li>
+									<li>
+										<h4 class="card-info-title">Garages</h4>
+										<span>1</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card-box-a card-shadow">
+					<div class="img-box-a">
+						<img src="<?php echo base_url()?>assets/img/property-7.jpg" alt="" class="img-a img-fluid">
+					</div>
+					<div class="card-overlay">
+						<div class="card-overlay-a-content">
+							<div class="card-header-a">
+								<h2 class="card-title-a">
+									<a href="#">204 Mount
+										<br /> Olive Road Two</a>
+								</h2>
+							</div>
+							<div class="card-body-a">
+								<div class="price-box d-flex">
+									<span class="price-a">rent | $ 12.000</span>
+								</div>
+								<a href="property-single.html" class="link-a">Click here to view
+									<span class="ion-ios-arrow-forward"></span>
+								</a>
+							</div>
+							<div class="card-footer-a">
+								<ul class="card-info d-flex justify-content-around">
+									<li>
+										<h4 class="card-info-title">Area</h4>
+										<span>340m
+                        <sup>2</sup>
+                      </span>
+									</li>
+									<li>
+										<h4 class="card-info-title">Beds</h4>
+										<span>2</span>
+									</li>
+									<li>
+										<h4 class="card-info-title">Baths</h4>
+										<span>4</span>
+									</li>
+									<li>
+										<h4 class="card-info-title">Garages</h4>
+										<span>1</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card-box-a card-shadow">
+					<div class="img-box-a">
+						<img src="<?php echo base_url()?>assets/img/property-8.jpg" alt="" class="img-a img-fluid">
+					</div>
+					<div class="card-overlay">
+						<div class="card-overlay-a-content">
+							<div class="card-header-a">
+								<h2 class="card-title-a">
+									<a href="#">204 Mount
+										<br /> Olive Road Two</a>
+								</h2>
+							</div>
+							<div class="card-body-a">
+								<div class="price-box d-flex">
+									<span class="price-a">rent | $ 12.000</span>
+								</div>
+								<a href="property-single.html" class="link-a">Click here to view
+									<span class="ion-ios-arrow-forward"></span>
+								</a>
+							</div>
+							<div class="card-footer-a">
+								<ul class="card-info d-flex justify-content-around">
+									<li>
+										<h4 class="card-info-title">Area</h4>
+										<span>340m
+                        <sup>2</sup>
+                      </span>
+									</li>
+									<li>
+										<h4 class="card-info-title">Beds</h4>
+										<span>2</span>
+									</li>
+									<li>
+										<h4 class="card-info-title">Baths</h4>
+										<span>4</span>
+									</li>
+									<li>
+										<h4 class="card-info-title">Garages</h4>
+										<span>1</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card-box-a card-shadow">
+					<div class="img-box-a">
+						<img src="<?php echo base_url()?>assets/img/property-10.jpg" alt="" class="img-a img-fluid">
+					</div>
+					<div class="card-overlay">
+						<div class="card-overlay-a-content">
+							<div class="card-header-a">
+								<h2 class="card-title-a">
+									<a href="#">204 Mount
+										<br /> Olive Road Two</a>
+								</h2>
+							</div>
+							<div class="card-body-a">
+								<div class="price-box d-flex">
+									<span class="price-a">rent | $ 12.000</span>
+								</div>
+								<a href="property-single.html" class="link-a">Click here to view
+									<span class="ion-ios-arrow-forward"></span>
+								</a>
+							</div>
+							<div class="card-footer-a">
+								<ul class="card-info d-flex justify-content-around">
+									<li>
+										<h4 class="card-info-title">Area</h4>
+										<span>340m
+                        <sup>2</sup>
+                      </span>
+									</li>
+									<li>
+										<h4 class="card-info-title">Beds</h4>
+										<span>2</span>
+									</li>
+									<li>
+										<h4 class="card-info-title">Baths</h4>
+										<span>4</span>
+									</li>
+									<li>
+										<h4 class="card-info-title">Garages</h4>
+										<span>1</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<nav class="pagination-a">
+					<ul class="pagination justify-content-end">
+						<li class="page-item disabled">
+							<a class="page-link" href="#" tabindex="-1">
+								<span class="ion-ios-arrow-back"></span>
+							</a>
+						</li>
+						<li class="page-item">
+							<a class="page-link" href="#">1</a>
+						</li>
+						<li class="page-item active">
+							<a class="page-link" href="#">2</a>
+						</li>
+						<li class="page-item">
+							<a class="page-link" href="#">3</a>
+						</li>
+						<li class="page-item next">
+							<a class="page-link" href="#">
+								<span class="ion-ios-arrow-forward"></span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</section>
+<!--/ Property Grid End /-->

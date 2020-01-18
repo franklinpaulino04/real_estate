@@ -1,82 +1,43 @@
-<!-- Header Area Start -->
-<header class="header-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <!-- Logo Start -->
-                <div class="logo-wrap">
-                    <a href="<?php echo base_url();?>home"><img src="<?php echo base_url();?>assets/img/logo.png" alt=""></a>
-                </div>
-                <!-- Logo End -->
-            </div>
-            <div class="col-md-9">
-                <!-- Main Menu Start -->
-                <div class="main-menu">
-                    <nav>
-                        <ul id="nav">
-                            <li class="<?php echo menu_active($this->fetch_class, 'home/index');?>"><a href="<?php echo base_url();?>home">Home</a></li>
-                            <li class="<?php echo menu_active($this->fetch_class, 'properties/index');?>"><a href="<?php echo base_url();?>properties">PROPERTIES</a></li>
-                            <li class="<?php echo menu_active($this->fetch_class, 'categories/index');?>">
-                                <a href="<?php echo base_url();?>categories">Categorias</a>
-                                <ul class="sub-menu">
-                                    <li><a href="blog-right.html">Casa</a></li>
-                                    <li><a href="single-post.html">Villa</a></li>
-                                    <li><a href="single-post.html">Solar</a></li>
-                                    <li><a href="single-post.html">Finca</a></li>
-                                    <li><a href="single-post.html">Nave</a></li>
-                                    <li><a href="single-post.html">Local Comercial</a></li>
-                                    <li><a href="single-post.html">Edificio</a></li>
-                                    <li><a href="single-post.html">Apartamento</a></li>
-                                    <li><a href="single-post.html">Penthouse</a></li>
-                                    <li><a href="single-post.html">Local de oficina</a></li>
-                                </ul>
-                            </li>
-                            <li class="<?php echo menu_active($this->fetch_class, 'services/index');?>"><a href="<?php echo base_url();?>services">Services</a></li>
-                            <li class="<?php echo menu_active($this->fetch_class, 'contacts/index');?>"><a href="<?php echo base_url();?>contacts">contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <!-- Main Menu End -->
-            </div>
-        </div>
-    </div>
-</header>
-<!-- Header Area End -->
-<!-- mobile-menu-area start -->
-<div class="mobile-menu-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="mobile-menu">
-                    <div class="logo">
-                        <a href="index.html"><img src="<?php echo base_url();?>assets/img/logo2.jpg" alt="" /></a>
-                    </div>
-                    <nav id="mobile-menu">
-                        <ul>
-                            <li class="<?php echo menu_active($this->fetch_class, 'home/index');?>"><a href="<?php echo base_url();?>home">Home</a></li>
-                            <li class="<?php echo menu_active($this->fetch_class, 'properties/index');?>"><a href="<?php echo base_url();?>properties">Property</a>
-                            <li class="<?php echo menu_active($this->fetch_class, 'categories/index');?>">
-                                <a href="<?php echo base_url();?>categories">Categorias</a>
-                                <ul>
-                                    <li><a href="blog-right.html">Casa</a></li>
-                                    <li><a href="single-post.html">Villa</a></li>
-                                    <li><a href="single-post.html">Solar</a></li>
-                                    <li><a href="single-post.html">Finca</a></li>
-                                    <li><a href="single-post.html">Nave</a></li>
-                                    <li><a href="single-post.html">Local Comercial</a></li>
-                                    <li><a href="single-post.html">Edificio</a></li>
-                                    <li><a href="single-post.html">Apartamento</a></li>
-                                    <li><a href="single-post.html">Penthouse</a></li>
-                                    <li><a href="single-post.html">Local de oficina</a></li>
-                                </ul>
-                            </li>
-                            <li class="<?php echo menu_active($this->fetch_class, 'services/index');?>"><a href="<?php echo base_url();?>services">Services</a></li>
-                            <li class="<?php echo menu_active($this->fetch_class, 'contacts/index');?>"><a href="<?php echo base_url();?>contacts">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- mobile-menu-area end -->
+<!--/ Nav Star /-->
+<nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+	<div class="container">
+		<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+				aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+		<a class="navbar-brand text-brand" href="index.html">Estate<span class="color-b">Agency</span></a>
+		<button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse"
+				data-target="#navbarTogglerDemo01" aria-expanded="false">
+			<span class="fa fa-search" aria-hidden="true"></span>
+		</button>
+		<div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link <?php echo menu_active($this->fetch_class, 'home/index');?>" href="<?php echo base_url()?>home/index">Hogar</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php echo menu_active($this->fetch_class, 'properties/index');?>" href="<?php echo base_url()?>properties/index">Propiedades</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php echo menu_active($this->fetch_class, 'blogs/index');?>" href="<?php echo base_url()?>blogs/index">Blogs</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php echo menu_active($this->fetch_class, 'services/index');?>" href="<?php echo base_url()?>services/index">Servicios</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php echo menu_active($this->fetch_class, 'abouts/index');?>" href="<?php echo base_url()?>abouts/index">Acerca de</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php echo menu_active($this->fetch_class, 'contacts/index');?>" href="<?php echo base_url()?>contacts/index">Contactos</a>
+				</li>
+			</ul>
+		</div>
+		<button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse"
+				data-target="#navbarTogglerDemo01" aria-expanded="false">
+			<span class="fa fa-search" aria-hidden="true"></span>
+		</button>
+	</div>
+</nav>
+<!--/ Nav End /-->

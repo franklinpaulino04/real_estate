@@ -11,6 +11,7 @@ class Home extends APP_Controller
         $this->namespace                = "app";
         $this->title                    = '';
 
+
 //        $this->load->module('com_accounts/controllers/com_accounts');
     }
 

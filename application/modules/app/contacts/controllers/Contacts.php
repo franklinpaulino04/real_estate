@@ -11,6 +11,7 @@ class Contacts extends APP_Controller
         $this->namespace                = "app";
         $this->title                    = '';
 
+
         $this->load->model('contacts/contacts_model');
     }
 

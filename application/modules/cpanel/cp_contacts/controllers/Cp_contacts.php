@@ -11,6 +11,7 @@ class Cp_contacts extends CP_Controller
         parent::__construct();
         $this->namespace                = "cpanel";
         $this->title                    = '';
+		$this->moduleId                 = 2;
 
         $this->load->model('cp_contacts/cp_contacts_model');
 

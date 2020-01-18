@@ -1,15 +1,16 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- form -->
-	<form id="form" action="<?php echo base_url()?>cp_properties/update/<?php echo $row->propertyId?>" method="post">
+	<form id="form" action="<?php echo base_url()?>cp_properties/update/<?php echo $row->propertyId?>" method="post" enctype="multipart/form-data" role="form">
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
 				<h6 class="m-0 font-weight-bold text-primary">Propiedad/</h6>
 			</div>
+			<div class="response"></div>
 			<div class="card-body">
 				<div class="row form-group">
 					<label class="col-md-3 text-right" for="">Nombre</label>
-					<div class="col-md-5"><input type="text" name="name" class="form-control" value="<?php echo $row->name;?>"></div>
+					<div class="col-md-5"><input type="text" name="name_properies" class="form-control" value="<?php echo $row->name;?>"></div>
 				</div>
 				<div class="row form-group">
 					<label class="col-md-3 text-right" for="">Descripción</label>
@@ -64,7 +65,7 @@
 				<div class="row form-group">
 					<label class="col-md-3 text-right" for="">Imagenes</label>
 					<div class="col-md-5">
-						<input type="file" name="file_image[]" class="form-control">
+						<input type="file" name="file[]" class="form-control" multiple="multiple">
 					</div>
 				</div>
 			</div>

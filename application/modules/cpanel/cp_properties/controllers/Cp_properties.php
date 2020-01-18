@@ -12,9 +12,14 @@ class Cp_properties extends CP_Controller
         parent::__construct();
         $this->namespace                = "cpanel";
         $this->title                    = '';
+		$this->moduleId                 = 4;
 
+		//load model
         $this->load->model('cp_properties/cp_properties_model');
         $this->load->model('cp_categories/cp_categories_model');
+
+        //load module
+		$this->load->module('com_files/controller/com_files');
 
         $this->category                 = $this->cp_categories_model->get_assoc_list('categoryId AS id, name', array('hidden' => 0));
         $this->columns                  = "annulmentId,companyId,type,code,status";
@@ -68,33 +73,55 @@ class Cp_properties extends CP_Controller
 		$this->load->view('includes/template', $data);
     }
 
-    public function update($annulmentId)
+    public function update($propertyId)
     {
-        $annulment_code = $this->input->post('code');
-        $annulment_type = trim($this->input->post('type'));
 
-        $this->validation->set_rule('type', $this->lang->line('valid_annulment_type'), array("required",
-            'annulment_check_callback' => (function() use($annulment_type, $annulmentId) { return $this->annulment_type_check($annulment_type, $annulmentId);}),
-        ));
-        $this->validation->set_rule('code', $this->lang->line('valid_annulment_code'), array("required",
-            'annulment_code_check_callback' => (function() use($annulment_code, $annulmentId) { return $this->annulment_code_check($annulment_code, $annulmentId);}),
-        ));
+		$this->form_validation->set_rules('name_properies','<strong>Nombre</strong>','trim|required');
+		$this->form_validation->set_rules('price','<strong>Precio</strong>','trim|required');
+		$this->form_validation->set_rules('categoryId','<strong>Categoria</strong>','is_natural_no_zero');
 
-        if($this->validation->run($this) == FALSE)
-        {
-            echo json_encode(array('result' => 0, 'error' => display_errors($this->validation->errors())));
-        }
+
+		if($this->form_validation->run($this) == FALSE)
+		{
+			echo json_encode(array('result' => 0, 'error' => display_error(validation_errors())));
+		}
         else
         {
             $data = array(
-                'companyId'             => $this->companyId,
-                "code"                  => $this->input->post('code'),
-                "type"                  => $this->input->post('type'),
-                "description"           => $this->input->post('description'),
-                "status"                => (isset($_POST['active']))? $this->input->post('active') : 0 ,
+                "name"                  => $this->input->post('name_properies'),
+                "price"                 => $this->strip_commas($this->input->post('price')),
+                "categoryId"            => $this->input->post('categoryId'),
+//                "status"                => (isset($_POST['active']))? $this->input->post('active') : 0 ,
             );
 
-            if($this->cp_properties_model->save($data, $annulmentId))
+			if(!empty($_FILES))
+			{
+				foreach ($_FILES AS $key => $values)
+				{
+					$ext                        = substr(strrchr($_FILES['file']['name'][$key], "."), 1);
+					$data_file = array(
+						'file_name'             => '',
+						'file_type'             => $ext,
+						'folder'                => 'files',
+						'max_size'              => 5000000
+					);
+
+					$result            			= $this->com_files->multiple($data_file);
+
+					if($result["result"] != 0)
+					{
+						$data['documentId']     = $propertyId;
+						$data['documentId']     = $this->moduleId;
+						$data['name']           = $result['file'];
+						$data['size']           = $_FILES['file']['size'][$key];
+						$data['original_name']  = $_FILES['file']['name'][$key];
+
+						$this->docs_model->save($data);
+					}
+				}
+			}
+
+            if($this->cp_properties_model->save($data, $propertyId))
             {
                 echo json_encode(array('result' => 1));
             }

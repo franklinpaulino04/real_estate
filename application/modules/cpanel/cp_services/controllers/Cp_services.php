@@ -11,7 +11,7 @@ class Cp_services extends CP_Controller
         parent::__construct();
         $this->namespace                = "cpanel";
         $this->title                    = '';
-
+		$this->moduleId                 = 6;
         $this->load->model('Agents/cp_services_model');
 
 //        $this->load->module('com_accounts/controllers/com_accounts');

@@ -20,12 +20,22 @@ $(document).ready(function() {
   $(document).on('click', '#submit', function (e) {
     e.preventDefault();
 
-    var selector = $(this).data(),
-        form     = $('#form'),
-        url      = form.attr('action'),
-        data     = form.serialize();
+    var selector   = $(this).data(),
+        form       = $('#form'),
+        url        = form.attr('action'),
+        data       = form.serialize();
+	  var formData = new FormData(form[0]);
 
-    $.ajax({type: 'post', url: url, data: data}).done(function (data) {
+    $.ajax({
+		type: 'post',
+		url: url,
+		data: formData,
+		async: false,
+		cache: false,
+		contentType: false,
+		enctype: 'multipart/form-data',
+		processData: false,
+    }).done(function (data) {
       var response = JSON.parse(data);
       if(response.result == 1){
         $(selector.target).modal('hide');

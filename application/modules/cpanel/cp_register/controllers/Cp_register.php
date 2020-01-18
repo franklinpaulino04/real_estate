@@ -12,6 +12,7 @@ class Cp_register extends CP_Controller
         parent::__construct();
         $this->namespace                = "cpanel";
         $this->title                    = '';
+		$this->moduleId                 = 5;
 
         $this->load->model('cp_register/cp_register_model');
         $this->load->model('cp_register/cp_user_register_model');

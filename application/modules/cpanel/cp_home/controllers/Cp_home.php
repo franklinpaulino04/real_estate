@@ -11,6 +11,7 @@ class Cp_home extends CP_Controller
         parent::__construct();
         $this->namespace                = "cpanel";
         $this->title                    = '';
+		$this->moduleId                 = 3;
 
         $this->load->model('cp_home/cp_home_model');
 
