@@ -79,6 +79,8 @@ class Cp_services extends CP_Controller
 				"mobile"                 => $this->input->post('mobile'),
 				"phone"             	 => $this->input->post('phone'),
 				"correo"                 => $this->input->post('correo'),
+				'date_issue'    		 => timestamp_to_date(gmt_to_local(now(), 'UTC', FALSE), "Y-m-d"),
+				'date_modifier'    		 => timestamp_to_date(gmt_to_local(now(), 'UTC', FALSE), "Y-m-d"),
 				"statusId"               => (isset($_POST['active']))? $this->input->post('active') : 0,
 			);
 
@@ -132,6 +134,7 @@ class Cp_services extends CP_Controller
 				"mobile"                 => $this->input->post('mobile'),
 				"phone"             	 => $this->input->post('phone'),
 				"correo"                 => $this->input->post('correo'),
+				'date_modifier'    		 => timestamp_to_date(gmt_to_local(now(), 'UTC', FALSE), "Y-m-d"),
 				"statusId"               => (isset($_POST['active']))? $this->input->post('active') : 0,
 			);
 

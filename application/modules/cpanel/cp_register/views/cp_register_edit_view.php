@@ -8,6 +8,14 @@
 			<div class="response"></div>
            <div class="row">
                <div class="col-md-8">
+				   <div class="row form-group">
+					   <div class="col-md-3 text-right mg-t-5"><label class="" for="name-category">Usuario:</label></div>
+					   <div class="col-md-7"><input type="text" class="form-control" id="username" name="username" value="<?php echo $row->username;?>" placeholder=""></div>
+				   </div>
+				   <div class="row form-group">
+					   <div class="col-md-3 text-right mg-t-5"><label class="" for="name-category">Contraseña:</label></div>
+					   <div class="col-md-7"><input type="text" class="form-control" id="password" name="password"  placeholder=""></div>
+				   </div>
                    <div class="row form-group">
 					   <input type="hidden" name="userId" value="<?php echo $row->userId; ?>">
                        <div class="col-md-3 text-right mg-t-5"><label class="" for="name-category">Nombre:</label></div>
@@ -17,14 +25,18 @@
                        <div class="col-md-3 text-right mg-t-5"><label class="" for="name-category">Apellido:</label></div>
                        <div class="col-md-7"><input type="text" class="form-control" id="last_name" name="last_name" value="<?php echo $row->last_name;?>" placeholder=""></div>
                    </div>
-                   <div class="row form-group">
-                       <div class="col-md-3 text-right mg-t-5"><label class="" for="name-category">Usuario:</label></div>
-                       <div class="col-md-7"><input type="text" class="form-control" id="email" name="email" value="<?php echo $row->email;?>" placeholder=""></div>
-                   </div>
-                   <div class="row form-group">
-                       <div class="col-md-3 text-right mg-t-5"><label class="" for="name-category">Contraseña:</label></div>
-                       <div class="col-md-7"><input type="text" class="form-control" id="password" name="password"  placeholder=""></div>
-                   </div>
+				   <div class="row form-group">
+					   <div class="col-md-3 text-right mg-t-5"><label class="" for="name-category">Teléfono:</label></div>
+					   <div class="col-md-7"><input type="text" class="form-control phone" id="phone" name="phone" value="<?php echo $row->phone;?>" placeholder=""></div>
+				   </div>
+				   <div class="row form-group">
+					   <div class="col-md-3 text-right mg-t-5"><label class="" for="name-category">Celular:</label></div>
+					   <div class="col-md-7"><input type="text" class="form-control phone" id="mobile" name="mobile" value="<?php echo $row->mobile;?>" placeholder=""></div>
+				   </div>
+				   <div class="row form-group">
+					   <div class="col-md-3 text-right mg-t-5"><label class="" for="name-category">Correo:</label></div>
+					   <div class="col-md-7"><input type="text" class="form-control" id="email" name="email" value="<?php echo $row->email;?>" placeholder=""></div>
+				   </div>
 				   <div class="row form-group">
 					   <div class="col-md-3 text-right"><label class="" for="active">Activo:</label></div>
 					   <div class="col-md-7">
@@ -56,7 +68,7 @@
         </form>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" type="submit" id="submit" data-target="#add-cp-register">Guardar</button>
+		<button class="btn btn-primary ladda-button" data-style="expand-right" type="submit" id="submit" data-target="#add-cp-register">Agregar</button>
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
     </div>
 </div>

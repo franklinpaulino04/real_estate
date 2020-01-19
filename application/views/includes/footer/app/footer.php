@@ -1,91 +1,4 @@
 <!--/ footer Star /-->
-<section class="section-footer">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12 col-md-4">
-				<div class="widget-a">
-					<div class="w-header-a">
-						<h3 class="w-title-a text-brand">EstateAgency</h3>
-					</div>
-					<div class="w-body-a">
-						<p class="w-text-a color-text-a">
-							Enim minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip exea commodo consequat duis
-							sed aute irure.
-						</p>
-					</div>
-					<div class="w-footer-a">
-						<ul class="list-unstyled">
-							<li class="color-a">
-								<span class="color-text-a">Phone .</span> contact@example.com</li>
-							<li class="color-a">
-								<span class="color-text-a">Email .</span> +54 356 945234</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-12 col-md-4 section-md-t3">
-				<div class="widget-a">
-					<div class="w-header-a">
-						<h3 class="w-title-a text-brand">The Company</h3>
-					</div>
-					<div class="w-body-a">
-						<div class="w-body-a">
-							<ul class="list-unstyled">
-								<li class="item-list-a">
-									<i class="fa fa-angle-right"></i> <a href="#">Site Map</a>
-								</li>
-								<li class="item-list-a">
-									<i class="fa fa-angle-right"></i> <a href="#">Legal</a>
-								</li>
-								<li class="item-list-a">
-									<i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
-								</li>
-								<li class="item-list-a">
-									<i class="fa fa-angle-right"></i> <a href="#">Careers</a>
-								</li>
-								<li class="item-list-a">
-									<i class="fa fa-angle-right"></i> <a href="#">Affiliate</a>
-								</li>
-								<li class="item-list-a">
-									<i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-12 col-md-4 section-md-t3">
-				<div class="widget-a">
-					<div class="w-header-a">
-						<h3 class="w-title-a text-brand">International sites</h3>
-					</div>
-					<div class="w-body-a">
-						<ul class="list-unstyled">
-							<li class="item-list-a">
-								<i class="fa fa-angle-right"></i> <a href="#">Venezuela</a>
-							</li>
-							<li class="item-list-a">
-								<i class="fa fa-angle-right"></i> <a href="#">China</a>
-							</li>
-							<li class="item-list-a">
-								<i class="fa fa-angle-right"></i> <a href="#">Hong Kong</a>
-							</li>
-							<li class="item-list-a">
-								<i class="fa fa-angle-right"></i> <a href="#">Argentina</a>
-							</li>
-							<li class="item-list-a">
-								<i class="fa fa-angle-right"></i> <a href="#">Singapore</a>
-							</li>
-							<li class="item-list-a">
-								<i class="fa fa-angle-right"></i> <a href="#">Philippines</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
 <footer>
 	<div class="container">
 		<div class="row">
@@ -93,19 +6,22 @@
 				<nav class="nav-footer">
 					<ul class="list-inline">
 						<li class="list-inline-item">
-							<a href="#">Home</a>
+							<a href="<?php echo base_url()?>home/index">Hogar</a>
 						</li>
 						<li class="list-inline-item">
-							<a href="#">About</a>
+							<a href="<?php echo base_url()?>properties/index">Propiedades</a>
 						</li>
 						<li class="list-inline-item">
-							<a href="#">Property</a>
+							<a href="<?php echo base_url()?>blogs/index">Blogs</a>
 						</li>
 						<li class="list-inline-item">
-							<a href="#">Blog</a>
+							<a href="<?php echo base_url()?>services/index">Servicios</a>
 						</li>
 						<li class="list-inline-item">
-							<a href="#">Contact</a>
+							<a href="<?php echo base_url()?>abouts/index">Acerca de</a>
+						</li>
+						<li class="list-inline-item">
+							<a href="<?php echo base_url()?>contacts/index">Contactos</a>
 						</li>
 					</ul>
 				</nav>
@@ -126,22 +42,12 @@
 								<i class="fa fa-instagram" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li class="list-inline-item">
-							<a href="#">
-								<i class="fa fa-pinterest-p" aria-hidden="true"></i>
-							</a>
-						</li>
-						<li class="list-inline-item">
-							<a href="#">
-								<i class="fa fa-dribbble" aria-hidden="true"></i>
-							</a>
-						</li>
 					</ul>
 				</div>
 				<div class="copyright-footer">
 					<p class="copyright color-text-a">
 						&copy; Copyright
-						<span class="color-a">EstateAgency</span> All Rights Reserved.
+						<span class="color-a"><?php echo date('Y');?></span> All Rights Reserved.
 					</p>
 				</div>
 				<div class="credits">

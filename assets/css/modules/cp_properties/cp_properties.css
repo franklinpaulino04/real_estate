@@ -1,0 +1,19 @@
+.mg-t-5{
+	margin-top: 5px!important;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+	.jFiler-input-dragDrop {
+		width: auto;
+	}
+}
+
+.mg-t-16{
+	margin-top: 16px;
+}
+
+.jFiler-item-thumb-image img{
+	width: 100px!important;
+	height: 100px!important;
+}

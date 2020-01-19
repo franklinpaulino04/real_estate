@@ -28,6 +28,10 @@
 	<link rel="stylesheet" href="<?php echo base_url()?>assets/plugins/styleCheckbox/customize.checkbox.css">
 	<link rel="stylesheet" href="<?php echo base_url()?>assets/plugins/styleCheckbox/customize.radio.css">
 	<link rel="stylesheet" href="<?php echo base_url()?>assets/plugins/jasny-bootstrap/css/jasny-bootstrap.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/plugins/chosen/bootstrap-chosen.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/plugins/tags/tagsinput.css">
+<!--	<link rel="stylesheet" href="--><?php //echo base_url()?><!--assets/plugins/jquery.filer/css/jquery.filer.css">-->
+	<link href="<?php echo base_url()?>assets/plugins/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css" type="text/css" rel="stylesheet" />
 	<!-- Plugins -->
 </head>
 

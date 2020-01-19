@@ -7,7 +7,9 @@
         <div class="card-header py-3">
            <div class="row">
                <div class="col-md-6"> <h6 class="m-0 font-weight-bold text-primary">Usuarios</h6></div>
-               <div class="col-md-6 text-right"><a class="btn btn-primary modal_trigger" href="javascript:void(0);" data-url="<?php echo base_url()?>cp_register/add" data-target="#add-cp-register" data-toggle="modal">Nuevo</a></div>
+               <div class="col-md-6 text-right">
+				   <a class="btn btn-primary modal_trigger ladda-button" data-style="expand-right" href="javascript:void(0);" data-url="<?php echo base_url()?>cp_register/add" data-target="#add-cp-register" data-toggle="modal">Nuevo</a>
+			   </div>
            </div>
         </div>
         <div class="card-body">

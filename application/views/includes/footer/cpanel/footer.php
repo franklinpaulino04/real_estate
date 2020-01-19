@@ -23,7 +23,8 @@
 </a>
 
 <!-- Bootstrap core JavaScript-->
-<script src="<?php echo base_url()?>assets/sb_admin/vendor/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery-latest.min.js"></script>
+<!--<script src="--><?php //echo base_url()?><!--assets/sb_admin/vendor/jquery/jquery.min.js"></script>-->
 <script src="<?php echo base_url()?>assets/sb_admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
@@ -49,6 +50,9 @@
 <script src="<?php echo base_url()?>assets/plugins/chosen/js/chosen.jquery.js"></script>
 <script src="<?php echo base_url()?>assets/plugins/jasny-bootstrap/js/jasny-bootstrap.js"></script>
 <script src="<?php echo base_url()?>assets/plugins/mask/dist/jquery.mask.js"></script>
+<script src="<?php echo base_url()?>assets/plugins/tags/tagsinput.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/plugins/jquery.filer/js/jquery.filer.min.js"></script>
+<!--<script type="text/javascript" src="--><?php //echo base_url()?><!--assets/plugins/jquery.filer/js/custom.js"></script>-->
 </body>
 
 </html>

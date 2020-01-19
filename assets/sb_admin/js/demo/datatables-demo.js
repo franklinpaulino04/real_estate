@@ -80,6 +80,33 @@ $(document).ready(function() {
 			}
 		});
 	});
+
+	$(document).on('change', '.currency-format, .currency, .number', function() {
+		$(this).val(formatCurrency($(this).val()));
+	});
+
+	$(document).on('click', '.cancel_document', function (e) {
+		e.preventDefault();
+		var thisSelector       = $(this).data(),
+			title              = 'Atención',
+			text               = 'Esta Seguro que Desea Cancelar este Documento?',
+			type               = 'warning',
+			confirmButtonText  = 'OK',
+			cancelButtonText   = 'Cancelar';
+
+		Swal.fire({
+			title: title,
+			text: text,
+			type: type,
+			showCancelButton: true,
+			cancelButtonText: cancelButtonText,
+			confirmButtonText: confirmButtonText,
+		}).then((result) => {
+			if (result.value == true) {
+				window.location = thisSelector.redirect;
+			}
+		});
+	});
 });
 
 var url = {
@@ -107,4 +134,34 @@ var globalPlugins = function () {
 	$('.chosen-select').chosen({ allow_single_deselect: true });
 	if($('.phone').length > 0){$('.phone').mask("9-999-999-9999");}
 	Ladda.bind('.ladda-button');
+	$(".tags").tagsinput();
 };
+
+
+var formatCurrency = function(num) {
+	num             = ((typeof num !== 'undefined') && (num !== null))? num : 0;
+	num             = num.toString().replace(/\$|\,/g,'');
+
+	if(isNaN(num)){
+		num         = "0";
+	}
+
+	sign            = (num == (num = Math.abs(num)));
+	num             = Math.floor(num*100+0.50000000001);
+	cents           = num%100;
+	num             = Math.floor(num/100).toString();
+
+	if(cents < 10) {
+		cents       = "0" + cents;
+	}
+
+	for(var i = 0; i < Math.floor((num.length-(1+i))/3); i++) {
+
+		num = num.substring(0,num.length-(4*i+3))+','+ num.substring(num.length-(4*i+3));
+
+	}
+
+	return (((sign)?'':'-') + num + '.' + cents);
+};
+
+

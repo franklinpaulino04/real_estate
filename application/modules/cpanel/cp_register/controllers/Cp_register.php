@@ -61,7 +61,7 @@ class Cp_register extends CP_Controller
     {
 		$this->form_validation->set_rules('first_name', '<strong>Nombre</strong>', 'required');
 		$this->form_validation->set_rules('last_name', '<strong>Apellido</strong>', 'required');
-		$this->form_validation->set_rules('email', '<strong>Usuario</strong>', 'trim|required|callback_user_email_check');
+		$this->form_validation->set_rules('username', '<strong>Usuario</strong>', 'trim|required|callback_user_email_check');
 		$this->form_validation->set_rules('password', '<strong>Contraseña</strong>', 'required|trim');
 
 		if($this->form_validation->run($this) == FALSE)
@@ -78,8 +78,11 @@ class Cp_register extends CP_Controller
 			$data = array(
 				"first_name"            => $this->input->post('first_name'),
 				"last_name"             => $this->input->post('last_name'),
+				"username"              => $this->input->post('username'),
 				"email"                 => $this->input->post('email'),
-				"password"              => md5($this->input->post('password')),
+				"phone"                 => $this->input->post('phone'),
+				"mobile"                => $this->input->post('mobile'),
+				'password' 				=> md5($this->input->post('password')),
 				"statusId"              => (isset($_POST['active']))? $this->input->post('active') : 0,
 			);
 
@@ -112,7 +115,7 @@ class Cp_register extends CP_Controller
     {
 		$this->form_validation->set_rules('first_name', '<strong>Nombre</strong>', 'required');
 		$this->form_validation->set_rules('last_name', '<strong>Apellido</strong>', 'required');
-		$this->form_validation->set_rules('email', '<strong>Usuario</strong>', 'trim|required|callback_user_email_check');
+		$this->form_validation->set_rules('username', '<strong>Usuario</strong>', 'trim|required|callback_user_email_check');
 
 		if($this->form_validation->run($this) == FALSE)
         {
@@ -128,7 +131,10 @@ class Cp_register extends CP_Controller
             $data = array(
 				"first_name"            => $this->input->post('first_name'),
 				"last_name"             => $this->input->post('last_name'),
+				"username"              => $this->input->post('username'),
 				"email"                 => $this->input->post('email'),
+				"phone"                 => $this->input->post('phone'),
+				"mobile"                => $this->input->post('mobile'),
 				"statusId"              => (isset($_POST['active']))? $this->input->post('active') : 0,
             );
 
@@ -175,9 +181,9 @@ class Cp_register extends CP_Controller
 	public function user_email_check()
 	{
 		$where = array(
-			'LOWER(REPLACE(email," ",""))=' => clear_space($this->input->post('email')),
-			'hidden'                        => 0,
-			'userId !='                     => (isset($_POST['userId']) && $_POST['userId'] != 0)? $_POST['userId'] : 0
+			'LOWER(REPLACE(username," ",""))=' => clear_space($this->input->post('email')),
+			'hidden'                           => 0,
+			'userId !='                        => (isset($_POST['userId']) && $_POST['userId'] != 0)? $_POST['userId'] : 0
 		);
 
 		return ($this->cp_register_model->in_table_by($where) > 0)? FALSE : TRUE;
