@@ -11,14 +11,14 @@ class Home extends APP_Controller
         $this->namespace                = "app";
         $this->title                    = '';
 
-
-//        $this->load->module('com_accounts/controllers/com_accounts');
+		//load model
+		$this->load->model('home/services_model');
     }
 
     public function index()
     {
         $data ['content']               = 'home/home_view';
-
+        $data['services_rows']			= $this->services_model->get_by(array('hidden' => 0 , 'statusId' => 1));
         $this->load->view('includes/template', $data);
     }
 }

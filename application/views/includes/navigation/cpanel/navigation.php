@@ -88,7 +88,7 @@
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $this->session->userdata('user_data')['first_name'].' '.$this->session->userdata('user_data')['last_name'];?></span>
-                        <img class="img-profile rounded-circle" width="60px" height="60px" src="<?php echo base_url();?>assets/sb_admin/img/<?php echo $this->session->userdata('user_data')['image'];?>">
+                        <img class="img-profile rounded-circle" width="60px" height="60px" src="<?php echo base_url();?>assets/storage/files/avatars/<?php echo $this->session->userdata('user_data')['image'];?>">
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

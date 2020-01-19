@@ -41,7 +41,7 @@
 					   <div class="col-md-9">
 						   <div class="fileinput fileinput-new" data-provides="fileinput">
 							   <div class="fileinput-new img-thumbnail" style="width: 200px; height: 150px; text-align: center">
-								   <img src="<?php echo base_url('assets/sb_admin/img/'.$row->image);?>"  alt="...">
+								   <img src="<?php echo base_url('assets/storage/files/avatars/'.$row->image);?>"  alt="...">
 							   </div>
 							   <div class="fileinput-preview fileinput-exists img-thumbnail" style="max-width: 200px; max-height: 150px;"></div>
 							   <div class="file-buttons">

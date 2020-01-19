@@ -48,6 +48,7 @@
 <script src="<?php echo base_url()?>assets/plugins/ladda/dist/ladda.min.js"></script>
 <script src="<?php echo base_url()?>assets/plugins/chosen/js/chosen.jquery.js"></script>
 <script src="<?php echo base_url()?>assets/plugins/jasny-bootstrap/js/jasny-bootstrap.js"></script>
+<script src="<?php echo base_url()?>assets/plugins/mask/dist/jquery.mask.js"></script>
 </body>
 
 </html>

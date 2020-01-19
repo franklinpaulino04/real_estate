@@ -12,11 +12,11 @@ class Cp_services extends CP_Controller
         $this->namespace                = "cpanel";
         $this->title                    = '';
 		$this->moduleId                 = 6;
-        $this->load->model('Agents/cp_services_model');
 
-//        $this->load->module('com_accounts/controllers/com_accounts');
+        $this->load->model('cp_services/cp_services_model');
+		$this->load->module('com_files/controller/com_files');
 
-        $this->columns                  = "annulmentId,companyId,type,code,status";
+        $this->columns                  = "serviceId,name,description,phone,mobile,correo,image,class,status";
     }
 
     public function index()
@@ -28,130 +28,155 @@ class Cp_services extends CP_Controller
 
     /* PUBLIC FUCTION *****************************************************************************/
 
-    public function datatables($output = false)
-    {
-        $result = $this->cp_services_model->ignitedtables($this->columns);
+	public function datatables($output = false)
+	{
+		$result = $this->cp_services_model->view(FALSE, $this->columns);
 
-        switch($output)
-        {
-            case"return":
-                return $result;
-                break;
-            default:
-                echo $result;
-        }
-    }
+		switch($output)
+		{
+			case"return":
+				return $result;
+				break;
+			default:
+				echo json_encode(array('data' => $result));
+		}
+	}
 
-    public function add()
-    {
-        echo json_encode(array('result' => $this->load->view('annulment/annulment_new_view', array(), TRUE)));
-    }
+	public function add()
+	{
+		echo json_encode(array('result' => 1, 'view' => $this->load->view('cp_services/cp_services_new_view', array(), TRUE)));
+	}
 
-    public function edit($annulmentId)
-    {
-        $data                           = array();
-        $data['row']                    = $this->cp_services_model->get($annulmentId);
-        $result['result']               = $this->load->view('annulment/annulment_edit_view',$data,true);
+	public function edit($serviceId)
+	{
+		$data                           = array();
+		$data['row']                    = $this->cp_services_model->get_by(array('serviceId' => $serviceId), TRUE);
+		echo json_encode(array('result' => 1, 'view' => $this->load->view('cp_services/cp_services_edit_view', $data, TRUE)));
+	}
 
-        echo json_encode($result);
-    }
+	public function insert()
+	{
+		$this->form_validation->set_rules('name_services', '<strong>Nombre</strong>', 'required|callback_service_name_check');
+		$this->form_validation->set_rules('description', '<strong>Descripción</strong>', 'required');
+		$this->form_validation->set_rules('mobile', '<strong>Telefono</strong>', 'trim|required');
+		$this->form_validation->set_rules('phone', '<strong>Celular</strong>', 'trim|required');
+		$this->form_validation->set_rules('correo', '<strong>Correo</strong>', 'required|valid_email');
 
-    public function insert()
-    {
-        $annulment_type = trim($this->input->post('type'));
-        $annulment_code = $this->input->post('code');
-        $this->validation->set_rule('type', $this->lang->line('valid_annulment_type'), array("required",
-            'annulment_check_callback' => (function() use($annulment_type) { return $this->annulment_type_check($annulment_type);}),
-        ));
+		if($this->form_validation->run($this) == FALSE)
+		{
+			echo json_encode(array('result' => 0,
+				'error' => '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+													<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+													<h4 class="opacity-message">Errores de Validación</h4>
+													<ol>'.validation_errors().'</ol>
+                								</div>'));
+		}
+		else
+		{
+			$data = array(
+				"name"                   => $this->input->post('name_services'),
+				"description"            => $this->input->post('description'),
+				"mobile"                 => $this->input->post('mobile'),
+				"phone"             	 => $this->input->post('phone'),
+				"correo"                 => $this->input->post('correo'),
+				"statusId"               => (isset($_POST['active']))? $this->input->post('active') : 0,
+			);
 
-        $this->validation->set_rule('code', $this->lang->line('valid_annulment_code'), array("required",
-            'annulment_code_check_callback' => (function() use($annulment_code) { return $this->annulment_code_check($annulment_code);}),
-        ));
+			if(!empty($_FILES))
+			{
+				$ext                      = substr(strrchr($_FILES['file']['name'], "."), 1);
+				$data_file = array(
+					'file_name'           => '',
+					'file_type'           => $ext,
+					'allowed_types'       => 'gif|jpg|png|jpeg',
+					'folder'              => 'services'
+				);
 
-        if($this->validation->run($this) == FALSE)
-        {
-            echo json_encode(array('result' => 0, 'error' => display_errors($this->validation->errors())));
-        }
-        else
-        {
-            $data = array(
-                'companyId'             => $this->companyId,
-                "code"                  => $this->input->post('code'),
-                "type"                  => $this->input->post('type'),
-                "description"           => $this->input->post('description'),
-                "status"                => (isset($_POST['active']))? $this->input->post('active') : 0 ,
-            );
+				$result            	      = $this->com_files->upload($data_file);
 
-            if($this->cp_services_model->save($data))
-            {
-                echo json_encode(array('result' => 1));
-            }
-        }
-    }
+				if($result["result"] != 0)
+				{
+					$data['image']  = $result['file'];
+				}
+			}
 
-    public function update($annulmentId)
-    {
-        $annulment_code = $this->input->post('code');
-        $annulment_type = trim($this->input->post('type'));
+			if($this->cp_services_model->save($data))
+			{
+				echo json_encode(array('result' => 1));
+			}
+		}
+	}
 
-        $this->validation->set_rule('type', $this->lang->line('valid_annulment_type'), array("required",
-            'annulment_check_callback' => (function() use($annulment_type, $annulmentId) { return $this->annulment_type_check($annulment_type, $annulmentId);}),
-        ));
-        $this->validation->set_rule('code', $this->lang->line('valid_annulment_code'), array("required",
-            'annulment_code_check_callback' => (function() use($annulment_code, $annulmentId) { return $this->annulment_code_check($annulment_code, $annulmentId);}),
-        ));
+	public function update($serviceId)
+	{
+		$this->form_validation->set_rules('name_services', '<strong>Nombre</strong>', 'required|callback_service_name_check');
+		$this->form_validation->set_rules('description', '<strong>Descripción</strong>', 'required');
+		$this->form_validation->set_rules('mobile', '<strong>Telefono</strong>', 'trim|required');
+		$this->form_validation->set_rules('phone', '<strong>Celular</strong>', 'trim|required');
+		$this->form_validation->set_rules('correo', '<strong>Correo</strong>', 'required|valid_email');
 
-        if($this->validation->run($this) == FALSE)
-        {
-            echo json_encode(array('result' => 0, 'error' => display_errors($this->validation->errors())));
-        }
-        else
-        {
-            $data = array(
-                'companyId'             => $this->companyId,
-                "code"                  => $this->input->post('code'),
-                "type"                  => $this->input->post('type'),
-                "description"           => $this->input->post('description'),
-                "status"                => (isset($_POST['active']))? $this->input->post('active') : 0 ,
-            );
+		if($this->form_validation->run($this) == FALSE)
+		{
+			echo json_encode(array('result' => 0,
+				'error' => '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+																<h4 class="opacity-message">Errores de Validación</h4>
+																<ol>'.validation_errors().'</ol>
+                											   </div>'));
+		}
+		else
+		{
+			$data = array(
+				"name"                   => $this->input->post('name_services'),
+				"description"            => $this->input->post('description'),
+				"mobile"                 => $this->input->post('mobile'),
+				"phone"             	 => $this->input->post('phone'),
+				"correo"                 => $this->input->post('correo'),
+				"statusId"               => (isset($_POST['active']))? $this->input->post('active') : 0,
+			);
 
-            if($this->cp_services_model->save($data, $annulmentId))
-            {
-                echo json_encode(array('result' => 1));
-            }
-        }
-    }
+			if(!empty($_FILES))
+			{
+				$ext                      = substr(strrchr($_FILES['file']['name'], "."), 1);
+				$data_file = array(
+					'file_name'           => '',
+					'file_type'           => $ext,
+					'allowed_types'       => 'gif|jpg|png|jpeg',
+					'folder'              => 'avatars'
+				);
 
-    public function hide($annulmentId)
-    {
-        $result['result'] = ($this->cp_services_model->save( array('hidden' => 1), $annulmentId) == TRUE )? 1 : 0;
+				$result            		  = $this->com_files->upload($data_file);
 
-        echo json_encode($result);
-    }
+				if($result["result"] != 0)
+				{
+					$data['image']  = $result['file'];
+				}
+			}
+
+			if($this->cp_services_model->save($data, $serviceId))
+			{
+				echo json_encode(array('result' => 1));
+			}
+		}
+	}
+
+	public function hide($serviceId)
+	{
+		if($this->cp_services_model->save(array('hidden' => 1), $serviceId))
+		{
+			echo json_encode(array('result' => 1));
+		}
+	}
 
     /* PRIVATE FUNCTION *********************************************************************************************/
+	public function service_name_check()
+	{
+		$where = array(
+			'LOWER(REPLACE(name," ",""))='  => clear_space($this->input->post('name_services')),
+			'hidden'                        => 0,
+			'serviceId !='                  => (isset($_POST['serviceId']) && $_POST['serviceId'] != 0)? $_POST['serviceId'] : 0
+		);
 
-    private function annulment_type_check($annulment_type = FALSE, $annulmentId = FALSE)
-    {
-        $where = array(
-            'LOWER(REPLACE(type," ",""))=' => clear_space($annulment_type),
-            'companyId'                    => $this->companyId,
-            'hidden'                       => 0,
-            'annulmentId !='               => ($annulmentId != FALSE)? $annulmentId : 0
-        );
-
-        return ($this->cp_services_model->in_table_by($where) > 0)? FALSE : TRUE;
-    }
-
-    private function annulment_code_check($annulment_code = FALSE, $annulmentId = FALSE)
-    {
-        $where = array(
-            'LOWER(REPLACE(code," ",""))=' => clear_space($annulment_code),
-            'companyId'                    => $this->companyId,
-            'hidden'                       => 0,
-            'annulmentId !='               => ($annulmentId != FALSE)? $annulmentId : 0
-        );
-
-        return ($this->cp_services_model->in_table_by($where) > 0)? FALSE : TRUE;
-    }
+		return ($this->cp_services_model->in_table_by($where) > 0)? FALSE : TRUE;
+	}
 }

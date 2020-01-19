@@ -87,78 +87,32 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-4">
-				<div class="card-box-c foo">
-					<div class="card-header-c d-flex">
-						<div class="card-box-ico">
-							<span class="fa fa-gamepad"></span>
-						</div>
-						<div class="card-title-c align-self-center">
-							<h2 class="title-c">Lifestyle</h2>
-						</div>
-					</div>
-					<div class="card-body-c">
-						<p class="content-c">
-							Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa,
-							convallis a pellentesque
-							nec, egestas non nisi.
-						</p>
-					</div>
-					<div class="card-footer-c">
-						<a href="#" class="link-c link-icon">Read more
-							<span class="ion-ios-arrow-forward"></span>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="card-box-c foo">
-					<div class="card-header-c d-flex">
-						<div class="card-box-ico">
-							<span class="fa fa-usd"></span>
-						</div>
-						<div class="card-title-c align-self-center">
-							<h2 class="title-c">Loans</h2>
+			<?php if(!empty($services_rows)):?>
+				<?php foreach ($services_rows AS $row_service): ?>
+					<div class="col-md-4">
+						<div class="card-box-c foo">
+							<div class="card-header-c d-flex">
+								<div class="card-box-ico">
+									<img src="<?php echo base_url('assets/storage/files/services/'.$row_service->image)?>" width="106px" height="106px" alt="">
+								</div>
+								<div class="card-title-c align-self-center">
+									<h2 class="title-c"><?php echo $row_service->name;?></h2>
+								</div>
+							</div>
+							<div class="card-body-c">
+								<p class="content-c">
+									<?php echo $row_service->description;?>
+								</p>
+							</div>
+							<div class="card-footer-c">
+								<a href="<?php echo base_url('services/preview/'.$row_service->serviceId)?>" target="_blank" class="link-c link-icon">Leer mas
+									<span class="ion-ios-arrow-forward"></span>
+								</a>
+							</div>
 						</div>
 					</div>
-					<div class="card-body-c">
-						<p class="content-c">
-							Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit. Mauris blandit
-							aliquet elit, eget tincidunt
-							nibh pulvinar a.
-						</p>
-					</div>
-					<div class="card-footer-c">
-						<a href="#" class="link-c link-icon">Read more
-							<span class="ion-ios-arrow-forward"></span>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="card-box-c foo">
-					<div class="card-header-c d-flex">
-						<div class="card-box-ico">
-							<span class="fa fa-home"></span>
-						</div>
-						<div class="card-title-c align-self-center">
-							<h2 class="title-c">Sell</h2>
-						</div>
-					</div>
-					<div class="card-body-c">
-						<p class="content-c">
-							Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa,
-							convallis a pellentesque
-							nec, egestas non nisi.
-						</p>
-					</div>
-					<div class="card-footer-c">
-						<a href="#" class="link-c link-icon">Read more
-							<span class="ion-ios-arrow-forward"></span>
-						</a>
-					</div>
-				</div>
-			</div>
+				<?php endforeach; ?>
+			<?php endif;?>
 		</div>
 	</div>
 </section>

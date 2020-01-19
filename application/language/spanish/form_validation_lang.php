@@ -40,6 +40,7 @@ $lang['validaSelect']           = "Debe seleccionar una opci&oacute;n en el camp
 $lang['exists_category_check']   = "Ya Existe una categoria con este <strong>%s</strong>";
 
 $lang['user_email_check']   	= "Ya Existe un nombre de usuario con este <strong>%s</strong>";
+$lang['service_name_check']   	= "Ya Existe un nombre de servicio con este <strong>%s</strong>";
 
 
 /* End of file form_validation_lang.php */

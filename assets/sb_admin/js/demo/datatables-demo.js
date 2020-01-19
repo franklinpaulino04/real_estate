@@ -14,6 +14,8 @@ $(document).ready(function() {
       if(response.result == 1){
         $(target + ' .modal-dialog').html(response.view);
       }
+		globalPlugins();
+		Ladda.stopAll();
     });
   });
 
@@ -34,6 +36,7 @@ $(document).ready(function() {
       }else{
         $('.response').html(response.error);
       }
+		Ladda.stopAll();
     });
   });
 
@@ -93,8 +96,15 @@ var url = {
 };
 
 $(function() {
+	globalPlugins();
+});
+
+
+var globalPlugins = function () {
 	if($('.numeric').length > 0){$('.numeric').numeric({negative:false});}
 	if($('.numeric-decimal').length > 0){$('.numeric-decimal').numeric({negative : false, decimalPlaces: 2 });}
 	if($('.date').length > 0){ $('.date').daterangepicker({singleDatePicker: true, showDropdowns: true, locale: {format: 'YYYY-MM-DD'}});}
 	$('.chosen-select').chosen({ allow_single_deselect: true });
-});
+	if($('.phone').length > 0){$('.phone').mask("9-999-999-9999");}
+	Ladda.bind('.ladda-button');
+};
