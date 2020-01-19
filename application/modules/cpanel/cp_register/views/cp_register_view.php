@@ -16,9 +16,9 @@
                     <thead>
                     <tr>
                         <th></th>
+						<th>usuario</th>
                         <th>Nombre</th>
                         <th>Apellido</th>
-                        <th>usuario</th>
                         <th>Imagen</th>
                         <th>Estado</th>
                         <th></th>

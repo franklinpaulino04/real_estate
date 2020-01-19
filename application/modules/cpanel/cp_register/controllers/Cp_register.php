@@ -17,7 +17,9 @@ class Cp_register extends CP_Controller
         $this->load->model('cp_register/cp_register_model');
         $this->load->model('cp_register/cp_user_register_model');
 
-        $this->columns                  = "userId,email,image,first_name,last_name,statusId,`status`,owers,class";
+		$this->load->module('com_files/controller/com_files');
+
+		$this->columns                  = "userId,email,image,first_name,last_name,statusId,`status`,owers,class";
     }
 
     public function index()
@@ -57,37 +59,101 @@ class Cp_register extends CP_Controller
 
     public function insert()
     {
+		$this->form_validation->set_rules('first_name', '<strong>Nombre</strong>', 'required');
+		$this->form_validation->set_rules('last_name', '<strong>Apellido</strong>', 'required');
+		$this->form_validation->set_rules('email', '<strong>Usuario</strong>', 'trim|required|callback_user_email_check');
+		$this->form_validation->set_rules('password', '<strong>Contraseña</strong>', 'required|trim');
 
-        $data = array(
-            "first_name"            => $this->input->post('first_name'),
-            "last_name"             => $this->input->post('last_name'),
-            "email"                 => $this->input->post('email'),
-            "password"              => $this->input->post('password'),
-            "statusId"              => 1,
-        );
+		if($this->form_validation->run($this) == FALSE)
+		{
+			echo json_encode(array('result' => 0,
+									'error' => '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+													<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+													<h4 class="opacity-message">Errores de Validación</h4>
+													<ol>'.validation_errors().'</ol>
+                								</div>'));
+		}
+		else
+		{
+			$data = array(
+				"first_name"            => $this->input->post('first_name'),
+				"last_name"             => $this->input->post('last_name'),
+				"email"                 => $this->input->post('email'),
+				"password"              => md5($this->input->post('password')),
+				"statusId"              => (isset($_POST['active']))? $this->input->post('active') : 0,
+			);
 
-        if($this->cp_register_model->save($data))
-        {
-            echo json_encode(array('result' => 1));
-        }
+			if(!empty($_FILES))
+			{
+				$ext                      = substr(strrchr($_FILES['file']['name'], "."), 1);
+				$data_file = array(
+					'file_name'           => '',
+					'file_type'           => $ext,
+					'allowed_types'       => 'gif|jpg|png|jpeg',
+					'folder'              => 'avatars'
+				);
+
+				$result            	      = $this->com_files->upload($data_file);
+
+				if($result["result"] != 0)
+				{
+					$data['image']  = $result['file'];
+				}
+			}
+
+			if($this->cp_register_model->save($data))
+			{
+				echo json_encode(array('result' => 1));
+			}
+		}
     }
 
     public function update($cp_registerId)
     {
+		$this->form_validation->set_rules('first_name', '<strong>Nombre</strong>', 'required');
+		$this->form_validation->set_rules('last_name', '<strong>Apellido</strong>', 'required');
+		$this->form_validation->set_rules('email', '<strong>Usuario</strong>', 'trim|required|callback_user_email_check');
 
-        if($this->validation->run($this) == FALSE)
+		if($this->form_validation->run($this) == FALSE)
         {
-            echo json_encode(array('result' => 0, 'error' => display_errors($this->validation->errors())));
+			echo json_encode(array('result' => 0,
+									'error' => '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+																<h4 class="opacity-message">Errores de Validación</h4>
+																<ol>'.validation_errors().'</ol>
+                											   </div>'));
         }
         else
         {
             $data = array(
-                'companyId'             => $this->companyId,
-                "code"                  => $this->input->post('code'),
-                "type"                  => $this->input->post('type'),
-                "description"           => $this->input->post('description'),
-                "status"                => (isset($_POST['active']))? $this->input->post('active') : 0 ,
+				"first_name"            => $this->input->post('first_name'),
+				"last_name"             => $this->input->post('last_name'),
+				"email"                 => $this->input->post('email'),
+				"statusId"              => (isset($_POST['active']))? $this->input->post('active') : 0,
             );
+
+            if(isset($_POST['password']) && !empty($_POST['password']))
+            {
+            	$data['password'] = md5($this->input->post('password'));
+			}
+
+			if(!empty($_FILES))
+			{
+				$ext                      = substr(strrchr($_FILES['file']['name'], "."), 1);
+				$data_file = array(
+					'file_name'           => '',
+					'file_type'           => $ext,
+					'allowed_types'       => 'gif|jpg|png|jpeg',
+					'folder'              => 'avatars'
+				);
+
+				$result            		  = $this->com_files->upload($data_file);
+
+				if($result["result"] != 0)
+				{
+					$data['image']  = $result['file'];
+				}
+			}
 
             if($this->cp_register_model->save($data, $cp_registerId))
             {
@@ -106,14 +172,14 @@ class Cp_register extends CP_Controller
 
     /* PRIVATE FUNCTION *********************************************************************************************/
 
-    private function cp_register_email_check($cp_register_email = FALSE, $cp_registerId = FALSE)
-    {
-        $where = array(
-            'LOWER(REPLACE(email," ",""))=' => clear_space($cp_register_email),
-            'hidden'                        => 0,
-            'userId !='                     => ($cp_registerId != FALSE)? $cp_registerId : 0
-        );
+	public function user_email_check()
+	{
+		$where = array(
+			'LOWER(REPLACE(email," ",""))=' => clear_space($this->input->post('email')),
+			'hidden'                        => 0,
+			'userId !='                     => (isset($_POST['userId']) && $_POST['userId'] != 0)? $_POST['userId'] : 0
+		);
 
-        return ($this->cp_register_model->in_table_by($where) > 0)? FALSE : TRUE;
-    }
+		return ($this->cp_register_model->in_table_by($where) > 0)? FALSE : TRUE;
+	}
 }

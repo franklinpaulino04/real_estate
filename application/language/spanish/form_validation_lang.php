@@ -39,6 +39,8 @@ $lang['validaSelect']           = "Debe seleccionar una opci&oacute;n en el camp
 // nombre del metodo callback_bank_name_check (bank_name_check)
 $lang['exists_category_check']   = "Ya Existe una categoria con este <strong>%s</strong>";
 
+$lang['user_email_check']   	= "Ya Existe un nombre de usuario con este <strong>%s</strong>";
+
 
 /* End of file form_validation_lang.php */
 /* Location: ./system/language/spanish/form_validation_lang.php */

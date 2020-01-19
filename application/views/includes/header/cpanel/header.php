@@ -24,7 +24,10 @@
     <!-- Custom styles for this page -->
     <link href="<?php echo base_url()?>assets/sb_admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="<?php echo base_url()?>assets/css/modules/<?php echo $this->router->fetch_class().'/'.$this->router->fetch_class().'.css';?>"  rel="stylesheet">
-
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/plugins/ladda/dist/ladda-themeless.min.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/plugins/styleCheckbox/customize.checkbox.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/plugins/styleCheckbox/customize.radio.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/plugins/jasny-bootstrap/css/jasny-bootstrap.css">
 	<!-- Plugins -->
 </head>
 

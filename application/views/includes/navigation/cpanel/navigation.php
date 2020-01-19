@@ -32,7 +32,6 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Mantenimientos</h6>
-                <a class="collapse-item" href="<?php echo base_url()?>cpanel/categories">Categorias</a>
                 <a class="collapse-item" href="<?php echo base_url()?>cpanel/contacts">Contacts</a>
                 <a class="collapse-item" href="<?php echo base_url()?>cpanel/properties">Propiedades</a>
                 <a class="collapse-item" href="<?php echo base_url()?>cpanel/register">Registros</a>

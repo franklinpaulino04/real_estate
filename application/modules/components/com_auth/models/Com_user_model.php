@@ -14,7 +14,8 @@ class Com_user_model extends MY_Model
     public function cp_auth($username, $password, $encrypted = FALSE, $userId = FALSE)
     {
         $password_user  = ($encrypted == TRUE)? $password : md5($password);
-        $query          = $this->db->query("SELECT a.userId,a.image, a.first_name,a.last_name,a.statusId
+        $query          = $this->db->query("SELECT a.userId,a.image, a.first_name,a.last_name,a.statusId,
+											a.owers
                                             FROM ai_users AS a 
                                                 LEFT JOIN ai_users_status AS b ON b.statusId = a.statusId
                                             WHERE email = '$username' AND `password` = '$password_user' AND a.hidden = 0 AND a.statusId = 1");

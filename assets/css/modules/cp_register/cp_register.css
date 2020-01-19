@@ -1,0 +1,19 @@
+#add-cp-register .modal-dialog {
+	max-width: 720px;
+}
+
+.mg-t-5{
+	margin-top: 5px!important;
+}
+
+.solid-black {
+	border-right: 1px solid #e9ecef;
+}
+
+.fileinput-preview > img{
+	max-height: 107px!important;
+}
+
+.fileinput-new img{
+	max-height: 107px!important;
+}

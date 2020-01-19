@@ -16,10 +16,6 @@ class Cp_properties extends CP_Controller
 
 		//load model
         $this->load->model('cp_properties/cp_properties_model');
-        $this->load->model('cp_categories/cp_categories_model');
-
-        //load module
-		$this->load->module('com_files/controller/com_files');
 
         $this->category                 = $this->cp_categories_model->get_assoc_list('categoryId AS id, name', array('hidden' => 0));
         $this->columns                  = "annulmentId,companyId,type,code,status";

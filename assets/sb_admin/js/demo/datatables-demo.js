@@ -26,16 +26,7 @@ $(document).ready(function() {
         data       = form.serialize();
 	  var formData = new FormData(form[0]);
 
-    $.ajax({
-		type: 'post',
-		url: url,
-		data: formData,
-		async: false,
-		cache: false,
-		contentType: false,
-		enctype: 'multipart/form-data',
-		processData: false,
-    }).done(function (data) {
+    $.ajax({type: 'post', url: url, data: formData, async: false, cache: false, contentType: false, enctype: 'multipart/form-data', processData: false}).done(function (data) {
       var response = JSON.parse(data);
       if(response.result == 1){
         $(selector.target).modal('hide');
@@ -105,4 +96,5 @@ $(function() {
 	if($('.numeric').length > 0){$('.numeric').numeric({negative:false});}
 	if($('.numeric-decimal').length > 0){$('.numeric-decimal').numeric({negative : false, decimalPlaces: 2 });}
 	if($('.date').length > 0){ $('.date').daterangepicker({singleDatePicker: true, showDropdowns: true, locale: {format: 'YYYY-MM-DD'}});}
+	$('.chosen-select').chosen({ allow_single_deselect: true });
 });
