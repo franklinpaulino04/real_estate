@@ -42,12 +42,12 @@
 					<div class="col-md-5"><input type="text" name="price" class="form-control numeric currency" value="<?php echo $row->price;?>"></div>
 				</div>
 				<div class="row form-group">
-					<label class="col-md-3 text-right mg-t-5" for="">Habitaciones</label>
-					<div class="col-md-5"><input type="text" name="rooms" class="form-control numeric currency" value="<?php echo $row->rooms;?>"></div>
-				</div>
-				<div class="row form-group">
 					<label class="col-md-3 text-right mg-t-5" for="">Video</label>
 					<div class="col-md-5"><input type="text" name="video" class="form-control" value="<?php echo $row->video;?>"></div>
+				</div>
+				<div class="row form-group">
+					<label class="col-md-3 text-right mg-t-5" for="">Dirección</label>
+					<div class="col-md-5"><input type="text" name="address" id="address" class="form-control" value="<?php echo $row->address;?>"></div>
 				</div>
 				<div class="row form-group">
 					<label class="col-md-3 text-right mg-t-5" for="">Baños</label>
@@ -62,14 +62,19 @@
 					<div class="col-md-5"><input type="text" name="garage" class="form-control numeric currency" value="<?php echo $row->garage;?>"></div>
 				</div>
 				<div class="row form-group">
+					<label class="col-md-3 text-right mg-t-5" for="">Area</label>
+					<div class="col-md-5"><input type="text" name="area" class="form-control numeric currency" value="<?php echo $row->area;?>"></div>
+				</div>
+				<div class="row form-group">
 					<label class="col-md-3 text-right mg-t-5" for="">Comodidades</label>
 					<div class="col-md-5"><input type="text" name="amenities" class="form-control tags" value="<?php echo $row->amenities;?>"></div>
 				</div>
 				<div class="row form-group">
-					<div class="col-md-3 text-right mg-t-5"><label class="" for="statusId">Activo:</label></div>
+					<div class="col-md-3 text-right"><label class="" for="statusId">Activo:</label></div>
 					<div class="col-md-5">
 						<label class="checkbox">
-							<input type="checkbox" id="statusId" name="statusId"  value="1" placeholder="">
+							<?php $chk_active = ($row->statusId == 1)? 'checked' : ''?>
+							<input type="checkbox" id="statusId" <?php echo $chk_active;?> name="statusId"  value="1" placeholder="">
 							<span class="check"></span>
 						</label>
 					</div>
@@ -103,7 +108,6 @@
 														<tr>
 															<td>
 																<img src="<?php echo base_url('assets/storage/files/properties/'.$doc->name);?>" alt="<?php echo $doc->original_name?>" width="100px" height="100px" class="img-thumbnail">
-<!--																<a href="--><?php //echo base_url('assets/storage/files/properties/'.$doc->name);?><!--" target="_blank">--><?php //echo $doc->original_name?><!--</a>-->
 															</td>
 															<td><?php echo number_format($doc->size/1024,0);?>KB</td>
 															<td class="text-center"><a role="button" href="javascript:void(0)" data-url="<?php echo base_url('cp_properties/unlink_files/'.$doc->docId)?>" class="btn btn-danger unlink-file"><i class="fas fa-times"></i></a></td>
@@ -117,7 +121,10 @@
 										<div class="card-body alpha omega">
 											<div class="col-md-12">
 												<div class="new-documents">
-													<a href="javascript:void(0)" class="btn btn-primary btn-doc modal_trigger" data-url="<?php echo base_url('cp_properties/add_documents/'.$row->propertyId)?>" data-toggle="modal" data-target="#doc_modal"><i class="fas fa-cloud-upload" aria-hidden="true"></i> Subir Archivo</a>
+													<a href="javascript:void(0)" class="btn btn-primary btn-doc modal_trigger" data-url="<?php echo base_url('cp_properties/add_documents/'.$row->propertyId)?>" data-toggle="modal" data-target="#doc_modal">
+														<i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
+														Subir Archivo
+													</a>
 												</div>
 											</div>
 										</div>
@@ -139,4 +146,4 @@
 
 <div class="modal fade custom-modal" tabindex="-1" role="dialog" aria-labelledby="doc_modal" aria-hidden="true" id="doc_modal">
 	<div class="modal-dialog"></div>
-</div>widgets
+</div>

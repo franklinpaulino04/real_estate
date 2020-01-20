@@ -17,7 +17,10 @@
 					<tr>
 						<th></th>
 						<th>Nombre</th>
-						<th>Descripcion</th>
+						<th>Usuario</th>
+						<th>Categoria</th>
+						<th>Tipo</th>
+						<th>Precio</th>
 						<th>Estado</th>
 						<th></th>
 					</tr>

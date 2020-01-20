@@ -30,12 +30,18 @@ $(document).ready(function() {
 
     $.ajax({type: 'post', url: url, data: formData, async: false, cache: false, contentType: false, enctype: 'multipart/form-data', processData: false}).done(function (data) {
       var response = JSON.parse(data);
+
       if(response.result == 1){
         $(selector.target).modal('hide');
         $('#list').DataTable().ajax.reload();
       }else{
         $('.response').html(response.error);
       }
+
+		if(response.result == 1 && response.url != undefined){
+			window.location = response.url;
+		}
+
 		Ladda.stopAll();
     });
   });
@@ -126,7 +132,6 @@ $(function() {
 	globalPlugins();
 });
 
-
 var globalPlugins = function () {
 	if($('.numeric').length > 0){$('.numeric').numeric({negative:false});}
 	if($('.numeric-decimal').length > 0){$('.numeric-decimal').numeric({negative : false, decimalPlaces: 2 });}
@@ -136,7 +141,6 @@ var globalPlugins = function () {
 	Ladda.bind('.ladda-button');
 	$(".tags").tagsinput();
 };
-
 
 var formatCurrency = function(num) {
 	num             = ((typeof num !== 'undefined') && (num !== null))? num : 0;

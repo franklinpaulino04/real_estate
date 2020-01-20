@@ -19,7 +19,7 @@ class Cp_session extends MY_Controller
     public function index()
     {
         $this->redirect_if_logged_in($this->session->userdata('cp_is_logged_in'));
-        $data['redirect'] = $this->uri->segment(1).'/'.$this->uri->segment(2);
+        $data['redirect'] = $this->uri->segment(1).'/'.$this->uri->segment(3);
         $this->load->view('cp_session/cp_session_view', $data);
     }
 
