@@ -70,6 +70,8 @@
 <script src="<?php echo base_url()?>assets/lib/easing/easing.min.js"></script>
 <script src="<?php echo base_url()?>assets/lib/owlcarousel/owl.carousel.min.js"></script>
 <script src="<?php echo base_url()?>assets/lib/scrollreveal/scrollreveal.min.js"></script>
+<script src="<?php echo base_url()?>assets/js/sweetalert2@8.js"></script>
+
 <!-- Contact Form JavaScript File -->
 <script src="<?php echo base_url()?>assets/contactform/contactform.js"></script>
 

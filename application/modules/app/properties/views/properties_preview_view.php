@@ -139,10 +139,17 @@
 					<li class="nav-item">
 						<a class="nav-link active" id="pills-video-tab" data-toggle="pill" href="#pills-video" role="tab" aria-controls="pills-video" aria-selected="true">Video</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab" aria-controls="pills-map"
+						   aria-selected="false">Ubication</a>
+					</li>
 				</ul>
 				<div class="tab-content" id="pills-tabContent">
 					<div class="tab-pane fade show active" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab">
 						<?php echo $row->video;?>
+					</div>
+					<div class="tab-pane fade" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">
+						<?php echo $row->address_frame;?>
 					</div>
 				</div>
 			</div>
@@ -198,25 +205,31 @@
 					</div>
 					<div class="col-md-12 col-lg-4">
 						<div class="property-contact">
-							<form class="form-a">
+							<form class="form-a" id="sent-mail" action="<?php echo base_url()?>properties/send_mail">
+								<div class="response"></div>
 								<div class="row">
 									<div class="col-md-12 mb-1">
 										<div class="form-group">
-											<input type="text" class="form-control form-control-lg form-control-a" id="inputName" placeholder="Name *" required>
+											<input type="text" name="to_name" class="form-control form-control-lg form-control-a" id="to_name" placeholder="Nombre *" required>
 										</div>
 									</div>
 									<div class="col-md-12 mb-1">
 										<div class="form-group">
-											<input type="email" class="form-control form-control-lg form-control-a" id="inputEmail1" placeholder="Email *" required>
+											<input type="text" name="title" class="form-control form-control-lg form-control-a" id="title" placeholder="Asunto *" required>
 										</div>
 									</div>
 									<div class="col-md-12 mb-1">
 										<div class="form-group">
-                        					<textarea id="textMessage" class="form-control" placeholder="Comment *" name="message" cols="45" rows="8" required></textarea>
+											<input type="email" name="to" class="form-control form-control-lg form-control-a" id="to" placeholder="Email *" required>
+										</div>
+									</div>
+									<div class="col-md-12 mb-1">
+										<div class="form-group">
+                        					<textarea id="textMessage" class="form-control" placeholder="Mensaje *" name="message" cols="45" rows="8" required></textarea>
 										</div>
 									</div>
 									<div class="col-md-12">
-										<button type="submit" class="btn btn-a">Send Message</button>
+										<button type="submit" class="btn btn-a" id="submit">Send Message</button>
 									</div>
 								</div>
 							</form>

@@ -85,6 +85,7 @@ class Cp_properties extends CP_Controller
 		$this->form_validation->set_rules('name_properies','<strong>Nombre</strong>','trim|required');
 		$this->form_validation->set_rules('price','<strong>Precio</strong>','trim|required');
 		$this->form_validation->set_rules('categoryId','<strong>Categoria</strong>','is_natural_no_zero');
+		$this->form_validation->set_rules('typeId','<strong>Tipo</strong>','is_natural_no_zero');
 
 		if($this->form_validation->run($this) == FALSE)
 		{
@@ -106,6 +107,7 @@ class Cp_properties extends CP_Controller
 				"garage"                => $this->input->post('garage'),
 				"amenities"             => $this->input->post('amenities'),
 				"area"                  => $this->input->post('area'),
+				"address_frame"         => $this->input->post('address_frame'),
 				'date_modifier' 	    => timestamp_to_date(gmt_to_local(now(), 'UTC', FALSE), "Y-m-d"),
 				"statusId"              => (isset($_POST['statusId']))? $this->input->post('statusId') : 0,
 				'hidden'				=> 0

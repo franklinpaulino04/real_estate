@@ -36,7 +36,9 @@ class SendMaild
 
         //Recipients
         $this->mail->setFrom('paydayv104@gmail.com', 'Informacion Prestame Dinero');
-        $this->mail->addAddress($data['to'], $data['to_name']);          // Add a recipient
+		$this->mail->addAddress($data['to'], $data['to_name']);          // Add a recipient
+
+
 
         //$mail->addReplyTo('info@example.com', 'Information');
         if(isset($data['cc']))
