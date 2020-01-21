@@ -103,7 +103,7 @@
 								<div class="card-overlay-a-content">
 									<div class="card-header-a">
 										<h2 class="card-title-a">
-											<a href="property-single.html"><?php echo $row_properties->name;?></a>
+											<a href="<?php echo base_url('properties/preview/'.$row_properties->propertyId)?>"><?php echo $row_properties->name;?></a>
 										</h2>
 									</div>
 									<div class="card-body-a">
@@ -179,7 +179,7 @@
 									</div>
 									<div class="card-title-b">
 										<h2 class="title-2">
-											<a href="blog-single.html"><?php echo $row_properties->type;?><br> new</a>
+											<a href="<?php echo base_url('properties/preview/'.$row_properties->propertyId)?>"><?php echo $row_properties->type;?><br> new</a>
 										</h2>
 									</div>
 									<div class="card-date">
