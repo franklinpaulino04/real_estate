@@ -21,7 +21,7 @@
 					</div>
 					<div class="row form-group">
 						<div class="col-md-3 text-right mg-t-5"><label class="" for="name-category">Telefono:</label></div>
-						<div class="col-md-7"><input type="text" class="form-control phone" id="mobil" value="<?php echo $row->mobil;?>" name="mobil" placeholder=""></div>
+						<div class="col-md-7"><input type="text" class="form-control phone" id="mobil" value="<?php echo $row->mobile;?>" name="mobile" placeholder=""></div>
 					</div>
 					<div class="row form-group">
 						<div class="col-md-3 text-right mg-t-5"><label class="" for="name-category">Celular:</label></div>

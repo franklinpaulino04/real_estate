@@ -31,14 +31,14 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="grid-option">
-					<form>
-						<select class="custom-select">
-							<option selected>All</option>
-							<option value="1">New to Old</option>
-							<option value="2">For Rent</option>
-							<option value="3">For Sale</option>
-						</select>
-					</form>
+<!--					<form>-->
+<!--						<select class="custom-select">-->
+<!--							<option selected>All</option>-->
+<!--							<option value="1">New to Old</option>-->
+<!--							<option value="2">For Rent</option>-->
+<!--							<option value="3">For Sale</option>-->
+<!--						</select>-->
+<!--					</form>-->
 				</div>
 			</div>
 			<?php if(!empty($services_rows)):?>
@@ -72,22 +72,21 @@
 			<div class="col-sm-12">
 				<nav class="pagination-a">
 					<ul class="pagination justify-content-end">
-						<li class="page-item disabled">
-							<a class="page-link" href="#" tabindex="-1">
+						<?php $page_result = ($segment == 1)? 1 : ($segment-1);?>
+						<li class="page-item <?php echo ($segment <= 1)? 'disabled' : '';?>">
+							<a class="page-link" href="<?php echo base_url('services/index/'.($page_result))?>" tabindex="-1">
 								<span class="ion-ios-arrow-back"></span>
 							</a>
 						</li>
-						<li class="page-item">
-							<a class="page-link" href="#">1</a>
+
+						<?php for ($i = 0; $i < $page; $i++): $for_count = ($i+1);?>
+						<li class="page-item <?php echo ($segment == $for_count)? 'active' : '';?>">
+							<a class="page-link" href="<?php echo base_url('services/index/'.$for_count)?>"><?php echo $for_count;?></a>
 						</li>
-						<li class="page-item active">
-							<a class="page-link" href="#">2</a>
-						</li>
-						<li class="page-item">
-							<a class="page-link" href="#">3</a>
-						</li>
-						<li class="page-item next">
-							<a class="page-link" href="#">
+						<?php endfor;?>
+
+						<li class="page-item <?php echo ($segment >= $page )? 'disabled' : '';?>">
+							<a class="page-link" href="<?php echo base_url('services/index/'.($segment+1))?>">
 								<span class="ion-ios-arrow-forward"></span>
 							</a>
 						</li>

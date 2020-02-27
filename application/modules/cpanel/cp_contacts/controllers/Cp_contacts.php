@@ -15,7 +15,7 @@ class Cp_contacts extends CP_Controller
 
         $this->load->model('cp_contacts/cp_contacts_model');
 
-        $this->columns                  = "contactId,name,email,message,date_time,date_now";
+        $this->columns                  = "mail_sentId,title,correo,message,creation_date,to_name";
     }
 
     public function index()
@@ -39,6 +39,13 @@ class Cp_contacts extends CP_Controller
                 echo json_encode(array('data' => $result));
         }
     }
+
+	public function hide($mail_sentId)
+	{
+		$result['result'] = ($this->cp_contacts_model->save( array('hidden' => 1), $mail_sentId) == TRUE )? 1 : 0;
+
+		echo json_encode($result);
+	}
 }
 
 

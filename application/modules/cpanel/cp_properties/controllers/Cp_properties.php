@@ -101,17 +101,25 @@ class Cp_properties extends CP_Controller
 				"categoryId"            => $this->input->post('categoryId'),
 				"typeId"                => $this->input->post('typeId'),
 				"price"                 => $this->strip_commas($this->input->post('price')),
-				"video"                 => $this->input->post('video'),
 				"bathrooms"             => $this->input->post('bathrooms'),
 				"rooms"                 => $this->input->post('rooms'),
 				"garage"                => $this->input->post('garage'),
 				"amenities"             => $this->input->post('amenities'),
 				"area"                  => $this->input->post('area'),
-				"address_frame"         => $this->input->post('address_frame'),
 				'date_modifier' 	    => timestamp_to_date(gmt_to_local(now(), 'UTC', FALSE), "Y-m-d"),
 				"statusId"              => (isset($_POST['statusId']))? $this->input->post('statusId') : 0,
 				'hidden'				=> 0
             );
+
+            if (isset($_POST['video']) && $_POST['video'] != '')
+            {
+            	$data['video'] = $this->input->post('video');
+			}
+
+			if (isset($_POST['address_frame']) && $_POST['address_frame'] != '')
+			{
+				$data['address_frame'] = $this->input->post('address_frame');
+			}
 
 			if(!empty($_FILES))
 			{

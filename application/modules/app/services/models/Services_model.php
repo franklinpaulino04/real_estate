@@ -10,4 +10,10 @@ class Services_model extends APP_Model
 		$this->primary_key  = 'serviceId';
 		$this->order_by     = 'serviceId DESC';
     }
+
+
+    public function get_Pagination($data)
+	{
+		return $this->db->query("SELECT * FROM `ai_services` WHERE `hidden` = 0 AND `statusId` = 1 ORDER BY `serviceId` DESC LIMIT ".$data['initial'].",".$data['per_page']." ")->result();
+	}
 }

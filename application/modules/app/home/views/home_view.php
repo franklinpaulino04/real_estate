@@ -110,7 +110,7 @@
 										<div class="price-box d-flex">
 											<span class="price-a">renta | $<?php echo number_format($row_properties->price);?></span>
 										</div>
-										<a href="<?php echo base_url('properties/preview/'.$row_properties->propertyId)?>" class="link-a">Haz clic aquí para ver
+										<a href="<?php echo base_url('properties/preview/'.$row_properties->propertyId)?>" target="_blank" class="link-a">Haz clic aquí para ver
 											<span class="ion-ios-arrow-forward"></span>
 										</a>
 									</div>
@@ -175,11 +175,11 @@
 							<div class="card-overlay">
 								<div class="card-header-b">
 									<div class="card-category-b">
-										<a href="<?php echo base_url('properties/preview/'.$row_properties->propertyId)?>" class="category-b"><?php echo $row_properties->category;?></a>
+										<a href="<?php echo base_url('properties/preview/'.$row_properties->propertyId)?>" target="_blank" class="category-b"><?php echo $row_properties->category;?></a>
 									</div>
 									<div class="card-title-b">
 										<h2 class="title-2">
-											<a href="<?php echo base_url('properties/preview/'.$row_properties->propertyId)?>"><?php echo $row_properties->type;?><br> new</a>
+											<a href="<?php echo base_url('properties/preview/'.$row_properties->propertyId)?>" target="_blank"><?php echo $row_properties->type;?><br> new</a>
 										</h2>
 									</div>
 									<div class="card-date">

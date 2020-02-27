@@ -42,7 +42,7 @@ var actionLinks = function (data) {
 		html += 'Opciones';
 		html += '</a>';
 		html += '<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">';
-		html += '<a class="dropdown-item modal_trigger" data-url="' + url.baseUrl() + 'cp_services/edit/' + id + '" data-target="#add-cp-register" data-toggle="modal" href="javascript:void(0)"><i class="fas fa-pencil-alt"> Editar </i></a>';
+		html += '<a class="dropdown-item modal_trigger" data-url="' + url.baseUrl() + 'cp_services/edit/' + id + '" data-target="#add-cp-services" data-toggle="modal" href="javascript:void(0)"><i class="fas fa-pencil-alt"> Editar </i></a>';
 		html += '<a class="dropdown-item modal_trigger_delete" href="javascript:void(0)" data-url="'+url.baseUrl()+'cp_services/hide/'+id+'"><i class="fas fa-trash-alt"> Eliminar</i></a>';
 		html += '</div>';
 		html += '</div>';

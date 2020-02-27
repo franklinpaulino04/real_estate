@@ -19,17 +19,42 @@ class Properties extends APP_Controller
 
     public function index()
     {
+		if($this->uri->segment(3))
+		{
+			$page 					= $this->uri->segment(3);
+		}
+		else
+		{
+			$page 					= 1;
+		}
+
+		$data['per_page'] 			= 6; //por pagina
+		$data['segment'] 			= $page; //segment
+		$initial					= (($page - 1)* $data['per_page']);
+		$data['count'] 			 	= $this->properties_model->count(array('hidden' => 0 , 'statusId' => 1));
+		$data['page']    			= ceil(($data['count'] / $data['per_page'])); //total pagina
+		$data['rows']			 	= $this->properties_model->get_Pagination(array('per_page' => $data['per_page'], 'initial' => $initial));
+		$data['properties_rows']    = $data['rows'];
+//		$data['properties_rows']		= $this->properties_model->get_properties_data();
         $data ['content']               = 'properties/properties_view';
         $this->load->view('includes/template', $data);
     }
 
-	public function preview($propertyId)
+	public function preview($propertyId = FALSE)
 	{
-		$data ['content']  = 'properties/properties_preview_view';
-		$data['row']       = $this->properties_model->get_properties_by($propertyId);
-		$data['row_docs']  = $this->docs_model->get_by(array('documentId' => $propertyId));
-		$data['row_users'] = $this->register_model->get_by(array('userId' => $data['row']->userId), TRUE);
-		$this->load->view('includes/template', $data);
+		$count = $this->properties_model->count(array('hidden' => 0 , 'statusId' => 1, 'propertyId' => $propertyId));
+		if($propertyId == FALSE || ($count == 0 || empty($count)) == TRUE)
+		{
+			redirect(base_url('properties/index'));
+		}
+		else
+		{
+			$data ['content']  = 'properties/properties_preview_view';
+			$data['row']       = $this->properties_model->get_properties_by($propertyId);
+			$data['row_docs']  = $this->docs_model->get_by(array('documentId' => $propertyId));
+			$data['row_users'] = $this->register_model->get_by(array('userId' => $data['row']->userId), TRUE);
+			$this->load->view('includes/template', $data);
+		}
 	}
 
 	public function send_mail()

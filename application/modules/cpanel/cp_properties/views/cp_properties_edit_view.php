@@ -43,7 +43,7 @@
 				</div>
 				<div class="row form-group">
 					<label class="col-md-3 text-right mg-t-5" for="">Video</label>
-					<div class="col-md-5"><input type="text" name="video" class="form-control" value="<?php echo $row->video;?>"></div>
+					<div class="col-md-5"><input type="text" name="video" class="form-control" value=""></div>
 				</div>
 				<div class="row form-group">
 					<label class="col-md-3 text-right mg-t-5" for="">Dirección</label>
@@ -51,7 +51,7 @@
 				</div>
 				<div class="row form-group">
 					<label class="col-md-3 text-right mg-t-5" for="">Dirección Url Mapa</label>
-					<div class="col-md-5"><input type="text" name="address_frame" id="address_frame" class="form-control" value="<?php echo $row->address_frame;?>"></div>
+					<div class="col-md-5"><input type="text" name="address_frame" id="address_frame" class="form-control" value=""></div>
 				</div>
 				<div class="row form-group">
 					<label class="col-md-3 text-right mg-t-5" for="">Baños</label>

@@ -84,7 +84,7 @@ class MY_Model extends CI_Model {
             $where['hidden'] = 0;
         }
 
-        $count = $this->db->where('companyId', $this->companyId)->where($where)->from($this->table_name)->count_all_results();
+        $count = $this->db->where($where)->from($this->table_name)->count_all_results();
         return $count;
     }
 
