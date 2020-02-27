@@ -13,10 +13,12 @@ class Abouts extends APP_Controller
 
 
         $this->load->model('abouts/abouts_model');
+        $this->load->model('abouts/employees_model');
     }
 
     public function index()
     {
+    	$data['data_rows']   			= $this->employees_model->get_by(array('hidden' => 0, 'statusId' => 1));
         $data ['content']               = 'abouts/abouts_view';
         $this->load->view('includes/template', $data);
     }

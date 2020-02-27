@@ -1,21 +1,13 @@
 <div class="modal-content">
     <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Nuevo Usuarios</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Nuevo Empleado</h5>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
     </div>
     <div class="modal-body">
-        <form id="form" action="<?php echo base_url('cp_register/insert');?>" method="post" enctype="multipart/form-data">
+        <form id="form" action="<?php echo base_url('cp_employees/insert');?>" method="post" enctype="multipart/form-data">
 			<div class="response"></div>
             <div class="row">
                 <div class="col-md-8 solid-black">
-					<div class="row form-group">
-						<div class="col-md-3 text-right mg-t-5"><label class="" for="name-category">Usuario:</label></div>
-						<div class="col-md-7"><input type="text" class="form-control" id="username" name="username" placeholder=""></div>
-					</div>
-					<div class="row form-group">
-						<div class="col-md-3 text-right mg-t-5"><label class="" for="name-category">Contraseña:</label></div>
-						<div class="col-md-7"><input type="password" class="form-control" id="password" name="password"  placeholder=""></div>
-					</div>
                     <div class="row form-group">
                         <div class="col-md-3 text-right mg-t-5"><label class="" for="name-category">Nombre:</label></div>
                         <div class="col-md-7"><input type="text" class="form-control" id="first_name" name="first_name" placeholder=""></div>
@@ -24,6 +16,10 @@
                         <div class="col-md-3 text-right mg-t-5"><label class="" for="name-category">Apellido:</label></div>
                         <div class="col-md-7"><input type="text" class="form-control" id="last_name" name="last_name" placeholder=""></div>
                     </div>
+					<div class="row form-group">
+						<div class="col-md-3 text-right mg-t-5"><label class="" for="name-category">Descripción:</label></div>
+						<div class="col-md-7"><textarea name="description" class="form-control"></textarea></div>
+					</div>
 					<div class="row form-group">
 						<div class="col-md-3 text-right mg-t-5"><label class="" for="name-category">Teléfono:</label></div>
 						<div class="col-md-7"><input type="text" class="form-control phone" id="phone" name="phone" placeholder=""></div>
@@ -34,7 +30,7 @@
 					</div>
 					<div class="row form-group">
 						<div class="col-md-3 text-right mg-t-5"><label class="" for="name-category">Correo:</label></div>
-						<div class="col-md-7"><input type="text" class="form-control" id="correo" name="correo" placeholder=""></div>
+						<div class="col-md-7"><input type="text" class="form-control" id="email" name="email" placeholder=""></div>
 					</div>
 					<div class="row form-group">
 						<div class="col-md-3 text-right"><label class="" for="active">Activo:</label></div>
@@ -66,7 +62,7 @@
         </form>
     </div>
     <div class="modal-footer">
-		<button class="btn btn-primary ladda-button" data-style="expand-right" type="submit" id="submit" data-target="#add-cp-register">Agregar</button>
+		<button class="btn btn-primary ladda-button" data-style="expand-right" type="submit" id="submit" data-target="#add-cp-employees">Agregar</button>
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
     </div>
 </div>

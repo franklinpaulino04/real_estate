@@ -1,4 +1,4 @@
-<!--/ Nav Star /-->
+	<!--/ Nav Star /-->
 <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
 	<div class="container">
 		<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
@@ -7,7 +7,10 @@
 			<span></span>
 			<span></span>
 		</button>
-		<a class="navbar-brand text-brand" href="<?php echo base_url()?>home/index">Estate<span class="color-b">Agency</span></a>
+		<a class="navbar-brand text-brand" href="<?php echo base_url()?>home/index">
+<!--			Estate<span class="color-b">Agency</span>-->
+			<img src="<?php echo base_url('assets/img/logo.png');?>" style="width: 250px!important;" alt="">
+		</a>
 		<button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse"
 				data-target="#navbarTogglerDemo01" aria-expanded="false">
 			<span class="fa fa-search" aria-hidden="true"></span>
@@ -20,9 +23,9 @@
 				<li class="nav-item">
 					<a class="nav-link <?php echo menu_active($this->fetch_class, 'properties/index');?>" href="<?php echo base_url()?>properties/index">Propiedades</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link <?php echo menu_active($this->fetch_class, 'blogs/index');?>" href="<?php echo base_url()?>blogs/index">Blogs</a>
-				</li>
+<!--				<li class="nav-item">-->
+<!--					<a class="nav-link --><?php //echo menu_active($this->fetch_class, 'blogs/index');?><!--" href="--><?php //echo base_url()?><!--blogs/index">Blogs</a>-->
+<!--				</li>-->
 				<li class="nav-item">
 					<a class="nav-link <?php echo menu_active($this->fetch_class, 'services/index');?>" href="<?php echo base_url()?>services/index">Servicios</a>
 				</li>

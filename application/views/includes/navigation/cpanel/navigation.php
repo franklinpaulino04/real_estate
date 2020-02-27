@@ -34,7 +34,6 @@
                 <h6 class="collapse-header">Mantenimientos</h6>
                 <a class="collapse-item" href="<?php echo base_url()?>cpanel/contacts">Contacts</a>
                 <a class="collapse-item" href="<?php echo base_url()?>cpanel/properties">Propiedades</a>
-                <a class="collapse-item" href="<?php echo base_url()?>cpanel/register">Registros</a>
                 <a class="collapse-item" href="<?php echo base_url()?>cpanel/services">Servicios</a>
             </div>
         </div>
@@ -49,10 +48,8 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                <a class="collapse-item" href="utilities-border.html">Borders</a>
-                <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
+				<a class="collapse-item" href="<?php echo base_url()?>cpanel/register">Usuarios</a>
+                <a class="collapse-item" href="<?php echo base_url()?>cpanel/employees">Empleados</a>
             </div>
         </div>
     </li>

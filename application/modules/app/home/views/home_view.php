@@ -84,7 +84,7 @@
 						<h2 class="title-a">Últimas propiedades</h2>
 					</div>
 					<div class="title-link">
-						<a href="property-grid.html">Todas las propiedades
+						<a href="<?php echo base_url('properties/index')?>" target="_blank">Todas las propiedades
 							<span class="ion-ios-arrow-forward"></span>
 						</a>
 					</div>
@@ -157,7 +157,7 @@
 						<h2 class="title-a">Últimas noticias</h2>
 					</div>
 					<div class="title-link">
-						<a href="blog-grid.html">Todas las noticias
+						<a href="<?php echo base_url('properties/index')?>" target="_blank">Todas las noticias
 							<span class="ion-ios-arrow-forward"></span>
 						</a>
 					</div>

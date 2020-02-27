@@ -137,7 +137,7 @@ var globalPlugins = function () {
 	if($('.numeric-decimal').length > 0){$('.numeric-decimal').numeric({negative : false, decimalPlaces: 2 });}
 	if($('.date').length > 0){ $('.date').daterangepicker({singleDatePicker: true, showDropdowns: true, locale: {format: 'YYYY-MM-DD'}});}
 	$('.chosen-select').chosen({ allow_single_deselect: true });
-	if($('.phone').length > 0){$('.phone').mask("9-999-999-9999");}
+	if($('.phone').length > 0){$('.phone').mask("999-999-9999");}
 	Ladda.bind('.ladda-button');
 	$(".tags").tagsinput();
 };

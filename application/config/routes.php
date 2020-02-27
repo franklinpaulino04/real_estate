@@ -70,3 +70,4 @@ $route['cpanel/properties']     		  = 'cp_properties/index';
 $route['cpanel/properties/edit/(.*)']     = 'cp_properties/edit/$1';
 $route['cpanel/register']      			  = 'cp_register/index';
 $route['cpanel/services']      			  = 'cp_services/index';
+$route['cpanel/employees']      	      = 'cp_employees/index';
