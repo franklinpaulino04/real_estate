@@ -15,6 +15,7 @@ class Properties_model extends APP_Model
 	{
 		return $this->db->query("SELECT a.*,
 								 b.`name` AS category,
+								 c.`typeId` AS typeId,
 								 c.`name` AS type,
 								 e.`name` AS `status`,
 								 e.class AS class,

@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn' => '',
-    'hostname' => '',
-    'username' => '',
-    'password' => '',
-	'database' => '',
+	'hostname' => 'localhost',
+	'username' => 'inmopgid_admin',
+	'password' => 'Fa(oDmTQ6B#F',
+	'database' => 'inmopgid_real_estate',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

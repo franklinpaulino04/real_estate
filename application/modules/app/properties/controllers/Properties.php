@@ -28,7 +28,7 @@ class Properties extends APP_Controller
 			$page 					= 1;
 		}
 
-		$data['per_page'] 			= 6; //por pagina
+		$data['per_page'] 			= 8; //por pagina
 		$data['segment'] 			= $page; //segment
 		$initial					= (($page - 1)* $data['per_page']);
 		$data['count'] 			 	= $this->properties_model->count(array('hidden' => 0 , 'statusId' => 1));

@@ -39,7 +39,7 @@ class Cp_session extends MY_Controller
 
         if($result['valid'] == 1)
         {
-            $controller = ($redirect == '')? 'cpanel/home' : $redirect;
+            $controller = ($redirect == '')? 'admin/home' : $redirect;
 
             echo json_encode(array('result' => 1, 'controller' => $controller));
         }
@@ -60,7 +60,7 @@ class Cp_session extends MY_Controller
     {
         if(isset($is_logged_in) || ($is_logged_in === TRUE))
         {
-            $redirect = "cpanel/home";
+            $redirect = "admin/home";
             redirect(base_url().$redirect);
         }
     }

@@ -1,132 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
 <head>
 	<meta charset="utf-8">
-	<title>INMOBILIARIA FPY & ASOCIADOS</title>
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<meta content="" name="keywords">
-	<meta content="" name="description">
-
-	<!-- Favicons -->
-	<link href="<?php echo base_url()?>assets/img/favicon.png" rel="icon">
-	<link href="<?php echo base_url()?>assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-
-	<!-- Bootstrap CSS File -->
-	<link href="<?php echo base_url()?>assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-	<!-- Libraries CSS Files -->
-	<link href="<?php echo base_url()?>assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<link href="<?php echo base_url()?>assets/lib/animate/animate.min.css" rel="stylesheet">
-	<link href="<?php echo base_url()?>assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-	<link href="<?php echo base_url()?>assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-	<!-- Main Stylesheet File -->
-	<link href="<?php echo base_url()?>assets/css/style.css" rel="stylesheet">
-	<link href="<?php echo base_url()?>assets/css/modules/app/<?php echo $this->router->fetch_class().'/'.$this->router->fetch_class().'.css';?>"  rel="stylesheet">
-	<!-- =======================================================
-	  Theme Name: EstateAgency
-	  Theme URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
-	  Author: BootstrapMade.com
-	  License: https://bootstrapmade.com/license/
-	======================================================= -->
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="#">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/new_design/libraries/font-awesome/css/font-awesome.css" media="screen, projection">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/new_design/libraries/jquery-bxslider/jquery.bxslider.css" media="screen, projection">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/new_design/libraries/flexslider/flexslider.css" media="screen, projection">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/new_design/css/realocation.css" media="screen, projection" id="css-main">
+	<link href="http://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css">
+	<title>Inmobiliaria Peralta Silverio & Asociados</title>
 </head>
-
 <body>
-
-<div class="click-closed"></div>
-<!--/ Form Search Star /-->
-<div class="box-collapse">
-	<div class="title-box-d">
-		<h3 class="title-d">Search Property</h3>
-	</div>
-	<span class="close-box-collapse right-boxed ion-ios-close"></span>
-	<div class="box-collapse-wrap form">
-		<form class="form-a">
-			<div class="row">
-				<div class="col-md-12 mb-2">
-					<div class="form-group">
-						<label for="Type">Keyword</label>
-						<input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword">
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="header-inner">
+				<div class="header-bar">
+					<div class="container">
+						<div class="header-infobox">
+							<strong>Correo:</strong> <a href="#">hello@yourcompany.com</a>
+						</div>
+						<!-- /.header-infobox-->
+						<div class="header-infobox">
+							<strong>Telefono:</strong> 800-123-4567
+						</div>
+						<!-- /.header-infobox-->
 					</div>
+					<!-- /.container -->
 				</div>
-				<div class="col-md-6 mb-2">
-					<div class="form-group">
-						<label for="Type">Type</label>
-						<select class="form-control form-control-lg form-control-a" id="Type">
-							<option>All Type</option>
-							<option>For Rent</option>
-							<option>For Sale</option>
-							<option>Open House</option>
-						</select>
+				<!-- /.header-bar -->
+				<div class="header-top">
+					<div class="container">
+						<div class="header-identity">
+							<a href="<?php echo base_url()?>home/index" class="header-identity-target">
+								<span class="header-icon"><i class="fa fa-home"></i></span>
+								<span class="header-title">Inmobiliaria</span>
+								<!-- /.header-title -->
+								<span class="header-slogan">Peralta Silverio & <br> Asociados</span>
+								<!-- /.header-slogan -->
+							</a>
+							<!-- /.header-identity-target-->
+						</div>
+						<!-- /.header-identity -->
+						<div class="pull-right">
+							<ul class="social">
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+							</ul>
+							<!-- /.social -->
+						</div>
 					</div>
+					<!-- /.container -->
 				</div>
-				<div class="col-md-6 mb-2">
-					<div class="form-group">
-						<label for="city">City</label>
-						<select class="form-control form-control-lg form-control-a" id="city">
-							<option>All City</option>
-							<option>Alabama</option>
-							<option>Arizona</option>
-							<option>California</option>
-							<option>Colorado</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-md-6 mb-2">
-					<div class="form-group">
-						<label for="bedrooms">Bedrooms</label>
-						<select class="form-control form-control-lg form-control-a" id="bedrooms">
-							<option>Any</option>
-							<option>01</option>
-							<option>02</option>
-							<option>03</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-md-6 mb-2">
-					<div class="form-group">
-						<label for="garages">Garages</label>
-						<select class="form-control form-control-lg form-control-a" id="garages">
-							<option>Any</option>
-							<option>01</option>
-							<option>02</option>
-							<option>03</option>
-							<option>04</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-md-6 mb-2">
-					<div class="form-group">
-						<label for="bathrooms">Bathrooms</label>
-						<select class="form-control form-control-lg form-control-a" id="bathrooms">
-							<option>Any</option>
-							<option>01</option>
-							<option>02</option>
-							<option>03</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-md-6 mb-2">
-					<div class="form-group">
-						<label for="price">Min Price</label>
-						<select class="form-control form-control-lg form-control-a" id="price">
-							<option>Unlimite</option>
-							<option>$50,000</option>
-							<option>$100,000</option>
-							<option>$150,000</option>
-							<option>$200,000</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-md-12">
-					<button type="submit" class="btn btn-b">Search Property</button>
-				</div>
-			</div>
-		</form>
-	</div>
-</div>
-<!--/ Form Search End /-->
-
+				<!-- .header-top -->

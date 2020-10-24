@@ -241,3 +241,5 @@ class Cp_properties extends CP_Controller
     /* PRIVATE FUNCTION *********************************************************************************************/
 
 }
+
+

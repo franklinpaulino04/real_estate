@@ -60,14 +60,14 @@ $route['logout']                = 'session/logout';
 //App Route
 
 //Cpanel Home Router
-$route['cpanel']                		  = 'cp_session';
-$route['cpanel/login/(.*)']     		  = 'cp_session/index/$1';
-$route['cp_logout']             		  = 'cp_session/logout';
-$route['cpanel/home']           		  = 'cp_home/index';
-$route['cpanel/categories']     		  = 'cp_categories/index';
-$route['cpanel/contacts']       		  = 'cp_contacts/index';
-$route['cpanel/properties']     		  = 'cp_properties/index';
-$route['cpanel/properties/edit/(.*)']     = 'cp_properties/edit/$1';
-$route['cpanel/register']      			  = 'cp_register/index';
-$route['cpanel/services']      			  = 'cp_services/index';
-$route['cpanel/employees']      	      = 'cp_employees/index';
+$route['admin']                		  = 'cp_session';
+$route['admin/login/(.*)']     	      = 'cp_session/index/$1';
+$route['cp_logout']             	  = 'cp_session/logout';
+$route['admin/home']           		  = 'cp_home/index';
+$route['admin/categories']     		  = 'cp_categories/index';
+$route['admin/contacts']       		  = 'cp_contacts/index';
+$route['admin/properties']     		  = 'cp_properties/index';
+$route['admin/properties/edit/(.*)']  = 'cp_properties/edit/$1';
+$route['admin/register']      		  = 'cp_register/index';
+$route['admin/services']      		  = 'cp_services/index';
+$route['admin/employees']      	      = 'cp_employees/index';

@@ -6,7 +6,7 @@ var table = $('#list').DataTable({
         {"data": 'userId',      "sClass": "dt-userId",      "width": "0",     "defaultContent": "<i class='na'>N/A</i>"},
         {"data": 'first_name',  "sClass": "dt-first_name",  "width": "25%",   "defaultContent": "<i class='na'>N/A</i>"},
         {"data": 'last_name',   "sClass": "dt-last_name",   "width": "15%",   "defaultContent": "<i class='na'>N/A</i>"},
-        {"data": 'image',       "sClass": "dt-image",      "width": "15%",   "defaultContent": "<i class='na'>N/A</i>"},
+        {"data": 'image',       "sClass": "dt-image",       "width": "15%",   "defaultContent": "<i class='na'>N/A</i>"},
         {"data": 'status',      "sClass": "dt-status",      "width": "20%",   "defaultContent": "<i class='na'>N/A</i>"},
         {"data": 'action',      "sClass": "dt-action",      "width": "10%",   "defaultContent": "<i class='na'>N/A</i>"}
     ],

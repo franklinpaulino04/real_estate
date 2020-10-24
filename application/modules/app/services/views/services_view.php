@@ -1,99 +1,57 @@
-<!--/ Intro services star /-->
-<section class="intro-single">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 col-lg-8">
-				<div class="title-single-box">
-					<h1 class="title-single">Todos los Servicios</h1>
-					<span class="color-text-a">servicios</span>
-				</div>
-			</div>
-			<div class="col-md-12 col-lg-4">
-				<nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item">
-							<a href="<?php echo base_url('services/index');?>">Servicios</a>
-						</li>
-						<li class="breadcrumb-item active" aria-current="page">
-							Todos los servicios
-						</li>
-					</ol>
-				</nav>
-			</div>
-		</div>
-	</div>
-</section>
-<!--/ Intro services End /-->
-
-<!--/ services Grid Star /-->
-<section class="property-grid grid">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="grid-option">
-<!--					<form>-->
-<!--						<select class="custom-select">-->
-<!--							<option selected>All</option>-->
-<!--							<option value="1">New to Old</option>-->
-<!--							<option value="2">For Rent</option>-->
-<!--							<option value="3">For Sale</option>-->
-<!--						</select>-->
-<!--					</form>-->
-				</div>
-			</div>
-			<?php if(!empty($services_rows)):?>
-				<?php foreach ($services_rows AS $row_service): ?>
-					<div class="col-md-4">
-						<div class="card-box-c foo">
-							<div class="card-header-c d-flex">
-								<div class="card-box-ico">
-									<img src="<?php echo base_url('assets/storage/files/services/'.$row_service->image)?>" width="106px" height="106px" alt="">
+<div class="container">
+	<div class="block-content block-content-small-padding">
+		<div class="block-content-inner">
+			<div class="row">
+				<div class="col-sm-12">
+					<h2 class="center">Todos los Servicios</h2>
+					<div class="row">
+						<?php if(!empty($services_rows)):?>
+							<?php foreach ($services_rows AS $row_service): ?>
+								<div class="hex-wrapper col-sm-4 center">
+									<div class="clearfix">
+										<div class="hex col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2">
+											<div class="hex-inner">
+												<img src="<?php echo base_url('assets/storage/files/services/'.$row_service->image)?>" width="209px" height="236px" alt="" class="hex-image img-circle">
+												<div class="hex-content"></div>
+												<!-- /.hex-content -->
+											</div>
+											<!-- /.hex-inner -->
+										</div>
+										<!-- /.hex -->
+									</div>
+									<!-- /.clearfix -->
+									<h3><?php echo $row_service->name;?></h3>
+									<p><?php echo $row_service->description;?></p>
+									<a class="btn btn-white" href="<?php echo base_url('services/preview/'.$row_service->serviceId)?>" target="_blank">Leer mas</a>
 								</div>
-								<div class="card-title-c align-self-center">
-									<h2 class="title-c"><?php echo $row_service->name;?></h2>
-								</div>
-							</div>
-							<div class="card-body-c">
-								<p class="content-c">
-									<?php echo $row_service->description;?>
-								</p>
-							</div>
-							<div class="card-footer-c">
-								<a href="<?php echo base_url('services/preview/'.$row_service->serviceId)?>" target="_blank" class="link-c link-icon">Leer mas
-									<span class="ion-ios-arrow-forward"></span>
-								</a>
-							</div>
-						</div>
+							<?php endforeach; ?>
+						<?php endif;?>
 					</div>
-				<?php endforeach; ?>
-			<?php endif;?>
-		</div>
-		<div class="row">
-			<div class="col-sm-12">
-				<nav class="pagination-a">
-					<ul class="pagination justify-content-end">
-						<?php $page_result = ($segment == 1)? 1 : ($segment-1);?>
-						<li class="page-item <?php echo ($segment <= 1)? 'disabled' : '';?>">
-							<a class="page-link" href="<?php echo base_url('services/index/'.($page_result))?>" tabindex="-1">
-								<span class="ion-ios-arrow-back"></span>
-							</a>
-						</li>
+					<!-- /.row -->
+					<div class="center">
+						<ul class="pagination">
+							<?php $page_result = ($segment == 1)? 1 : ($segment-1);?>
+							<li <?php echo ($segment <= 1)? 'style="pointer-events: none;"' : '';?>>
+								<a href="<?php echo base_url('services/index/'.($page_result))?>" tabindex="-1">&laquo;</a>
+							</li>
 
-						<?php for ($i = 0; $i < $page; $i++): $for_count = ($i+1);?>
-						<li class="page-item <?php echo ($segment == $for_count)? 'active' : '';?>">
-							<a class="page-link" href="<?php echo base_url('services/index/'.$for_count)?>"><?php echo $for_count;?></a>
-						</li>
-						<?php endfor;?>
+							<?php for ($i = 0; $i < $page; $i++): $for_count = ($i+1);?>
+								<li class="active" <?php echo ($segment == $for_count)? 'active' : '';?>>
+									<a href="<?php echo base_url('services/index/'.$for_count)?>"><?php echo $for_count;?></a>
+								</li>
+							<?php endfor;?>
 
-						<li class="page-item <?php echo ($segment >= $page )? 'disabled' : '';?>">
-							<a class="page-link" href="<?php echo base_url('services/index/'.($segment+1))?>">
-								<span class="ion-ios-arrow-forward"></span>
-							</a>
-						</li>
-					</ul>
-				</nav>
+							<li <?php echo ($segment >= $page )? 'style="pointer-events: none;"' : '';?>>
+								<a href="<?php echo base_url('services/index/'.($segment+1))?>">&raquo;</a>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
+			<!-- /.row -->
 		</div>
+		<!-- /.block-content-inner -->
 	</div>
-</section>
-<!--/ services Grid End /-->
+	<!-- /.block-content -->
+</div>
+<!-- /.container -->

@@ -1,122 +1,74 @@
-<!--/ About Star /-->
-<section class="section-about">
-	<div class="container">
-		<div class="row">
-<!--			<div class="col-sm-12">-->
-<!--				<div class="about-img-box col-md-6 col-lg-5">-->
-<!--					<img src="--><?php //echo base_url()?><!--assets/img/logo.jpg" alt="" class="img-fluid logo-t">-->
-<!--				</div>-->
-<!--			</div>-->
-			<div class="col-md-12 section-t8">
-				<div class="row">
-					<div class="col-md-6 col-lg-5">
-						<img src="<?php echo base_url()?>assets/img/logo.jpg" alt="" class="img-fluid img-about">
-					</div>
-<!--					<div class="col-lg-2  d-none d-lg-block">-->
-<!--						<div class="title-vertical d-flex justify-content-start">-->
-<!--							<span>EstateAgency Exclusive Property</span>-->
-<!--						</div>-->
-<!--					</div>-->
-					<div class="col-md-6 col-lg-5 section-md-t3">
-						<div class="title-box-d">
-							<h3 class="title-d">INMOBILIARIA F PERALTA
-								<br> <span style="color: #2eca6a">& ASOCIADOS</span>.</h3>
+<div class="container">
+	<div class="block-content block-content-small-padding">
+		<div class="block-content-inner">
+			<div class="row">
+				<div class="col-sm-9">
+					<h2>Acerca de Nosotros</h2>
+					<div class="agent-detail">
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="agent-detail-picture">
+									<img src="<?php echo base_url('assets/new_design/img/properties/');?>" alt="" class="img-responsive"></div>
+								<!-- /.agent-detail-picture -->
+							</div>
+							<div class="col-sm-8">
+								<p>La empresa Inmobiliaria Peralta Silverio & Asociados se presenta ante usted a fin de que pueda
+									tener acceso a una empresa dedicada a la asesoría inmobiliaria general, compra, venta y alquiler
+									de propiedades, tasaciones inmobiliarias, con la mejor calidad y excelente presupuesto. además de
+									Asesoría en Préstamos Hipotecarios. No somos simplemente corredores inmobiliarios, somos mucho más!
+								</p>
+								<ul class="social social-boxed">
+									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+									<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+								</ul>
+								<!-- /.social-->
+							</div>
 						</div>
-						<p class="color-text-a">
-							Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget
-							consectetur sed, convallis
-							at tellus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum
-							ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit
-							neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-						</p>
-						<p class="color-text-a">
-							Sed porttitor lectus nibh. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.
-							Mauris blandit aliquet
-							elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget consectetur sed,
-							convallis at tellus.
-						</p>
+						<!-- /.row -->
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!--/ About End /-->
+					<!-- /.agent-detail -->
 
-<!--/ Team Star /-->
-<section class="section-agents section-t8">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="title-wrap d-flex justify-content-between">
-					<div class="title-box">
-						<h2 class="title-a">Conozca a nuestro equipo</h2>
-					</div>
+					<h2>Contactanos</h2>
+					<form method="post" action="http://preview.byaviators.com/template/realocation/agent-detail.html?" class="box">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Name</label>
+									<input type="text" class="form-control">
+								</div>
+								<!-- /.form-group -->
+							</div>
+
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Subject</label>
+									<input type="text" class="form-control">
+								</div>
+								<!-- /.form-group -->
+							</div>
+						</div>
+						<!-- /.row -->
+
+						<div class="form-group">
+							<label>Message</label>
+							<textarea rows="8" class="form-control"></textarea>
+						</div>
+						<!-- /.form-group -->
+
+						<div class="form-group">
+							<input type="submit" value="Contact Agent"
+								   class="btn btn-primary btn-inversed">
+						</div>
+						<!-- /.form-group -->
+					</form>
 				</div>
 			</div>
+			<!-- /.row -->
 		</div>
-		<div class="row">
-			<?php if(!empty($data_rows)):?>
-				<?php foreach($data_rows AS $data_row):?>
-					<div class="col-md-4">
-					<div class="card-box-d">
-						<div class="card-img-d">
-							<img src="<?php echo base_url()?>assets/storage/files/employees/<?php echo $data_row->image;?>" alt="" class="img-d img-fluid">
-						</div>
-						<div class="card-overlay card-overlay-hover">
-							<div class="card-header-d">
-								<div class="card-title-d align-self-center">
-									<h3 class="title-d">
-										<a href="agent-single.html" class="link-two"><?php echo $data_row->first_name;?>
-											<br> <?php echo $data_row->last_name;?></a>
-									</h3>
-								</div>
-							</div>
-							<div class="card-body-d">
-								<p class="content-d color-text-a"><?php echo $data_row->description;?>.</p>
-								<div class="info-agents color-a">
-									<p><strong>Telefono: </strong> <?php echo $data_row->phone;?></p><p>
-									<p><strong>Celular: </strong> <?php echo $data_row->mobile;?></p>
-									<p><strong>Correo: </strong> <?php echo $data_row->email;?></p>
-								</div>
-							</div>
-<!--							<div class="card-footer-d">-->
-<!--								<div class="socials-footer d-flex justify-content-center">-->
-<!--									<ul class="list-inline">-->
-<!--										<li class="list-inline-item">-->
-<!--											<a href="#" class="link-one">-->
-<!--												<i class="fa fa-facebook" aria-hidden="true"></i>-->
-<!--											</a>-->
-<!--										</li>-->
-<!--										<li class="list-inline-item">-->
-<!--											<a href="#" class="link-one">-->
-<!--												<i class="fa fa-twitter" aria-hidden="true"></i>-->
-<!--											</a>-->
-<!--										</li>-->
-<!--										<li class="list-inline-item">-->
-<!--											<a href="#" class="link-one">-->
-<!--												<i class="fa fa-instagram" aria-hidden="true"></i>-->
-<!--											</a>-->
-<!--										</li>-->
-<!--										<li class="list-inline-item">-->
-<!--											<a href="#" class="link-one">-->
-<!--												<i class="fa fa-pinterest-p" aria-hidden="true"></i>-->
-<!--											</a>-->
-<!--										</li>-->
-<!--										<li class="list-inline-item">-->
-<!--											<a href="#" class="link-one">-->
-<!--												<i class="fa fa-dribbble" aria-hidden="true"></i>-->
-<!--											</a>-->
-<!--										</li>-->
-<!--									</ul>-->
-<!--								</div>-->
-<!--							</div>-->
-						</div>
-					</div>
-				</div>
-				<?php endforeach;?>
-			<?php endif;?>
-		</div>
+		<!-- /.block-content-inner -->
 	</div>
-</section>
-<!--/ Team End /-->
+	<!-- /.block-content -->
+</div>
+<!-- /.container -->

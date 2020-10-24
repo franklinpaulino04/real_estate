@@ -1,244 +1,146 @@
-<!--/ Intro Single star /-->
-<section class="intro-single">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 col-lg-8">
-				<div class="title-single-box">
-					<h1 class="title-single"><?php echo $row->name;?></h1>
-					<span class="color-text-a"><?php echo $row->address;?></span>
-				</div>
-			</div>
-			<div class="col-md-12 col-lg-4">
-				<nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item">
-							<a href="index.html">Home</a>
-						</li>
-						<li class="breadcrumb-item">
-							<a href="property-grid.html">Properties</a>
-						</li>
-						<li class="breadcrumb-item active" aria-current="page">
-							<?php echo $row->name;?>
-						</li>
-					</ol>
-				</nav>
-			</div>
-		</div>
-	</div>
-</section>
-<!--/ Intro Single End /-->
-
-<!--/ Property Single Star /-->
-<section class="property-single nav-arrow-b">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property">
-					<?php if(!empty($row_docs)):?>
-						<?php foreach ($row_docs AS $key):?>
-							<div class="carousel-item-b">
-								<img src="<?php echo base_url('assets/storage/files/properties/'.$key->original_name);?>" alt="">
+<div class="container">
+	<div class="block-content block-content-small-padding">
+		<div class="block-content-inner">
+			<div class="row">
+				<div class="col-sm-9">
+					<h2 class="property-detail-title"><?php echo $row->name;?></h2>
+					<h3 class="property-detail-subtitle"><?php echo $row->address;?> <strong>$ <?php echo number_format($row->price,2);?></strong>
+					</h3>
+					<div class="property-detail-overview">
+						<div class="property-detail-overview-inner clearfix">
+							<div class="property-detail-overview-item col-sm-6 col-md-2">
+								<strong>Price:</strong>
+								<span>$ <?php echo number_format($row->price,2);?></span>
 							</div>
-						<?php endforeach;?>
-					<?php endif;?>
-				</div>
-				<div class="row justify-content-between">
-					<div class="col-md-5 col-lg-4">
-						<div class="property-price d-flex justify-content-center foo">
-							<div class="card-header-c d-flex">
-								<div class="card-box-ico">
-									<span class="ion-money">$</span>
-								</div>
-								<div class="card-title-c align-self-center">
-									<h5 class="title-c">$<?php echo number_format($row->price,2);?></h5>
-								</div>
+							<!-- /.property-detail-overview-item -->
+							<div class="property-detail-overview-item col-sm-6 col-md-2">
+								<strong>Tipo:</strong>
+								<span><?php echo $row->type;?></span>
 							</div>
+							<!-- /.property-detail-overview-item -->
+							<div class="property-detail-overview-item col-sm-6 col-md-2">
+								<strong>Area:</strong>
+								<span><?php echo $row->area;?>m<sup>2</sup></span>
+							</div>
+							<!-- /.property-detail-overview-item -->
+							<div class="property-detail-overview-item col-sm-6 col-md-2">
+								<strong>Baños:</strong>
+								<span><?php echo $row->bathrooms;?></span>
+							</div>
+							<!-- /.property-detail-overview-item -->
+							<div class="property-detail-overview-item col-sm-6 col-md-2">
+								<strong>Habitaciones:</strong>
+								<span><?php echo $row->rooms;?></span>
+							</div>
+							<!-- /.property-detail-overview-item -->
+							<div class="property-detail-overview-item col-sm-6 col-md-2">
+								<strong>Garages:</strong>
+								<span><?php echo $row->garage;?></span>
+							</div>
+							<!-- /.property-detail-overview-item -->
 						</div>
-						<div class="property-summary">
-							<div class="row">
-								<div class="col-sm-12">
-									<div class="title-box-d section-t4">
-										<h3 class="title-d">Sumario rápido</h3>
-									</div>
-								</div>
-							</div>
-							<div class="summary-list">
-								<ul class="list">
-									<li class="d-flex justify-content-between">
-										<strong>ID de propiedad:</strong>
-										<span><?php echo $row->number;?></span>
+						<!-- /.property-detail-overview-inner -->
+					</div>
+					<!-- /.property-detail-overview -->
+					<div class="flexslider">
+						<ul class="slides">
+							<?php if(!empty($row_docs)):?>
+								<?php foreach ($row_docs AS $key):?>
+									<li data-thumb="<?php echo base_url('assets/storage/files/properties/'.$key->original_name);?>">
+										<img src="<?php echo base_url('assets/storage/files/properties/'.$key->original_name);?>" alt="">
 									</li>
-									<li class="d-flex justify-content-between">
-										<strong>Ubicación:</strong>
-										<span><?php echo $row->address;?></span>
-									</li>
-									<li class="d-flex justify-content-between">
-										<strong>Tipo de propiedad:</strong>
-										<span><?php echo $row->category;?></span>
-									</li>
-									<li class="d-flex justify-content-between">
-										<strong>Estado:</strong>
-										<span><?php echo $row->type;?></span>
-									</li>
-									<li class="d-flex justify-content-between">
-										<strong>Área:</strong>
-										<span><?php echo $row->area;?>m
-                        					<sup>2</sup>
-                      					</span>
-									</li>
-									<li class="d-flex justify-content-between">
-										<strong>Habitaciones:</strong>
-										<span><?php echo $row->rooms;?></span>
-									</li>
-									<li class="d-flex justify-content-between">
-										<strong>Baños:</strong>
-										<span><?php echo $row->bathrooms;?></span>
-									</li>
-									<li class="d-flex justify-content-between">
-										<strong>Garage:</strong>
-										<span><?php echo $row->garage;?></span>
-									</li>
+								<?php endforeach;?>
+							<?php endif;?>
+						</ul>
+						<!-- /.slides -->
+					</div>
+					<!-- /.flexslider -->
+					<hr>
+					<h2>Description</h2>
+					<p><?php echo $row->description;?></p>
+					<hr>
+					<h2>Comodidades</h2>
+					<div class="row">
+						<ul class="property-detail-amenities">
+							<li class="col-xs-6 col-sm-4"><i class="fa fa-check ok"></i>Comodidades</li>
+							<?php if(isset($row->amenities)):?>
+								<?php foreach (explode(',', $row->amenities) AS $k ):?>
+									<li class="col-xs-6 col-sm-4"><i class="fa fa-check ok"></i> <?php echo $k;?></li>
+								<?php endforeach; ?>
+							<?php endif;?>
+						</ul>
+					</div>
+					<!-- /.row -->
+				</div>
+				<div class="col-sm-3">
+					<div class="sidebar">
+						<div class="sidebar-inner">
+							<div class="widget">
+								<h3 class="widget-title">Redes Sociales</h3>
+								<ul class="social social-boxed">
+									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+									<li><a href="#"><i class="fa fa-youtube"></i></a></li>
 								</ul>
+								<!-- /.social-->
 							</div>
-						</div>
-					</div>
-					<div class="col-md-7 col-lg-7 section-md-t3">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="title-box-d">
-									<h3 class="title-d">Descripción de propiedad</h3>
+							<!-- /.widget -->
+							<div class="widget">
+								<h3 class="widget-title">Preguntar</h3>
+								<div class="widget-content">
+									<form method="post" action="http://preview.byaviators.com/template/realocation/property-detail.html?">
+										<div class="form-group"><label>Correo</label><input type="text" value="" class="form-control"></div>
+										<!-- /.form-group -->
+										<div class="form-group"><label>Mensaje</label><textarea class="form-control"></textarea></div>
+										<!-- /.form-group -->
+										<div class="form-group"><input type="text" value="Contact" class="btn btn-block btn-primary btn-inversed"></div>
+										<!-- /.form-group -->
+									</form>
+								</div>
+								<!-- /.widget-content -->
+							</div>
+							<!-- /.widget -->
+							<div class="widget">
+								<h3 class="widget-title">Contactos</h3>
+								<div class="agent-small">
+									<div class="agent-small-top">
+										<div class="clearfix">
+											<div class="agent-small-picture col-sm-12">
+												<div class="agent-small-picture-inner">
+													<a href="#" class="agent-small-picture-inner ">
+														<img src="<?php echo base_url('assets/storage/files/avatars/'.$row_users->image);?>" alt="">
+													</a>
+													<!-- /.agent-small-picture-target -->
+												</div>
+												<!-- /.agent-small-picture-inner -->
+											</div>
+											<!-- /.agent-small-picture -->
+										</div>
+										<!-- /.row -->
+									</div>
+									<!-- /.agent-small-top -->
+									<div class="agent-small-bottom">
+										<ul class="list-unstyled">
+											<li><i class="fa fa-phone"></i> +1 <?php echo $row_users->phone;?></li>
+											<li><i class="fa fa-envelope-o"></i> <a href="#"><?php echo $row_users->email;?></a>
+											</li>
+										</ul>
+									</div>
+									<!-- /.agent-small-bottom -->
 								</div>
 							</div>
+							<!-- /.widget -->
 						</div>
-						<div class="property-description">
-							<p class="description color-text-a">
-								<?php echo $row->description;?>
-							</p>
-						</div>
-						<div class="row section-t3">
-							<div class="col-sm-12">
-								<div class="title-box-d">
-									<h3 class="title-d">Comodidades</h3>
-								</div>
-							</div>
-						</div>
-						<div class="amenities-list color-text-a">
-							<ul class="list-a no-margin">
-								<?php if(isset($row->amenities)):?>
-									<?php foreach (explode(',', $row->amenities) AS $k ):?>
-											<li><?php echo $k;?></li>
-									<?php endforeach; ?>
-								<?php endif;?>
-							</ul>
-						</div>
+						<!-- /.sidebar-inner -->
 					</div>
+					<!-- /.sidebar -->
 				</div>
 			</div>
-			<div class="col-md-10 offset-md-1">
-				<ul class="nav nav-pills-a nav-pills mb-3 section-t3" id="pills-tab" role="tablist">
-					<li class="nav-item">
-						<a class="nav-link active" id="pills-video-tab" data-toggle="pill" href="#pills-video" role="tab" aria-controls="pills-video" aria-selected="true">Video</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab" aria-controls="pills-map"
-						   aria-selected="false">Ubication</a>
-					</li>
-				</ul>
-				<div class="tab-content" id="pills-tabContent">
-					<div class="tab-pane fade show active" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab">
-						<?php echo $row->video;?>
-					</div>
-					<div class="tab-pane fade" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">
-						<?php echo $row->address_frame;?>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-12">
-				<div class="row section-t3">
-					<div class="col-sm-12">
-						<div class="title-box-d">
-							<h3 class="title-d">Agente de contacto</h3>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-lg-4">
-						<img src="<?php echo base_url('assets/storage/files/avatars/'.$row_users->image);?>" alt="" class="img-fluid">
-					</div>
-					<div class="col-md-6 col-lg-4">
-						<div class="property-agent">
-							<h4 class="title-agent"><?php echo $row_users->first_name.''.$row_users->last_name;?></h4>
-							<ul class="list-unstyled">
-								<li class="d-flex justify-content-between">
-									<strong>Telefono:</strong>
-									<span class="color-text-a"><?php echo $row_users->phone;?></span>
-								</li>
-								<li class="d-flex justify-content-between">
-									<strong>Celular:</strong>
-									<span class="color-text-a"><?php echo $row_users->mobile;?></span>
-								</li>
-								<li class="d-flex justify-content-between">
-									<strong>Email:</strong>
-									<span class="color-text-a"><?php echo $row_users->email;?></span>
-								</li>
-							</ul>
-							<div class="socials-a">
-								<ul class="list-inline">
-									<li class="list-inline-item">
-										<a href="#">
-											<i class="fa fa-facebook" aria-hidden="true"></i>
-										</a>
-									</li>
-									<li class="list-inline-item">
-										<a href="#">
-											<i class="fa fa-twitter" aria-hidden="true"></i>
-										</a>
-									</li>
-									<li class="list-inline-item">
-										<a href="#">
-											<i class="fa fa-instagram" aria-hidden="true"></i>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12 col-lg-4">
-						<div class="property-contact">
-							<form class="form-a" id="sent-mail" action="<?php echo base_url()?>properties/send_mail">
-								<div class="response"></div>
-								<div class="row">
-									<div class="col-md-12 mb-1">
-										<div class="form-group">
-											<input type="text" name="to_name" class="form-control form-control-lg form-control-a" id="to_name" placeholder="Nombre *" required>
-										</div>
-									</div>
-									<div class="col-md-12 mb-1">
-										<div class="form-group">
-											<input type="text" name="title" class="form-control form-control-lg form-control-a" id="title" placeholder="Asunto *" required>
-										</div>
-									</div>
-									<div class="col-md-12 mb-1">
-										<div class="form-group">
-											<input type="email" name="to" class="form-control form-control-lg form-control-a" id="to" placeholder="Email *" required>
-										</div>
-									</div>
-									<div class="col-md-12 mb-1">
-										<div class="form-group">
-                        					<textarea id="textMessage" class="form-control" placeholder="Mensaje *" name="message" cols="45" rows="8" required></textarea>
-										</div>
-									</div>
-									<div class="col-md-12">
-										<button type="submit" class="btn btn-a" id="submit">Send Message</button>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
+			<!-- /.row -->
 		</div>
+		<!-- /.block-content-inner -->
 	</div>
-</section>
-<br>
-<!--/ Property Single End /-->
+	<!-- /.block-content -->
+</div>
+<!-- /.container -->
